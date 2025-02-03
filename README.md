@@ -1,6 +1,6 @@
 # @boldsign/node-sdk
 
-Easily integrate BoldSign's e-signature features into your Python applications. This package simplifies sending documents for signature, embedding signing ceremonies, tracking document status, downloading signed documents, and managing e-signature workflows.
+Easily integrate BoldSign's e-signature features into your applications. This package simplifies sending documents for signature, embedding signing ceremonies, tracking document status, downloading signed documents, and managing e-signature workflows.
 
 ## Prerequisites
 
