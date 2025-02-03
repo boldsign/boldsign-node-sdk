@@ -13,8 +13,8 @@
         "build": "tsc",
         "test": "npm run build && node dist/client.js"
     },
-    "author": "OpenAPI-Generator Contributors",
-    "license": "Unlicense",
+    "author": "BoldSign",
+    "license": "MIT",
     "dependencies": {
         "axios": "^1.7.0",
         "bluebird": "^3.7.2",
