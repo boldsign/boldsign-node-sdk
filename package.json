@@ -2,6 +2,14 @@
     "name": "@boldsign/node-sdk",
     "version": "1.8.0",
     "description": "NodeJS client for @boldsign/node-sdk",
+    "keywords": [
+        "boldsign",
+        "api",
+        "sdk",
+        "boldsign api",
+        "e-signature"
+    ],
+    "homepage": "https://boldsign.com/",
     "repository": {
         "type": "git",
         "url": "https://github.com/boldsign/boldsign-node-sdk.git"
