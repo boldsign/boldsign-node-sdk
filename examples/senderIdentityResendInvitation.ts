@@ -1,7 +1,6 @@
 import { SenderIdentitiesApi } from '../api/senderIdentitiesApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const senderIdentitiesApi = new SenderIdentitiesApi(BaseUrl);
+const senderIdentitiesApi = new SenderIdentitiesApi();
 senderIdentitiesApi.setApiKey("YOUR_API_KEY");
 
 var email = "david@cubeflakes.com";

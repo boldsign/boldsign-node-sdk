@@ -2,8 +2,7 @@ import { TemplateApi } from '../api/templateApi';
 import { EmbeddedCreateTemplateRequest, EmbeddedSendTemplateFormRequest, TemplateRole } from '../model';
 import * as fs from 'fs'; 
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const templateApi = new TemplateApi(BaseUrl);
+const templateApi = new TemplateApi();
 templateApi.setApiKey("YOUR_API_KEY");
 
 var role = new TemplateRole();

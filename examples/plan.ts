@@ -1,7 +1,6 @@
 import { PlanApi } from '../api/planApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const planApi = new PlanApi(BaseUrl);
+const planApi = new PlanApi();
 planApi.setApiKey("YOUR_API_KEY");
 
 async function getApiCreditsCount() {

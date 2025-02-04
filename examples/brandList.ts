@@ -1,7 +1,6 @@
 import { BrandingApi } from '../api/brandingApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const brandingApi = new BrandingApi(BaseUrl);
+const brandingApi = new BrandingApi();
 brandingApi.setApiKey("YOUR_API_KEY");
 
 async function getBrandList() {

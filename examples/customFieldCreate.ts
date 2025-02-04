@@ -1,8 +1,7 @@
 import { CustomFieldApi } from '../api/customFieldApi';
 import { BrandCustomFieldDetails, CustomFormField } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const customFieldApi = new CustomFieldApi(BaseUrl);
+const customFieldApi = new CustomFieldApi();
 customFieldApi.setApiKey("YOUR_API_KEY");
 
 var formField = new CustomFormField();

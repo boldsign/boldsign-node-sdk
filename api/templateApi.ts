@@ -139,9 +139,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -257,9 +259,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -365,9 +369,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -473,9 +479,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -589,9 +597,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -702,9 +712,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -815,9 +827,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "arraybuffer",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -939,9 +953,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -1041,9 +1057,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -1149,9 +1167,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -1310,9 +1330,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -1411,9 +1433,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
@@ -1513,9 +1537,11 @@ export class TemplateApi {
             maxContentLength: Infinity,
             maxBodyLength: Infinity,
             responseType: "json",
-            data,
         };
 
+        if (localVarRequestOptions.method === 'POST') {
+           localVarRequestOptions.data = data;
+        }
         let authenticationPromise = Promise.resolve();
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));

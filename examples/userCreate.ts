@@ -1,8 +1,7 @@
 import { UserApi } from '../api/userApi';
 import { CreateUser } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const userApi = new UserApi(BaseUrl);
+const userApi = new UserApi();
 userApi.setApiKey("YOUR_API_KEY");
 
 var createUserRequest = new CreateUser();

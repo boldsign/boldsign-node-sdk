@@ -1,8 +1,7 @@
 import { DocumentApi } from '../api/documentApi';
 import { AccessCodeDetails } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const documentApi = new DocumentApi(BaseUrl);
+const documentApi = new DocumentApi();
 documentApi.setApiKey("YOUR_API_KEY");
 
 var accessCodeDetails = new AccessCodeDetails();

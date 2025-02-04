@@ -1,8 +1,7 @@
 import { TeamsApi } from '../api/teamsApi';
 import { TeamUpdateRequest } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const teamsApi = new TeamsApi(BaseUrl);
+const teamsApi = new TeamsApi();
 teamsApi.setApiKey("YOUR_API_KEY");
 
 var teamUpdateRequest = new TeamUpdateRequest();

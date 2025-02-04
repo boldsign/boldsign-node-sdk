@@ -1,8 +1,7 @@
 import { SenderIdentitiesApi } from '../api/senderIdentitiesApi';
 import { CreateSenderIdentityRequest } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const senderIdentitiesApi = new SenderIdentitiesApi(BaseUrl);
+const senderIdentitiesApi = new SenderIdentitiesApi();
 senderIdentitiesApi.setApiKey("YOUR_API_KEY");
 
 var createSenderIdentityRequest = new CreateSenderIdentityRequest();

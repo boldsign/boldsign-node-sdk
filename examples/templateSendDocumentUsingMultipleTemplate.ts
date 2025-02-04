@@ -1,8 +1,7 @@
 import { TemplateApi } from '../api/templateApi';
 import { FormField, MergeAndSendForSignForm, Rectangle, Role } from '../model';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const templateApi = new TemplateApi(BaseUrl);
+const templateApi = new TemplateApi();
 templateApi.setApiKey("YOUR_API_KEY");
 
 var formField = new FormField();

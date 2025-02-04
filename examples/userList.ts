@@ -1,7 +1,6 @@
 import { UserApi } from '../api/userApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const userApi = new UserApi(BaseUrl);
+const userApi = new UserApi();
 userApi.setApiKey("YOUR_API_KEY");
 
 var page = 1;

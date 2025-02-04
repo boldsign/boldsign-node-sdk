@@ -1,7 +1,6 @@
 import { TemplateApi } from '../api/templateApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const templateApi = new TemplateApi(BaseUrl);
+const templateApi = new TemplateApi();
 templateApi.setApiKey("YOUR_API_KEY");
 
 var page = 1;

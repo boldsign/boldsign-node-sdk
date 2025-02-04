@@ -1,7 +1,6 @@
 import { ContactsApi } from '../api/contactsApi';
 
-const BaseUrl: string = "https://staging-api.boldsign.com";
-const contactsApi = new ContactsApi(BaseUrl);
+const contactsApi = new ContactsApi();
 contactsApi.setApiKey("YOUR_API_KEY");
 
 var contactId = "YOUR_CONTACT_ID";
