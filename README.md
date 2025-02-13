@@ -14,7 +14,7 @@ Easily integrate BoldSign's e-signature features into your Node.js applications.
 ## Installation
 
 ```
-npm install @boldsign/node-sdk
+npm install boldsign
 ```
 
 ## Getting Started
@@ -25,8 +25,8 @@ Please follow the [installation procedure](#installation) and then run the follo
 ### TypeScript Example
 
 ```typescript
-import { DocumentApi } from '@boldsign/node-sdk';
-import { DocumentSigner, FormField, Rectangle, SendForSign } from '@boldsign/node-sdk';
+import { DocumentApi } from 'boldsign';
+import { DocumentSigner, FormField, Rectangle, SendForSign } from 'boldsign';
 import * as fs from 'fs';
 
 const documentApi = new DocumentApi();
