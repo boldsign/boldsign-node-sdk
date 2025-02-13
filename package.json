@@ -1,7 +1,7 @@
 {
-    "name": "@boldsign/node-sdk",
+    "name": "boldsign",
     "version": "1.8.0",
-    "description": "NodeJS client for @boldsign/node-sdk",
+    "description": "NodeJS client for boldsign",
     "keywords": [
         "boldsign",
         "api",

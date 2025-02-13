@@ -131,7 +131,7 @@ export class PlanApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();

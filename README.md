@@ -1,4 +1,4 @@
-# @boldsign/node-sdk
+# boldsign
 
 Easily integrate BoldSign's e-signature features into your Node.js applications. This package simplifies sending documents for signature, embedding signing ceremonies, tracking document status, downloading signed documents, and managing e-signature workflows.
 

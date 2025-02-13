@@ -141,7 +141,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -261,7 +261,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -371,7 +371,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -481,7 +481,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -599,7 +599,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -714,7 +714,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -829,7 +829,7 @@ export class TemplateApi {
             responseType: "arraybuffer",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -955,7 +955,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -1059,7 +1059,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -1169,7 +1169,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -1332,7 +1332,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -1435,7 +1435,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -1539,7 +1539,7 @@ export class TemplateApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();

@@ -146,7 +146,7 @@ export class CustomFieldApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -264,7 +264,7 @@ export class CustomFieldApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -382,7 +382,7 @@ export class CustomFieldApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -515,7 +515,7 @@ export class CustomFieldApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
@@ -638,7 +638,7 @@ export class CustomFieldApi {
             responseType: "json",
         };
 
-        if (localVarRequestOptions.method === 'POST') {
+        if (localVarRequestOptions.method !== 'GET') {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
