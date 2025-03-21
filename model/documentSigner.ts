@@ -37,6 +37,7 @@ export class DocumentSigner {
     'language'?: DocumentSigner.LanguageEnum;
     'locale'?: DocumentSigner.LocaleEnum;
     'authenticationRetryCount'?: number | null;
+    'enableQes'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -130,6 +131,11 @@ export class DocumentSigner {
             "name": "authenticationRetryCount",
             "baseName": "authenticationRetryCount",
             "type": "number"
+        },
+        {
+            "name": "enableQes",
+            "baseName": "enableQes",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

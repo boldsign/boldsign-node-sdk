@@ -30,5 +30,6 @@ Name | Type | Description | Notes
 | `idVerification` | [```IdVerification```](IdVerification.md) |   |  |
 | `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `authenticationRetryCount` | ```number``` |   |  |
+| `enableQes` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

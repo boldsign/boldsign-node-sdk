@@ -56,6 +56,7 @@ export class EmbeddedDocumentRequest {
     'onBehalfOf'?: string | null;
     'autoDetectFields'?: boolean = false;
     'documentDownloadOption'?: EmbeddedDocumentRequest.DocumentDownloadOptionEnum;
+    'isSandbox'?: boolean | null;
     'metaData'?: { [key: string]: string | null; } | null;
     'formGroups'?: Array<FormGroup> | null;
     'enableAuditTrailLocalization'?: boolean | null;
@@ -248,6 +249,11 @@ export class EmbeddedDocumentRequest {
             "name": "documentDownloadOption",
             "baseName": "documentDownloadOption",
             "type": "EmbeddedDocumentRequest.DocumentDownloadOptionEnum"
+        },
+        {
+            "name": "isSandbox",
+            "baseName": "isSandbox",
+            "type": "boolean"
         },
         {
             "name": "metaData",

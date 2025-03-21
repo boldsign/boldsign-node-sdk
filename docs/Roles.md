@@ -28,5 +28,6 @@ Name | Type | Description | Notes
 | `enableEditRecipients` | ```boolean``` |   |  |
 | `enableDeleteRecipients` | ```boolean``` |   |  |
 | `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
+| `enableQes` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

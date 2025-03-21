@@ -83,6 +83,10 @@ export class PlanApi {
         this.authentications["X-API-KEY"].apiKey = apikey;
     }
 
+    public setAccessToken(accessToken: string) {
+        this.authentications["Bearer"].apiKey = 'bearer ' + accessToken;
+    }
+
     public addInterceptor(interceptor: Interceptor) {
         this.interceptors.push(interceptor);
     }
@@ -135,11 +139,12 @@ export class PlanApi {
            localVarRequestOptions.data = data;
         }
         let authenticationPromise = Promise.resolve();
+
         if (this.authentications["X-API-KEY"].apiKey) {
             authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
         }
-        if (this.authentications["X-API-KEY"].apiKey) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
         }
         authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
 

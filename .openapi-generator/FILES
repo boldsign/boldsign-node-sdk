@@ -18,6 +18,7 @@ model/accessCodeDetail.ts
 model/accessCodeDetails.ts
 model/attachmentInfo.ts
 model/auditTrail.ts
+model/base64File.ts
 model/behalfDocument.ts
 model/behalfDocumentRecords.ts
 model/behalfOf.ts

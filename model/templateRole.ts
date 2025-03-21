@@ -34,6 +34,7 @@ export class TemplateRole {
     'formFields'?: Array<FormField> | null;
     'allowRoleEdit'?: boolean;
     'allowRoleDelete'?: boolean;
+    'enableQes'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -116,6 +117,11 @@ export class TemplateRole {
         {
             "name": "allowRoleDelete",
             "baseName": "allowRoleDelete",
+            "type": "boolean"
+        },
+        {
+            "name": "enableQes",
+            "baseName": "enableQes",
             "type": "boolean"
         }    ];
 

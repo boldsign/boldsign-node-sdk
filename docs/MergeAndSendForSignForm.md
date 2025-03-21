@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 | `files` | ```Array<RequestFile>``` |   |  |
 | `fileUrls` | ```Array<string>``` |   |  |
 | `templateIds` | ```Array<string>``` |   |  |
+| `useTextTags` | ```boolean``` |   |  |
+| `textTagDefinitions` | [```Array<TextTagDefinition>```](TextTagDefinition.md) |   |  |
 | `documentId` | ```string``` |   |  |
 | `title` | ```string``` |   |  |
 | `message` | ```string``` |   |  |

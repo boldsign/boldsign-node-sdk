@@ -140,6 +140,7 @@ All URIs are relative to *https://api.boldsign.com*
 - [AccessCodeDetails](./docs/AccessCodeDetails.md)
 - [AttachmentInfo](./docs/AttachmentInfo.md)
 - [AuditTrail](./docs/AuditTrail.md)
+- [Base64File](./docs/Base64File.md)
 - [BehalfDocument](./docs/BehalfDocument.md)
 - [BehalfDocumentRecords](./docs/BehalfDocumentRecords.md)
 - [BehalfOf](./docs/BehalfOf.md)

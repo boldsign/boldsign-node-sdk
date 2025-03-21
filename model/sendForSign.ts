@@ -46,6 +46,7 @@ export class SendForSign {
     'onBehalfOf'?: string | null;
     'autoDetectFields'?: boolean = false;
     'documentDownloadOption'?: SendForSign.DocumentDownloadOptionEnum;
+    'isSandbox'?: boolean | null;
     'metaData'?: { [key: string]: string | null; } | null;
     'formGroups'?: Array<FormGroup> | null;
     'enableAuditTrailLocalization'?: boolean | null;
@@ -188,6 +189,11 @@ export class SendForSign {
             "name": "documentDownloadOption",
             "baseName": "documentDownloadOption",
             "type": "SendForSign.DocumentDownloadOptionEnum"
+        },
+        {
+            "name": "isSandbox",
+            "baseName": "isSandbox",
+            "type": "boolean"
         },
         {
             "name": "metaData",

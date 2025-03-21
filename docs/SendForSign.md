@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 | `onBehalfOf` | ```string``` |   |  |
 | `autoDetectFields` | ```boolean``` |   |  [default to false] |
 | `documentDownloadOption` | ```string``` |   |  |
+| `isSandbox` | ```boolean``` |   |  |
 | `metaData` | ```{ [key: string]: string | null; }``` |   |  |
 | `formGroups` | [```Array<FormGroup>```](FormGroup.md) |   |  |
 | `enableAuditTrailLocalization` | ```boolean``` |   |  |

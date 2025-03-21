@@ -41,6 +41,7 @@ export class Roles {
     'enableEditRecipients'?: boolean;
     'enableDeleteRecipients'?: boolean;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
+    'enableQes'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -154,6 +155,11 @@ export class Roles {
             "name": "recipientNotificationSettings",
             "baseName": "recipientNotificationSettings",
             "type": "RecipientNotificationSettings"
+        },
+        {
+            "name": "enableQes",
+            "baseName": "enableQes",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

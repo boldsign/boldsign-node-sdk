@@ -2,6 +2,7 @@ import { AccessCodeDetail } from './accessCodeDetail';
 import { AccessCodeDetails } from './accessCodeDetails';
 import { AttachmentInfo } from './attachmentInfo';
 import { AuditTrail } from './auditTrail';
+import { Base64File } from './base64File';
 import { BehalfDocument } from './behalfDocument';
 import { BehalfDocumentRecords } from './behalfDocumentRecords';
 import { BehalfOf } from './behalfOf';
@@ -229,6 +230,7 @@ export let typeMap: {[index: string]: any} = {
     "AccessCodeDetails": AccessCodeDetails,
     "AttachmentInfo": AttachmentInfo,
     "AuditTrail": AuditTrail,
+    "Base64File": Base64File,
     "BehalfDocument": BehalfDocument,
     "BehalfDocumentRecords": BehalfDocumentRecords,
     "BehalfOf": BehalfOf,
@@ -349,6 +351,7 @@ export {
     AccessCodeDetails,
     AttachmentInfo,
     AuditTrail,
+    Base64File,
     BehalfDocument,
     BehalfDocumentRecords,
     BehalfOf,

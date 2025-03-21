@@ -44,6 +44,7 @@ export class DocumentSignerDetails {
     'idVerification'?: IdVerification;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
+    'enableQes'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -167,6 +168,11 @@ export class DocumentSignerDetails {
             "name": "authenticationRetryCount",
             "baseName": "authenticationRetryCount",
             "type": "number"
+        },
+        {
+            "name": "enableQes",
+            "baseName": "enableQes",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

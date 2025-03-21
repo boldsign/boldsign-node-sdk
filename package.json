@@ -1,6 +1,6 @@
 {
     "name": "boldsign",
-    "version": "1.8.0",
+    "version": "1.0.0-beta.2",
     "description": "NodeJS client for boldsign",
     "keywords": [
         "boldsign",

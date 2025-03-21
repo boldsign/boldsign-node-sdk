@@ -24,6 +24,7 @@ export class NotificationSettings {
     'expired'?: boolean = true;
     'authenticationFailed'?: boolean = true;
     'reminders'?: boolean = true;
+    'attachSignedDocument'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -81,6 +82,11 @@ export class NotificationSettings {
         {
             "name": "reminders",
             "baseName": "reminders",
+            "type": "boolean"
+        },
+        {
+            "name": "attachSignedDocument",
+            "baseName": "attachSignedDocument",
             "type": "boolean"
         }    ];
 

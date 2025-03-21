@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 | `expired` | ```boolean``` |   |  [default to true] |
 | `authenticationFailed` | ```boolean``` |   |  [default to true] |
 | `reminders` | ```boolean``` |   |  [default to true] |
+| `attachSignedDocument` | ```boolean``` |   |  [default to false] |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

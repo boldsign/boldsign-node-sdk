@@ -145,6 +145,11 @@ export namespace AuditTrail {
         GeneratedSigningLink = <any> 'GeneratedSigningLink',
         EditingInitiated = <any> 'EditingInitiated',
         EditingCancelled = <any> 'EditingCancelled',
-        EditingCompleted = <any> 'EditingCompleted'
+        EditingCompleted = <any> 'EditingCompleted',
+        QesVerificationInitiated = <any> 'QESVerificationInitiated',
+        QesVerified = <any> 'QESVerified',
+        QesRejected = <any> 'QESRejected',
+        QesExpired = <any> 'QESExpired',
+        QesWithdrawn = <any> 'QESWithdrawn'
     }
 }

@@ -16,11 +16,14 @@ import { DocumentInfo } from './documentInfo';
 import { FormGroup } from './formGroup';
 import { ReminderSettings } from './reminderSettings';
 import { Role } from './role';
+import { TextTagDefinition } from './textTagDefinition';
 
 export class MergeAndSendForSignForm {
     'files'?: Array<RequestFile> | null;
     'fileUrls'?: Array<string> | null;
     'templateIds'?: Array<string> | null;
+    'useTextTags'?: boolean;
+    'textTagDefinitions'?: Array<TextTagDefinition> | null;
     'documentId'?: string | null;
     'title'?: string | null;
     'message'?: string | null;
@@ -67,6 +70,16 @@ export class MergeAndSendForSignForm {
             "name": "templateIds",
             "baseName": "templateIds",
             "type": "Array<string>"
+        },
+        {
+            "name": "useTextTags",
+            "baseName": "useTextTags",
+            "type": "boolean"
+        },
+        {
+            "name": "textTagDefinitions",
+            "baseName": "textTagDefinitions",
+            "type": "Array<TextTagDefinition>"
         },
         {
             "name": "documentId",

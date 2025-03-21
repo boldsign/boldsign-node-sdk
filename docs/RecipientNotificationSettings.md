@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 | `reminders` | ```boolean``` |   |  [default to true] |
 | `editRecipient` | ```boolean``` |   |  [default to true] |
 | `editDocument` | ```boolean``` |   |  [default to true] |
+| `viewed` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
