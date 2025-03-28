@@ -148,7 +148,8 @@ export namespace Template {
         Declined = <any> 'Declined',
         Expired = <any> 'Expired',
         Revoked = <any> 'Revoked',
-        Draft = <any> 'Draft'
+        Draft = <any> 'Draft',
+        Scheduled = <any> 'Scheduled'
     }
     export enum AccessTypeEnum {
         Use = <any> 'Use',

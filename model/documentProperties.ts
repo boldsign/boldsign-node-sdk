@@ -60,9 +60,10 @@ export class DocumentProperties {
     'expiryValue'?: number;
     'documentDownloadOption'?: DocumentProperties.DocumentDownloadOptionEnum;
     'metaData'?: { [key: string]: string | null; } | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'enableAuditTrailLocalization'?: boolean;
     'downloadFileName'?: string | null;
-    'recipientNotificationSettings'?: RecipientNotificationSettings;
+    'scheduledSendTime'?: number | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -248,6 +249,11 @@ export class DocumentProperties {
             "type": "{ [key: string]: string | null; }"
         },
         {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
+        },
+        {
             "name": "enableAuditTrailLocalization",
             "baseName": "enableAuditTrailLocalization",
             "type": "boolean"
@@ -258,9 +264,9 @@ export class DocumentProperties {
             "type": "string"
         },
         {
-            "name": "recipientNotificationSettings",
-            "baseName": "recipientNotificationSettings",
-            "type": "RecipientNotificationSettings"
+            "name": "scheduledSendTime",
+            "baseName": "scheduledSendTime",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
@@ -275,7 +281,8 @@ export namespace DocumentProperties {
         Declined = <any> 'Declined',
         Expired = <any> 'Expired',
         Revoked = <any> 'Revoked',
-        Draft = <any> 'Draft'
+        Draft = <any> 'Draft',
+        Scheduled = <any> 'Scheduled'
     }
     export enum ActivityActionEnum {
         Viewed = <any> 'Viewed',
@@ -294,7 +301,8 @@ export namespace DocumentProperties {
         None = <any> 'None',
         EditingInitiated = <any> 'EditingInitiated',
         EditingCancelled = <any> 'EditingCancelled',
-        EditingCompleted = <any> 'EditingCompleted'
+        EditingCompleted = <any> 'EditingCompleted',
+        DocumentScheduled = <any> 'DocumentScheduled'
     }
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',

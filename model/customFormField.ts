@@ -48,6 +48,7 @@ export class CustomFormField {
     'idPrefix'?: string | null;
     'restrictIdPrefixChange'?: boolean = false;
     'backgroundHexColor'?: string | null;
+    'resizeOption'?: CustomFormField.ResizeOptionEnum;
 
     static discriminator: string | undefined = undefined;
 
@@ -211,6 +212,11 @@ export class CustomFormField {
             "name": "backgroundHexColor",
             "baseName": "backgroundHexColor",
             "type": "string"
+        },
+        {
+            "name": "resizeOption",
+            "baseName": "resizeOption",
+            "type": "CustomFormField.ResizeOptionEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -257,5 +263,12 @@ export namespace CustomFormField {
     export enum TextDirectionEnum {
         Ltr = <any> 'LTR',
         Rtl = <any> 'RTL'
+    }
+    export enum ResizeOptionEnum {
+        GrowVertically = <any> 'GrowVertically',
+        GrowHorizontally = <any> 'GrowHorizontally',
+        GrowBoth = <any> 'GrowBoth',
+        Fixed = <any> 'Fixed',
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

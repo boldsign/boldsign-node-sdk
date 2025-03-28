@@ -210,7 +210,6 @@ All URIs are relative to *https://api.boldsign.com*
 - [PhoneNumber](./docs/PhoneNumber.md)
 - [PrefillField](./docs/PrefillField.md)
 - [PrefillFieldRequest](./docs/PrefillFieldRequest.md)
-- [ProblemDetails](./docs/ProblemDetails.md)
 - [RecipientNotificationSettings](./docs/RecipientNotificationSettings.md)
 - [Rectangle](./docs/Rectangle.md)
 - [ReminderMessage](./docs/ReminderMessage.md)

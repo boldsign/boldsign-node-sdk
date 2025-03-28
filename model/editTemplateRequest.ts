@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
 import { FormGroup } from './formGroup';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { TemplateRole } from './templateRole';
 
 export class EditTemplateRequest {
@@ -35,6 +36,7 @@ export class EditTemplateRequest {
     'labels'?: Array<string> | null;
     'templateLabels'?: Array<string> | null;
     'formGroups'?: Array<FormGroup> | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -128,6 +130,11 @@ export class EditTemplateRequest {
             "name": "formGroups",
             "baseName": "formGroups",
             "type": "Array<FormGroup>"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         }    ];
 
     static getAttributeTypeMap() {

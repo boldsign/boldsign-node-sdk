@@ -90,7 +90,6 @@ model/pageDetails.ts
 model/phoneNumber.ts
 model/prefillField.ts
 model/prefillFieldRequest.ts
-model/problemDetails.ts
 model/recipientNotificationSettings.ts
 model/rectangle.ts
 model/reminderMessage.ts

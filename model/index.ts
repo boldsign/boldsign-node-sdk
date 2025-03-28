@@ -72,7 +72,6 @@ import { PageDetails } from './pageDetails';
 import { PhoneNumber } from './phoneNumber';
 import { PrefillField } from './prefillField';
 import { PrefillFieldRequest } from './prefillFieldRequest';
-import { ProblemDetails } from './problemDetails';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { Rectangle } from './rectangle';
 import { ReminderMessage } from './reminderMessage';
@@ -140,11 +139,13 @@ export let enumsMap: {[index: string]: any} = {
         "CustomFormField.ValidationTypeEnum": CustomFormField.ValidationTypeEnum,
         "CustomFormField.TextAlignEnum": CustomFormField.TextAlignEnum,
         "CustomFormField.TextDirectionEnum": CustomFormField.TextDirectionEnum,
+        "CustomFormField.ResizeOptionEnum": CustomFormField.ResizeOptionEnum,
         "Document.StatusEnum": Document.StatusEnum,
         "DocumentExpirySettings.ExpiryDateTypeEnum": DocumentExpirySettings.ExpiryDateTypeEnum,
         "DocumentFormFields.ValidationtypeEnum": DocumentFormFields.ValidationtypeEnum,
         "DocumentFormFields.TextAlignEnum": DocumentFormFields.TextAlignEnum,
         "DocumentFormFields.TextDirectionEnum": DocumentFormFields.TextDirectionEnum,
+        "DocumentFormFields.ResizeOptionEnum": DocumentFormFields.ResizeOptionEnum,
         "DocumentInfo.LocaleEnum": DocumentInfo.LocaleEnum,
         "DocumentInfo.LanguageEnum": DocumentInfo.LanguageEnum,
         "DocumentProperties.StatusEnum": DocumentProperties.StatusEnum,
@@ -180,6 +181,7 @@ export let enumsMap: {[index: string]: any} = {
         "FormField.ValidationTypeEnum": FormField.ValidationTypeEnum,
         "FormField.TextAlignEnum": FormField.TextAlignEnum,
         "FormField.TextDirectionEnum": FormField.TextDirectionEnum,
+        "FormField.ResizeOptionEnum": FormField.ResizeOptionEnum,
         "FormGroup.GroupValidationEnum": FormGroup.GroupValidationEnum,
         "IdentityVerificationSettings.TypeEnum": IdentityVerificationSettings.TypeEnum,
         "IdentityVerificationSettings.NameMatcherEnum": IdentityVerificationSettings.NameMatcherEnum,
@@ -206,6 +208,7 @@ export let enumsMap: {[index: string]: any} = {
         "TemplateFormFields.ValidationtypeEnum": TemplateFormFields.ValidationtypeEnum,
         "TemplateFormFields.TextAlignEnum": TemplateFormFields.TextAlignEnum,
         "TemplateFormFields.TextDirectionEnum": TemplateFormFields.TextDirectionEnum,
+        "TemplateFormFields.ResizeOptionEnum": TemplateFormFields.ResizeOptionEnum,
         "TemplateProperties.DocumentDownloadOptionEnum": TemplateProperties.DocumentDownloadOptionEnum,
         "TemplateRole.SignerTypeEnum": TemplateRole.SignerTypeEnum,
         "TemplateRole.LanguageEnum": TemplateRole.LanguageEnum,
@@ -219,6 +222,7 @@ export let enumsMap: {[index: string]: any} = {
         "TemplateSignerDetails.SignerTypeEnum": TemplateSignerDetails.SignerTypeEnum,
         "TemplateSignerDetails.SignTypeEnum": TemplateSignerDetails.SignTypeEnum,
         "TextTagDefinition.TypeEnum": TextTagDefinition.TypeEnum,
+        "TextTagDefinition.ResizeOptionEnum": TextTagDefinition.ResizeOptionEnum,
         "UpdateUser.UserRoleEnum": UpdateUser.UserRoleEnum,
         "UpdateUser.UserStatusEnum": UpdateUser.UserStatusEnum,
         "Validation.TypeEnum": Validation.TypeEnum,
@@ -300,7 +304,6 @@ export let typeMap: {[index: string]: any} = {
     "PhoneNumber": PhoneNumber,
     "PrefillField": PrefillField,
     "PrefillFieldRequest": PrefillFieldRequest,
-    "ProblemDetails": ProblemDetails,
     "RecipientNotificationSettings": RecipientNotificationSettings,
     "Rectangle": Rectangle,
     "ReminderMessage": ReminderMessage,
@@ -421,7 +424,6 @@ export {
     PhoneNumber,
     PrefillField,
     PrefillFieldRequest,
-    ProblemDetails,
     RecipientNotificationSettings,
     Rectangle,
     ReminderMessage,

@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
 import { FormGroup } from './formGroup';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { ReminderSettings } from './reminderSettings';
 import { Role } from './role';
 import { TextTagDefinition } from './textTagDefinition';
@@ -48,10 +49,13 @@ export class MergeAndSendForSignForm {
     'roleRemovalIndices'?: Array<number> | null;
     'documentDownloadOption'?: MergeAndSendForSignForm.DocumentDownloadOptionEnum;
     'metaData'?: { [key: string]: string | null; } | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'formGroups'?: Array<FormGroup> | null;
     'removeFormFields'?: Array<string> | null;
     'enableAuditTrailLocalization'?: boolean | null;
     'downloadFileName'?: string | null;
+    'scheduledSendTime'?: number | null;
+    'allowScheduledSend'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -202,6 +206,11 @@ export class MergeAndSendForSignForm {
             "type": "{ [key: string]: string | null; }"
         },
         {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
+        },
+        {
             "name": "formGroups",
             "baseName": "formGroups",
             "type": "Array<FormGroup>"
@@ -220,6 +229,16 @@ export class MergeAndSendForSignForm {
             "name": "downloadFileName",
             "baseName": "downloadFileName",
             "type": "string"
+        },
+        {
+            "name": "scheduledSendTime",
+            "baseName": "scheduledSendTime",
+            "type": "number"
+        },
+        {
+            "name": "allowScheduledSend",
+            "baseName": "allowScheduledSend",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

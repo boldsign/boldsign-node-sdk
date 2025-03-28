@@ -33,6 +33,7 @@ export class BehalfDocument {
     'labels'?: Array<string> | null;
     'cursor'?: number;
     'brandId'?: string | null;
+    'scheduledSendTime'?: number | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -116,6 +117,11 @@ export class BehalfDocument {
             "name": "brandId",
             "baseName": "brandId",
             "type": "string"
+        },
+        {
+            "name": "scheduledSendTime",
+            "baseName": "scheduledSendTime",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
@@ -130,6 +136,7 @@ export namespace BehalfDocument {
         Declined = <any> 'Declined',
         Expired = <any> 'Expired',
         Revoked = <any> 'Revoked',
-        Draft = <any> 'Draft'
+        Draft = <any> 'Draft',
+        Scheduled = <any> 'Scheduled'
     }
 }

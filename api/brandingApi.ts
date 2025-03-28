@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    BrandCreated,BrandingMessage,BrandingRecords,ErrorResult,ProblemDetails,ViewBrandDetails,
+    BrandCreated,BrandingMessage,BrandingRecords,ErrorResult,ViewBrandDetails,
 } from '../model';
 
 import {
@@ -181,7 +181,15 @@ export class BrandingApi {
                             reject,
                             error.response,
                             401,
-                            "ProblemDetails",
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -441,6 +449,14 @@ export class BrandingApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;
@@ -824,6 +840,14 @@ export class BrandingApi {
                         )) {
                           return;
                         }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -939,6 +963,14 @@ export class BrandingApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;

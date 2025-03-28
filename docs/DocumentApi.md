@@ -95,7 +95,7 @@ void (empty response body)
 ## `behalfDocuments()`
 
 ```typescript
-behalfDocuments(page: number, pageType: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress: Array<string>, signers: Array<string>, pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): BehalfDocumentRecords
+behalfDocuments(page: number, pageType: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress: Array<string>, signers: Array<string>, pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): BehalfDocumentRecords
 ```
 
 Gets the behalf documents.
@@ -111,7 +111,7 @@ Gets the behalf documents.
 | **signers** | [**Array<string>**](../docs/string.md)| A list of signer email addresses used to filter the documents returned in the API. The API will return documents where the signer\&#39;s email address matches one of the email addresses provided in this list | [optional] |
 | **pageSize** | **number**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **Date**| Start date of the document | [optional] |
-| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
+| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
 | **endDate** | **Date**| End date of the document | [optional] |
 | **searchKey** | **string**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**Array<string>**](../docs/string.md)| Labels of the document. | [optional] |
@@ -173,7 +173,7 @@ void (empty response body)
 ## `changeRecipient()`
 
 ```typescript
-changeRecipient(documentId: string, changeRecipient: ChangeRecipient): ErrorResult
+changeRecipient(documentId: string, changeRecipient: ChangeRecipient)
 ```
 
 Change recipient details of a document.
@@ -188,7 +188,7 @@ Change recipient details of a document.
 
 ### Return type
 
-[**ErrorResult**](../docs/ErrorResult.md)
+void (empty response body)
 
 ### Authorization
 
@@ -505,7 +505,7 @@ Get summary of the document.
 ## `listDocuments()`
 
 ```typescript
-listDocuments(page: number, sentBy: Array<string>, recipients: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): DocumentRecords
+listDocuments(page: number, sentBy: Array<string>, recipients: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): DocumentRecords
 ```
 
 List user documents.
@@ -521,7 +521,7 @@ List user documents.
 | **transmitType** | **'Sent' | 'Received' | ' Both'**|  | [optional] |
 | **pageSize** | **number**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **Date**| Start date of the document | [optional] |
-| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
+| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
 | **endDate** | **Date**| End date of the document | [optional] |
 | **searchKey** | **string**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**Array<string>**](../docs/string.md)| Labels of the document. | [optional] |
@@ -713,7 +713,7 @@ Sends the document for sign.
 ## `teamDocuments()`
 
 ```typescript
-teamDocuments(page: number, userId: Array<string>, teamId: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): TeamDocumentRecords
+teamDocuments(page: number, userId: Array<string>, teamId: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): TeamDocumentRecords
 ```
 
 Get user Team documents.
@@ -729,7 +729,7 @@ Get user Team documents.
 | **transmitType** | **'Sent' | 'Received' | ' Both'**| Transmit type as Sent, Received and Both. | [optional] |
 | **pageSize** | **number**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **Date**| Start date of the document | [optional] |
-| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
+| **status** | [**Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>**](../docs/string.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] |
 | **endDate** | **Date**| End date of the document | [optional] |
 | **searchKey** | **string**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**Array<string>**](../docs/string.md)| Labels of the document. | [optional] |

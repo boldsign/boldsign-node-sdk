@@ -42,5 +42,6 @@ Name | Type | Description | Notes
 | `backgroundHexColor` | ```string``` |   |  |
 | `tabIndex` | ```number``` |   |  |
 | `formulaFieldSettings` | [```FormulaFieldSettings```](FormulaFieldSettings.md) |   |  |
+| `resizeOption` | ```string``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

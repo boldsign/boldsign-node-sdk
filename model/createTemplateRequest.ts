@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
 import { FormGroup } from './formGroup';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { TemplateRole } from './templateRole';
 import { TextTagDefinition } from './textTagDefinition';
 
@@ -41,6 +42,7 @@ export class CreateTemplateRequest {
     'onBehalfOf'?: string | null;
     'labels'?: Array<string> | null;
     'templateLabels'?: Array<string> | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'formGroups'?: Array<FormGroup> | null;
 
     static discriminator: string | undefined = undefined;
@@ -160,6 +162,11 @@ export class CreateTemplateRequest {
             "name": "templateLabels",
             "baseName": "templateLabels",
             "type": "Array<string>"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         },
         {
             "name": "formGroups",

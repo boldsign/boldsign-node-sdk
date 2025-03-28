@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 | `formFields` | [```Array<FormField>```](FormField.md) |   |  |
 | `allowRoleEdit` | ```boolean``` |   |  |
 | `allowRoleDelete` | ```boolean``` |   |  |
+| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `enableQes` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

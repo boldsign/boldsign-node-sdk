@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    CreateTemplateRequest,DocumentCreated,EditTemplateRequest,EmbeddedCreateTemplateRequest,EmbeddedSendCreated,EmbeddedSendTemplateFormRequest,EmbeddedTemplateCreated,EmbeddedTemplateEditRequest,EmbeddedTemplateEdited,ErrorResult,MergeAndSendForSignForm,ProblemDetails,SendForSignFromTemplateForm,TemplateCreated,TemplateProperties,TemplateRecords,TemplateTag,
+    CreateTemplateRequest,DocumentCreated,EditTemplateRequest,EmbeddedCreateTemplateRequest,EmbeddedSendCreated,EmbeddedSendTemplateFormRequest,EmbeddedTemplateCreated,EmbeddedTemplateEditRequest,EmbeddedTemplateEdited,ErrorResult,MergeAndSendForSignForm,SendForSignFromTemplateForm,TemplateCreated,TemplateProperties,TemplateRecords,TemplateTag,
 } from '../model';
 
 import {
@@ -303,7 +303,7 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            200,
+                            201,
                             "EmbeddedSendCreated",
                         )) {
                           return;
@@ -311,8 +311,16 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            201,
-                            "EmbeddedSendCreated",
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -414,7 +422,7 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            200,
+                            201,
                             "EmbeddedTemplateCreated",
                         )) {
                           return;
@@ -422,8 +430,16 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            201,
-                            "EmbeddedTemplateCreated",
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -542,6 +558,14 @@ export class TemplateApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;
@@ -761,7 +785,7 @@ export class TemplateApi {
                             reject,
                             error.response,
                             401,
-                            "ProblemDetails",
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -769,7 +793,7 @@ export class TemplateApi {
                             reject,
                             error.response,
                             403,
-                            "ProblemDetails",
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -916,6 +940,13 @@ export class TemplateApi {
         const localVarPath = this.basePath + '/v1/template/edit';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
         let localVarFormParams: any = {};
         let localVarBodyParams: any = undefined;
 
@@ -1000,6 +1031,30 @@ export class TemplateApi {
                             return;
                         }
 
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -1108,7 +1163,7 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            200,
+                            201,
                             "EmbeddedTemplateEdited",
                         )) {
                           return;
@@ -1116,8 +1171,16 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            201,
-                            "EmbeddedTemplateEdited",
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -1392,7 +1455,7 @@ export class TemplateApi {
                             reject,
                             error.response,
                             401,
-                            "ProblemDetails",
+                            "ErrorResult",
                         )) {
                           return;
                         }
@@ -1414,6 +1477,13 @@ export class TemplateApi {
         const localVarPath = this.basePath + '/v1/template/mergeAndSend';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
         let localVarFormParams: any = {};
         let localVarBodyParams: any = undefined;
 
@@ -1484,6 +1554,22 @@ export class TemplateApi {
                             return;
                         }
 
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -1592,7 +1678,7 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            200,
+                            201,
                             "DocumentCreated",
                         )) {
                           return;
@@ -1600,8 +1686,8 @@ export class TemplateApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            201,
-                            "DocumentCreated",
+                            401,
+                            "ErrorResult",
                         )) {
                           return;
                         }

@@ -13,6 +13,7 @@
 import { RequestFile } from './models';
 import { FormField } from './formField';
 import { PhoneNumber } from './phoneNumber';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 
 export class TemplateRole {
     'index': number;
@@ -34,6 +35,7 @@ export class TemplateRole {
     'formFields'?: Array<FormField> | null;
     'allowRoleEdit'?: boolean;
     'allowRoleDelete'?: boolean;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'enableQes'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
@@ -118,6 +120,11 @@ export class TemplateRole {
             "name": "allowRoleDelete",
             "baseName": "allowRoleDelete",
             "type": "boolean"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         },
         {
             "name": "enableQes",

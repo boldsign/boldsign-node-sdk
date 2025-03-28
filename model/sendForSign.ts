@@ -15,6 +15,7 @@ import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
 import { DocumentSigner } from './documentSigner';
 import { FormGroup } from './formGroup';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { ReminderSettings } from './reminderSettings';
 import { TextTagDefinition } from './textTagDefinition';
 
@@ -48,9 +49,12 @@ export class SendForSign {
     'documentDownloadOption'?: SendForSign.DocumentDownloadOptionEnum;
     'isSandbox'?: boolean | null;
     'metaData'?: { [key: string]: string | null; } | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'formGroups'?: Array<FormGroup> | null;
     'enableAuditTrailLocalization'?: boolean | null;
     'downloadFileName'?: string | null;
+    'scheduledSendTime'?: number | null;
+    'allowScheduledSend'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -201,6 +205,11 @@ export class SendForSign {
             "type": "{ [key: string]: string | null; }"
         },
         {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
+        },
+        {
             "name": "formGroups",
             "baseName": "formGroups",
             "type": "Array<FormGroup>"
@@ -214,6 +223,16 @@ export class SendForSign {
             "name": "downloadFileName",
             "baseName": "downloadFileName",
             "type": "string"
+        },
+        {
+            "name": "scheduledSendTime",
+            "baseName": "scheduledSendTime",
+            "type": "number"
+        },
+        {
+            "name": "allowScheduledSend",
+            "baseName": "allowScheduledSend",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

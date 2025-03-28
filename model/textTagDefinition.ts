@@ -44,6 +44,7 @@ export class TextTagDefinition {
     'label'?: string | null;
     'tabIndex'?: number | null;
     'formulaFieldSettings'?: FormulaFieldSettings;
+    'resizeOption'?: TextTagDefinition.ResizeOptionEnum;
 
     static discriminator: string | undefined = undefined;
 
@@ -167,6 +168,11 @@ export class TextTagDefinition {
             "name": "formulaFieldSettings",
             "baseName": "formulaFieldSettings",
             "type": "FormulaFieldSettings"
+        },
+        {
+            "name": "resizeOption",
+            "baseName": "resizeOption",
+            "type": "TextTagDefinition.ResizeOptionEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -191,5 +197,12 @@ export namespace TextTagDefinition {
         Title = <any> 'Title',
         Company = <any> 'Company',
         Formula = <any> 'Formula'
+    }
+    export enum ResizeOptionEnum {
+        GrowVertically = <any> 'GrowVertically',
+        GrowHorizontally = <any> 'GrowHorizontally',
+        GrowBoth = <any> 'GrowBoth',
+        Fixed = <any> 'Fixed',
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

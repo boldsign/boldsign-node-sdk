@@ -42,8 +42,9 @@ Name | Type | Description | Notes
 | `expiryValue` | ```number``` |   |  |
 | `documentDownloadOption` | ```string``` |   |  |
 | `metaData` | ```{ [key: string]: string | null; }``` |   |  |
+| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `enableAuditTrailLocalization` | ```boolean``` |   |  |
 | `downloadFileName` | ```string``` |   |  |
-| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
+| `scheduledSendTime` | ```number``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

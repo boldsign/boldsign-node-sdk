@@ -340,7 +340,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async behalfDocuments (page: number, pageType?: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress?: Array<string>, signers?: Array<string>, pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<BehalfDocumentRecords>> {
+    public async behalfDocuments (page: number, pageType?: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress?: Array<string>, signers?: Array<string>, pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<BehalfDocumentRecords>> {
         const localVarPath = this.basePath + '/v1/document/behalfList';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -384,7 +384,7 @@ export class DocumentApi {
         }
 
         if (status !== undefined) {
-            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>");
+            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>");
         }
 
         if (endDate !== undefined) {
@@ -640,7 +640,7 @@ export class DocumentApi {
      * @param changeRecipient The new recipient details.
      * @param options
      */
-    public async changeRecipient (documentId: string, changeRecipient: ChangeRecipient, options: optionsI = {headers: {}}) : Promise<returnTypeT<ErrorResult>> {
+    public async changeRecipient (documentId: string, changeRecipient: ChangeRecipient, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
         changeRecipient = deserializeIfNeeded(changeRecipient, "ChangeRecipient");
         const localVarPath = this.basePath + '/v1/document/changeRecipient';
         let localVarQueryParameters: any = {};
@@ -721,14 +721,14 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<ErrorResult>>((resolve, reject) => {
+            return new Promise<returnTypeI>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
-                        handleSuccessfulResponse<ErrorResult>(
+                        handleSuccessfulResponse(
                           resolve,
                           reject,
                           response,
-                          "ErrorResult",
+                          
                         );
                     }, (error: AxiosError) => {
                         if (error.response == null) {
@@ -747,7 +747,7 @@ export class DocumentApi {
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
-                            200,
+                            403,
                             "ErrorResult",
                         )) {
                           return;
@@ -867,6 +867,22 @@ export class DocumentApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;
@@ -1888,7 +1904,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentRecords>> {
+    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentRecords>> {
         const localVarPath = this.basePath + '/v1/document/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1932,7 +1948,7 @@ export class DocumentApi {
         }
 
         if (status !== undefined) {
-            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>");
+            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>");
         }
 
         if (endDate !== undefined) {
@@ -2648,6 +2664,22 @@ export class DocumentApi {
                         )) {
                           return;
                         }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -2672,7 +2704,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamDocumentRecords>> {
+    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamDocumentRecords>> {
         const localVarPath = this.basePath + '/v1/document/teamlist';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -2716,7 +2748,7 @@ export class DocumentApi {
         }
 
         if (status !== undefined) {
-            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft'>");
+            localVarQueryParameters['Status'] = ObjectSerializer.serialize(status, "Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>");
         }
 
         if (endDate !== undefined) {

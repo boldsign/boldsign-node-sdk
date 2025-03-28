@@ -200,6 +200,14 @@ export class SenderIdentitiesApi {
                         )) {
                           return;
                         }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);

@@ -15,6 +15,7 @@ import { ExistingFormField } from './existingFormField';
 import { FormField } from './formField';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
 import { PhoneNumber } from './phoneNumber';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 
 export class Role {
     'roleIndex'?: number | null;
@@ -39,6 +40,7 @@ export class Role {
     */
     'language'?: Role.LanguageEnum;
     'locale'?: Role.LocaleEnum;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
 
@@ -139,6 +141,11 @@ export class Role {
             "name": "locale",
             "baseName": "locale",
             "type": "Role.LocaleEnum"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         },
         {
             "name": "authenticationRetryCount",

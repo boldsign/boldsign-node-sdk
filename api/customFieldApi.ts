@@ -208,6 +208,14 @@ export class CustomFieldApi {
                         )) {
                           return;
                         }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -446,6 +454,14 @@ export class CustomFieldApi {
                         )) {
                           return;
                         }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
 
 
                         reject(error);
@@ -576,6 +592,14 @@ export class CustomFieldApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;

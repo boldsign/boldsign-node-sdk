@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { FormField } from './formField';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
 import { PhoneNumber } from './phoneNumber';
+import { RecipientNotificationSettings } from './recipientNotificationSettings';
 
 export class DocumentSigner {
     'name': string;
@@ -36,6 +37,7 @@ export class DocumentSigner {
     */
     'language'?: DocumentSigner.LanguageEnum;
     'locale'?: DocumentSigner.LocaleEnum;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
 
@@ -126,6 +128,11 @@ export class DocumentSigner {
             "name": "locale",
             "baseName": "locale",
             "type": "DocumentSigner.LocaleEnum"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         },
         {
             "name": "authenticationRetryCount",

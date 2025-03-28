@@ -56,6 +56,7 @@ export class TemplateFormFields {
     'backgroundHexColor'?: string | null;
     'tabIndex'?: number;
     'formulaFieldSettings'?: FormulaFieldSettings;
+    'resizeOption'?: TemplateFormFields.ResizeOptionEnum;
 
     static discriminator: string | undefined = undefined;
 
@@ -244,6 +245,11 @@ export class TemplateFormFields {
             "name": "formulaFieldSettings",
             "baseName": "formulaFieldSettings",
             "type": "FormulaFieldSettings"
+        },
+        {
+            "name": "resizeOption",
+            "baseName": "resizeOption",
+            "type": "TemplateFormFields.ResizeOptionEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -267,5 +273,12 @@ export namespace TemplateFormFields {
     export enum TextDirectionEnum {
         Ltr = <any> 'LTR',
         Rtl = <any> 'RTL'
+    }
+    export enum ResizeOptionEnum {
+        GrowVertically = <any> 'GrowVertically',
+        GrowHorizontally = <any> 'GrowHorizontally',
+        GrowBoth = <any> 'GrowBoth',
+        Fixed = <any> 'Fixed',
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

@@ -38,5 +38,6 @@ Name | Type | Description | Notes
 | `idPrefix` | ```string``` |   |  |
 | `restrictIdPrefixChange` | ```boolean``` |   |  [default to false] |
 | `backgroundHexColor` | ```string``` |   |  |
+| `resizeOption` | ```string``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
