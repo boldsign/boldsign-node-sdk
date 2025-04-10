@@ -1,13 +1,13 @@
 import { TemplateApi } from '../api/templateApi';
-import { EmbeddedCreateTemplateRequest, EmbeddedSendTemplateFormRequest, TemplateRole } from '../model';
+import { EmbeddedCreateTemplateRequest, EmbeddedSendTemplateFormRequest, Role} from '../model';
 import * as fs from 'fs'; 
 
 const templateApi = new TemplateApi();
 templateApi.setApiKey("YOUR_API_KEY");
 
-var role = new TemplateRole();
-role.index = 1;
-role.name = "Manager";
+var role = new Role();
+role.roleIndex = 1;
+role.signerName = "Manager";
 
 var embeddedSendTemplateFormRequest = new EmbeddedSendTemplateFormRequest();
 embeddedSendTemplateFormRequest.title = "Api template";

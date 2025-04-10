@@ -1894,6 +1894,7 @@ export class DocumentApi {
      * @param sentBy 
      * @param recipients 
      * @param transmitType 
+     * @param dateFilterType Date Filter as SentBetween and ExpiresOn.
      * @param pageSize Page size specified in get document list request.
      * @param startDate Start date of the document
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft.
@@ -1904,7 +1905,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentRecords>> {
+    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentRecords>> {
         const localVarPath = this.basePath + '/v1/document/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1933,6 +1934,10 @@ export class DocumentApi {
 
         if (transmitType !== undefined) {
             localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | ' Both'");
+        }
+
+        if (dateFilterType !== undefined) {
+            localVarQueryParameters['DateFilterType'] = ObjectSerializer.serialize(dateFilterType, "'SentBetween' | 'Expiring'");
         }
 
         if (pageSize !== undefined) {
@@ -2694,6 +2699,7 @@ export class DocumentApi {
      * @param userId UserId of the  Team document.
      * @param teamId TeamId  of the  Team document.
      * @param transmitType Transmit type as Sent, Received and Both.
+     * @param dateFilterType Date Filter as SentBetween and Expiring.
      * @param pageSize Page size specified in get document list request.
      * @param startDate Start date of the document
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft.
@@ -2704,7 +2710,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamDocumentRecords>> {
+    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamDocumentRecords>> {
         const localVarPath = this.basePath + '/v1/document/teamlist';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -2733,6 +2739,10 @@ export class DocumentApi {
 
         if (transmitType !== undefined) {
             localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | ' Both'");
+        }
+
+        if (dateFilterType !== undefined) {
+            localVarQueryParameters['DateFilterType'] = ObjectSerializer.serialize(dateFilterType, "'SentBetween' | 'Expiring'");
         }
 
         if (pageSize !== undefined) {
