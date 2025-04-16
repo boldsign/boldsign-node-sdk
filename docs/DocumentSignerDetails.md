@@ -31,5 +31,6 @@ Name | Type | Description | Notes
 | `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `authenticationRetryCount` | ```number``` |   |  |
 | `enableQes` | ```boolean``` |   |  |
+| `deliveryMode` | ```string``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

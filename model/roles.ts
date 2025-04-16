@@ -219,6 +219,7 @@ export namespace Roles {
     export enum DeliveryModeEnum {
         Email = <any> 'Email',
         Sms = <any> 'SMS',
-        EmailAndSms = <any> 'EmailAndSMS'
+        EmailAndSms = <any> 'EmailAndSMS',
+        WhatsApp = <any> 'WhatsApp'
     }
 }

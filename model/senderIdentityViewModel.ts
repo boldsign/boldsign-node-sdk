@@ -22,6 +22,7 @@ export class SenderIdentityViewModel {
     'notificationSettings'?: NotificationSettings;
     'brandId'?: string | null;
     'redirectUrl'?: string | null;
+    'metaData'?: { [key: string]: string | null; } | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -65,6 +66,11 @@ export class SenderIdentityViewModel {
             "name": "redirectUrl",
             "baseName": "redirectUrl",
             "type": "string"
+        },
+        {
+            "name": "metaData",
+            "baseName": "metaData",
+            "type": "{ [key: string]: string | null; }"
         }    ];
 
     static getAttributeTypeMap() {

@@ -45,6 +45,7 @@ export class DocumentSignerDetails {
     'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
+    'deliveryMode'?: DocumentSignerDetails.DeliveryModeEnum;
 
     static discriminator: string | undefined = undefined;
 
@@ -173,6 +174,11 @@ export class DocumentSignerDetails {
             "name": "enableQes",
             "baseName": "enableQes",
             "type": "boolean"
+        },
+        {
+            "name": "deliveryMode",
+            "baseName": "deliveryMode",
+            "type": "DocumentSignerDetails.DeliveryModeEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -236,5 +242,11 @@ export namespace DocumentSignerDetails {
         Ru = <any> 'RU',
         Sv = <any> 'SV',
         Default = <any> 'Default'
+    }
+    export enum DeliveryModeEnum {
+        Email = <any> 'Email',
+        Sms = <any> 'SMS',
+        EmailAndSms = <any> 'EmailAndSMS',
+        WhatsApp = <any> 'WhatsApp'
     }
 }

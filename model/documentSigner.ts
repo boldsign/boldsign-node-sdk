@@ -161,7 +161,8 @@ export namespace DocumentSigner {
     export enum DeliveryModeEnum {
         Email = <any> 'Email',
         Sms = <any> 'SMS',
-        EmailAndSms = <any> 'EmailAndSMS'
+        EmailAndSms = <any> 'EmailAndSMS',
+        WhatsApp = <any> 'WhatsApp'
     }
     export enum SignerTypeEnum {
         Signer = <any> 'Signer',

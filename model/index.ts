@@ -162,6 +162,7 @@ export let enumsMap: {[index: string]: any} = {
         "DocumentSignerDetails.SignerTypeEnum": DocumentSignerDetails.SignerTypeEnum,
         "DocumentSignerDetails.LanguageEnum": DocumentSignerDetails.LanguageEnum,
         "DocumentSignerDetails.LocaleEnum": DocumentSignerDetails.LocaleEnum,
+        "DocumentSignerDetails.DeliveryModeEnum": DocumentSignerDetails.DeliveryModeEnum,
         "EmbeddedCreateTemplateRequest.ViewOptionEnum": EmbeddedCreateTemplateRequest.ViewOptionEnum,
         "EmbeddedCreateTemplateRequest.LocaleEnum": EmbeddedCreateTemplateRequest.LocaleEnum,
         "EmbeddedDocumentRequest.SendViewOptionEnum": EmbeddedDocumentRequest.SendViewOptionEnum,
