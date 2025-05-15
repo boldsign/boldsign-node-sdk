@@ -60,7 +60,7 @@ const sendDocumentResponse = await documentApi.sendDocument(sendForSign);
 
 ```
 
-## API Endpoints
+## Documentation for API Endpoints
 
 All URIs are relative to *https://api.boldsign.com*
 
