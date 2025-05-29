@@ -44,7 +44,7 @@ export class EmbeddedCreateTemplateRequest {
     'allowNewRoles'?: boolean = true;
     'allowNewFiles'?: boolean = true;
     'enableReassign'?: boolean = true;
-    'enablePrintAndAssign'?: boolean = false;
+    'enablePrintAndSign'?: boolean = false;
     'enableSigningOrder'?: boolean = false;
     'documentInfo'?: Array<DocumentInfo> | null;
     'useTextTags'?: boolean = false;
@@ -185,8 +185,8 @@ export class EmbeddedCreateTemplateRequest {
             "type": "boolean"
         },
         {
-            "name": "enablePrintAndAssign",
-            "baseName": "enablePrintAndAssign",
+            "name": "enablePrintAndSign",
+            "baseName": "enablePrintAndSign",
             "type": "boolean"
         },
         {

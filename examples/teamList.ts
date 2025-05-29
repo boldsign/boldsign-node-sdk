@@ -9,8 +9,8 @@ async function listTeams() {
     try {
         var listTeamsResponse = await teamsApi.listTeams(page, pageSize); 
         console.log("Teams List:", listTeamsResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 listTeams();

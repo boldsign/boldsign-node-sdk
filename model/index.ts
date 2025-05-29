@@ -1,5 +1,6 @@
 import { AccessCodeDetail } from './accessCodeDetail';
 import { AccessCodeDetails } from './accessCodeDetails';
+import { Address } from './address';
 import { AttachmentInfo } from './attachmentInfo';
 import { AuditTrail } from './auditTrail';
 import { Base64File } from './base64File';
@@ -43,12 +44,16 @@ import { DocumentSenderDetail } from './documentSenderDetail';
 import { DocumentSigner } from './documentSigner';
 import { DocumentSignerDetails } from './documentSignerDetails';
 import { DocumentTags } from './documentTags';
+import { DownloadImageRequest } from './downloadImageRequest';
 import { EditSenderIdentityRequest } from './editSenderIdentityRequest';
 import { EditTemplateRequest } from './editTemplateRequest';
 import { EditableDateFieldSettings } from './editableDateFieldSettings';
 import { EmbeddedCreateTemplateRequest } from './embeddedCreateTemplateRequest';
 import { EmbeddedCustomFieldCreated } from './embeddedCustomFieldCreated';
 import { EmbeddedDocumentRequest } from './embeddedDocumentRequest';
+import { EmbeddedFileDetails } from './embeddedFileDetails';
+import { EmbeddedFileLink } from './embeddedFileLink';
+import { EmbeddedMergeTemplateFormRequest } from './embeddedMergeTemplateFormRequest';
 import { EmbeddedSendCreated } from './embeddedSendCreated';
 import { EmbeddedSendTemplateFormRequest } from './embeddedSendTemplateFormRequest';
 import { EmbeddedSigningLink } from './embeddedSigningLink';
@@ -63,10 +68,14 @@ import { Font } from './font';
 import { FormField } from './formField';
 import { FormGroup } from './formGroup';
 import { FormulaFieldSettings } from './formulaFieldSettings';
+import { IdDocument } from './idDocument';
+import { IdReport } from './idReport';
 import { IdVerification } from './idVerification';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
 import { ImageInfo } from './imageInfo';
 import { MergeAndSendForSignForm } from './mergeAndSendForSignForm';
+import { ModelDate } from './modelDate';
+import { ModelError } from './modelError';
 import { NotificationSettings } from './notificationSettings';
 import { PageDetails } from './pageDetails';
 import { PhoneNumber } from './phoneNumber';
@@ -82,6 +91,7 @@ import { Role } from './role';
 import { Roles } from './roles';
 import { SendForSign } from './sendForSign';
 import { SendForSignFromTemplateForm } from './sendForSignFromTemplateForm';
+import { SenderIdentityCreated } from './senderIdentityCreated';
 import { SenderIdentityList } from './senderIdentityList';
 import { SenderIdentityViewModel } from './senderIdentityViewModel';
 import { Size } from './size';
@@ -108,11 +118,13 @@ import { TemplateTag } from './templateTag';
 import { TextTagDefinition } from './textTagDefinition';
 import { TextTagOffset } from './textTagOffset';
 import { UpdateUser } from './updateUser';
+import { UpdateUserMetaData } from './updateUserMetaData';
 import { UserPageDetails } from './userPageDetails';
 import { UserProperties } from './userProperties';
 import { UserRecords } from './userRecords';
 import { UsersDetails } from './usersDetails';
 import { Validation } from './validation';
+import { VerificationDataRequest } from './verificationDataRequest';
 import { ViewBrandDetails } from './viewBrandDetails';
 import { ViewCustomFieldDetails } from './viewCustomFieldDetails';
 import {
@@ -169,6 +181,10 @@ export let enumsMap: {[index: string]: any} = {
         "EmbeddedDocumentRequest.LocaleEnum": EmbeddedDocumentRequest.LocaleEnum,
         "EmbeddedDocumentRequest.ExpiryDateTypeEnum": EmbeddedDocumentRequest.ExpiryDateTypeEnum,
         "EmbeddedDocumentRequest.DocumentDownloadOptionEnum": EmbeddedDocumentRequest.DocumentDownloadOptionEnum,
+        "EmbeddedMergeTemplateFormRequest.SendViewOptionEnum": EmbeddedMergeTemplateFormRequest.SendViewOptionEnum,
+        "EmbeddedMergeTemplateFormRequest.LocaleEnum": EmbeddedMergeTemplateFormRequest.LocaleEnum,
+        "EmbeddedMergeTemplateFormRequest.ExpiryDateTypeEnum": EmbeddedMergeTemplateFormRequest.ExpiryDateTypeEnum,
+        "EmbeddedMergeTemplateFormRequest.DocumentDownloadOptionEnum": EmbeddedMergeTemplateFormRequest.DocumentDownloadOptionEnum,
         "EmbeddedSendTemplateFormRequest.SendViewOptionEnum": EmbeddedSendTemplateFormRequest.SendViewOptionEnum,
         "EmbeddedSendTemplateFormRequest.LocaleEnum": EmbeddedSendTemplateFormRequest.LocaleEnum,
         "EmbeddedSendTemplateFormRequest.ExpiryDateTypeEnum": EmbeddedSendTemplateFormRequest.ExpiryDateTypeEnum,
@@ -223,6 +239,8 @@ export let enumsMap: {[index: string]: any} = {
         "TemplateSignerDetails.SignerTypeEnum": TemplateSignerDetails.SignerTypeEnum,
         "TemplateSignerDetails.SignTypeEnum": TemplateSignerDetails.SignTypeEnum,
         "TextTagDefinition.TypeEnum": TextTagDefinition.TypeEnum,
+        "TextTagDefinition.TextAlignEnum": TextTagDefinition.TextAlignEnum,
+        "TextTagDefinition.TextDirectionEnum": TextTagDefinition.TextDirectionEnum,
         "TextTagDefinition.ResizeOptionEnum": TextTagDefinition.ResizeOptionEnum,
         "UpdateUser.UserRoleEnum": UpdateUser.UserRoleEnum,
         "UpdateUser.UserStatusEnum": UpdateUser.UserStatusEnum,
@@ -233,6 +251,7 @@ export let enumsMap: {[index: string]: any} = {
 export let typeMap: {[index: string]: any} = {
     "AccessCodeDetail": AccessCodeDetail,
     "AccessCodeDetails": AccessCodeDetails,
+    "Address": Address,
     "AttachmentInfo": AttachmentInfo,
     "AuditTrail": AuditTrail,
     "Base64File": Base64File,
@@ -276,12 +295,16 @@ export let typeMap: {[index: string]: any} = {
     "DocumentSigner": DocumentSigner,
     "DocumentSignerDetails": DocumentSignerDetails,
     "DocumentTags": DocumentTags,
+    "DownloadImageRequest": DownloadImageRequest,
     "EditSenderIdentityRequest": EditSenderIdentityRequest,
     "EditTemplateRequest": EditTemplateRequest,
     "EditableDateFieldSettings": EditableDateFieldSettings,
     "EmbeddedCreateTemplateRequest": EmbeddedCreateTemplateRequest,
     "EmbeddedCustomFieldCreated": EmbeddedCustomFieldCreated,
     "EmbeddedDocumentRequest": EmbeddedDocumentRequest,
+    "EmbeddedFileDetails": EmbeddedFileDetails,
+    "EmbeddedFileLink": EmbeddedFileLink,
+    "EmbeddedMergeTemplateFormRequest": EmbeddedMergeTemplateFormRequest,
     "EmbeddedSendCreated": EmbeddedSendCreated,
     "EmbeddedSendTemplateFormRequest": EmbeddedSendTemplateFormRequest,
     "EmbeddedSigningLink": EmbeddedSigningLink,
@@ -296,10 +319,14 @@ export let typeMap: {[index: string]: any} = {
     "FormField": FormField,
     "FormGroup": FormGroup,
     "FormulaFieldSettings": FormulaFieldSettings,
+    "IdDocument": IdDocument,
+    "IdReport": IdReport,
     "IdVerification": IdVerification,
     "IdentityVerificationSettings": IdentityVerificationSettings,
     "ImageInfo": ImageInfo,
     "MergeAndSendForSignForm": MergeAndSendForSignForm,
+    "ModelDate": ModelDate,
+    "ModelError": ModelError,
     "NotificationSettings": NotificationSettings,
     "PageDetails": PageDetails,
     "PhoneNumber": PhoneNumber,
@@ -315,6 +342,7 @@ export let typeMap: {[index: string]: any} = {
     "Roles": Roles,
     "SendForSign": SendForSign,
     "SendForSignFromTemplateForm": SendForSignFromTemplateForm,
+    "SenderIdentityCreated": SenderIdentityCreated,
     "SenderIdentityList": SenderIdentityList,
     "SenderIdentityViewModel": SenderIdentityViewModel,
     "Size": Size,
@@ -341,11 +369,13 @@ export let typeMap: {[index: string]: any} = {
     "TextTagDefinition": TextTagDefinition,
     "TextTagOffset": TextTagOffset,
     "UpdateUser": UpdateUser,
+    "UpdateUserMetaData": UpdateUserMetaData,
     "UserPageDetails": UserPageDetails,
     "UserProperties": UserProperties,
     "UserRecords": UserRecords,
     "UsersDetails": UsersDetails,
     "Validation": Validation,
+    "VerificationDataRequest": VerificationDataRequest,
     "ViewBrandDetails": ViewBrandDetails,
     "ViewCustomFieldDetails": ViewCustomFieldDetails,
 }
@@ -353,6 +383,7 @@ export let typeMap: {[index: string]: any} = {
 export {
     AccessCodeDetail,
     AccessCodeDetails,
+    Address,
     AttachmentInfo,
     AuditTrail,
     Base64File,
@@ -396,12 +427,16 @@ export {
     DocumentSigner,
     DocumentSignerDetails,
     DocumentTags,
+    DownloadImageRequest,
     EditSenderIdentityRequest,
     EditTemplateRequest,
     EditableDateFieldSettings,
     EmbeddedCreateTemplateRequest,
     EmbeddedCustomFieldCreated,
     EmbeddedDocumentRequest,
+    EmbeddedFileDetails,
+    EmbeddedFileLink,
+    EmbeddedMergeTemplateFormRequest,
     EmbeddedSendCreated,
     EmbeddedSendTemplateFormRequest,
     EmbeddedSigningLink,
@@ -416,10 +451,14 @@ export {
     FormField,
     FormGroup,
     FormulaFieldSettings,
+    IdDocument,
+    IdReport,
     IdVerification,
     IdentityVerificationSettings,
     ImageInfo,
     MergeAndSendForSignForm,
+    ModelDate,
+    ModelError,
     NotificationSettings,
     PageDetails,
     PhoneNumber,
@@ -435,6 +474,7 @@ export {
     Roles,
     SendForSign,
     SendForSignFromTemplateForm,
+    SenderIdentityCreated,
     SenderIdentityList,
     SenderIdentityViewModel,
     Size,
@@ -461,11 +501,13 @@ export {
     TextTagDefinition,
     TextTagOffset,
     UpdateUser,
+    UpdateUserMetaData,
     UserPageDetails,
     UserProperties,
     UserRecords,
     UsersDetails,
     Validation,
+    VerificationDataRequest,
     ViewBrandDetails,
     ViewCustomFieldDetails,
     RequestDetailedFile,

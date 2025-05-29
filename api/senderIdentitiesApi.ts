@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    CreateSenderIdentityRequest,EditSenderIdentityRequest,ErrorResult,SenderIdentityList,
+    CreateSenderIdentityRequest,EditSenderIdentityRequest,ErrorResult,SenderIdentityCreated,SenderIdentityList,
 } from '../model';
 
 import {
@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class SenderIdentitiesApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -97,7 +97,7 @@ export class SenderIdentitiesApi {
      * @param createSenderIdentityRequest The create sender identity request.
      * @param options
      */
-    public async createSenderIdentities (createSenderIdentityRequest: CreateSenderIdentityRequest, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
+    public async createSenderIdentities (createSenderIdentityRequest: CreateSenderIdentityRequest, options: optionsI = {headers: {}}) : Promise<SenderIdentityCreated> {
         createSenderIdentityRequest = deserializeIfNeeded(createSenderIdentityRequest, "CreateSenderIdentityRequest");
         const localVarPath = this.basePath + '/v1/senderIdentities/create';
         let localVarQueryParameters: any = {};
@@ -169,14 +169,14 @@ export class SenderIdentitiesApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeI>((resolve, reject) => {
+            return new Promise<SenderIdentityCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
-                        handleSuccessfulResponse(
+                        handleSuccessfulResponse<SenderIdentityCreated>(
                           resolve,
                           reject,
                           response,
-                          
+                          "SenderIdentityCreated",
                         );
                     }, (error: AxiosError) => {
                         if (error.response == null) {
@@ -184,6 +184,14 @@ export class SenderIdentitiesApi {
                             return;
                         }
 
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            201,
+                            "SenderIdentityCreated",
+                        )) {
+                          return;
+                        }
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
@@ -335,7 +343,7 @@ export class SenderIdentitiesApi {
      * @param brandIds A list of brand IDs to filter associated with the sender identity.
      * @param options
      */
-    public async listSenderIdentities (page: number, pageSize?: number, search?: string, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<SenderIdentityList>> {
+    public async listSenderIdentities (page: number, pageSize?: number, search?: string, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<SenderIdentityList> {
         const localVarPath = this.basePath + '/v1/senderIdentities/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -414,7 +422,7 @@ export class SenderIdentitiesApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<SenderIdentityList>>((resolve, reject) => {
+            return new Promise<SenderIdentityList>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<SenderIdentityList>(
@@ -819,7 +827,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -841,7 +849,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -857,11 +865,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

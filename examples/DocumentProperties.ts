@@ -8,8 +8,8 @@ async function getDocumentProperties() {
     try {
         var getPropertiesResponse = await documentApi.getProperties(documentId); 
         console.log("Document Properties:", getPropertiesResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 getDocumentProperties();

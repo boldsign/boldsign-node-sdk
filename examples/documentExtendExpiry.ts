@@ -13,8 +13,8 @@ async function extendDocumentExpiry() {
     try {
         await documentApi.extendExpiry(documentId, extendExpiry);
         console.log("Expiry extended successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 extendDocumentExpiry();

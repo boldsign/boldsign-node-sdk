@@ -15,8 +15,8 @@ async function changeDocumentRecipient() {
     try {
         await documentApi.changeRecipient(documentId, changeRecipient);
         console.log("Recipient changed successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 changeDocumentRecipient();

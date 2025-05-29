@@ -21,9 +21,9 @@ async function createBrand() {
             buttonTextColor,
             emailDisplayName
         );
-        console.log("Brand created successfully:", createBrandApiResponse.body.brandId);
-    } catch (error) {
-        console.error("Error occurred while creating the brand:", error);
+        console.log("Brand created successfully:", createBrandApiResponse.brandId);
+    } catch (error:any) {
+        console.error("Error occurred while creating the brand:", error.message);
     }
 }
 createBrand();

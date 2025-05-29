@@ -14,8 +14,8 @@ async function createSenderIdentity() {
     try {
         var createIdentityresponse = await senderIdentitiesApi.createSenderIdentities(createSenderIdentityRequest);
         console.log("Sender Identity created successfully:", createIdentityresponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 createSenderIdentity();

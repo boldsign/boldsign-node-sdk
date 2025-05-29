@@ -15,7 +15,7 @@ All URIs are relative to https://api.boldsign.com.
 ## `createSenderIdentities()`
 
 ```typescript
-createSenderIdentities(createSenderIdentityRequest: CreateSenderIdentityRequest)
+createSenderIdentities(createSenderIdentityRequest: CreateSenderIdentityRequest): SenderIdentityCreated
 ```
 
 Creates sender identity.
@@ -29,7 +29,7 @@ Creates sender identity.
 
 ### Return type
 
-void (empty response body)
+[**SenderIdentityCreated**](../docs/SenderIdentityCreated.md)
 
 ### Authorization
 

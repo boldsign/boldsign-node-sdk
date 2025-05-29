@@ -27,8 +27,8 @@ async function createEmbeddedTemplateRequestUrl() {
     try {
         var embeddedTemplateUrlResponse = await templateApi.createEmbeddedRequestUrlTemplate(templateId, embeddedSendTemplateFormRequest);
         console.log("Embedded Template URL:", embeddedTemplateUrlResponse);
-    } catch (error) {
-        console.error('Error occurred while calling the API:', error);
+    } catch (error:any) {
+        console.error('Error occurred while calling the API:', error.message);
     }
 }
 createEmbeddedTemplateRequestUrl();

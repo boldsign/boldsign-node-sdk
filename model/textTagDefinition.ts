@@ -43,6 +43,11 @@ export class TextTagDefinition {
     'offset'?: TextTagOffset;
     'label'?: string | null;
     'tabIndex'?: number | null;
+    'dataSyncTag'?: string | null;
+    'textAlign'?: TextTagDefinition.TextAlignEnum;
+    'textDirection'?: TextTagDefinition.TextDirectionEnum;
+    'characterSpacing'?: number;
+    'characterLimit'?: number;
     'formulaFieldSettings'?: FormulaFieldSettings;
     'resizeOption'?: TextTagDefinition.ResizeOptionEnum;
 
@@ -165,6 +170,31 @@ export class TextTagDefinition {
             "type": "number"
         },
         {
+            "name": "dataSyncTag",
+            "baseName": "dataSyncTag",
+            "type": "string"
+        },
+        {
+            "name": "textAlign",
+            "baseName": "textAlign",
+            "type": "TextTagDefinition.TextAlignEnum"
+        },
+        {
+            "name": "textDirection",
+            "baseName": "textDirection",
+            "type": "TextTagDefinition.TextDirectionEnum"
+        },
+        {
+            "name": "characterSpacing",
+            "baseName": "characterSpacing",
+            "type": "number"
+        },
+        {
+            "name": "characterLimit",
+            "baseName": "characterLimit",
+            "type": "number"
+        },
+        {
             "name": "formulaFieldSettings",
             "baseName": "formulaFieldSettings",
             "type": "FormulaFieldSettings"
@@ -197,6 +227,15 @@ export namespace TextTagDefinition {
         Title = <any> 'Title',
         Company = <any> 'Company',
         Formula = <any> 'Formula'
+    }
+    export enum TextAlignEnum {
+        Left = <any> 'Left',
+        Center = <any> 'Center',
+        Right = <any> 'Right'
+    }
+    export enum TextDirectionEnum {
+        Ltr = <any> 'LTR',
+        Rtl = <any> 'RTL'
     }
     export enum ResizeOptionEnum {
         GrowVertically = <any> 'GrowVertically',

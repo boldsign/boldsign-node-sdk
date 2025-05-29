@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class CustomFieldApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -97,7 +97,7 @@ export class CustomFieldApi {
      * @param brandCustomFieldDetails The custom field details.
      * @param options
      */
-    public async createCustomField (brandCustomFieldDetails: BrandCustomFieldDetails, options: optionsI = {headers: {}}) : Promise<returnTypeT<CustomFieldMessage>> {
+    public async createCustomField (brandCustomFieldDetails: BrandCustomFieldDetails, options: optionsI = {headers: {}}) : Promise<CustomFieldMessage> {
         brandCustomFieldDetails = deserializeIfNeeded(brandCustomFieldDetails, "BrandCustomFieldDetails");
         const localVarPath = this.basePath + '/v1/customField/create';
         let localVarQueryParameters: any = {};
@@ -169,7 +169,7 @@ export class CustomFieldApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<CustomFieldMessage>>((resolve, reject) => {
+            return new Promise<CustomFieldMessage>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<CustomFieldMessage>(
@@ -229,7 +229,7 @@ export class CustomFieldApi {
      * @param brandId The brand id.
      * @param options
      */
-    public async customFieldsList (brandId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<CustomFieldCollection>> {
+    public async customFieldsList (brandId: string, options: optionsI = {headers: {}}) : Promise<CustomFieldCollection> {
         const localVarPath = this.basePath + '/v1/customField/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -296,7 +296,7 @@ export class CustomFieldApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<CustomFieldCollection>>((resolve, reject) => {
+            return new Promise<CustomFieldCollection>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<CustomFieldCollection>(
@@ -348,7 +348,7 @@ export class CustomFieldApi {
      * @param customFieldId The custom field id.
      * @param options
      */
-    public async deleteCustomField (customFieldId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<DeleteCustomFieldReply>> {
+    public async deleteCustomField (customFieldId: string, options: optionsI = {headers: {}}) : Promise<DeleteCustomFieldReply> {
         const localVarPath = this.basePath + '/v1/customField/delete';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -415,7 +415,7 @@ export class CustomFieldApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<DeleteCustomFieldReply>>((resolve, reject) => {
+            return new Promise<DeleteCustomFieldReply>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<DeleteCustomFieldReply>(
@@ -476,7 +476,7 @@ export class CustomFieldApi {
      * @param brandCustomFieldDetails The custom field details.
      * @param options
      */
-    public async editCustomField (customFieldId: string, brandCustomFieldDetails: BrandCustomFieldDetails, options: optionsI = {headers: {}}) : Promise<returnTypeT<CustomFieldMessage>> {
+    public async editCustomField (customFieldId: string, brandCustomFieldDetails: BrandCustomFieldDetails, options: optionsI = {headers: {}}) : Promise<CustomFieldMessage> {
         brandCustomFieldDetails = deserializeIfNeeded(brandCustomFieldDetails, "BrandCustomFieldDetails");
         const localVarPath = this.basePath + '/v1/customField/edit';
         let localVarQueryParameters: any = {};
@@ -557,7 +557,7 @@ export class CustomFieldApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<CustomFieldMessage>>((resolve, reject) => {
+            return new Promise<CustomFieldMessage>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<CustomFieldMessage>(
@@ -618,7 +618,7 @@ export class CustomFieldApi {
      * @param linkValidTill This property is used to set the validity of the generated URL. Its maximum validity is 30 days
      * @param options
      */
-    public async embedCustomField (brandId: string, linkValidTill?: Date, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedCustomFieldCreated>> {
+    public async embedCustomField (brandId: string, linkValidTill?: Date, options: optionsI = {headers: {}}) : Promise<EmbeddedCustomFieldCreated> {
         const localVarPath = this.basePath + '/v1/customField/createEmbeddedCustomFieldUrl';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -689,7 +689,7 @@ export class CustomFieldApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedCustomFieldCreated>>((resolve, reject) => {
+            return new Promise<EmbeddedCustomFieldCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedCustomFieldCreated>(
@@ -746,7 +746,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -768,7 +768,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -784,11 +784,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

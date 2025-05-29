@@ -3,7 +3,7 @@ import { ErrorResult } from "../model";
 
 export class HttpError extends Error {
     constructor (public response: AxiosResponse, public body: ErrorResult, public statusCode?: number) {
-        super('HTTP request failed');
+        super(JSON.stringify(body, null, 2));
         this.name = 'HttpError';
     }
 }
@@ -21,10 +21,10 @@ export interface returnTypeT<T> { response: AxiosResponse, body: T }
 export interface returnTypeI { response: AxiosResponse, body?: any }
 
 export const queryParamsSerializer = (params) => {
-    return Qs.stringify(params, { arrayFormat: 'brackets' })
+    return Qs.stringify(params, { arrayFormat: 'repeat' })
 }
 
-export const USER_AGENT = "boldsign-node-sdk/1.0.0-beta.5";
+export const USER_AGENT = "boldsign-node-sdk/1.0.1";
 
 /**
  * Generates an object containing form data.
@@ -96,7 +96,7 @@ export const generateFormData = (
       const serializedArray: string[] = [];
       obj[paramInfo.name].forEach((childObject, i) => {
         const key = `${paramInfo.baseName}[${i}]`;
-        const serializedItem = JSON.stringify(childObject);
+        const serializedItem = typeof childObject === "object" ? JSON.stringify(childObject): childObject;
         serializedArray.push(serializedItem);
       });
       data[paramInfo.baseName] = serializedArray;
@@ -144,7 +144,8 @@ export const toFormData = (obj: object): any => {
         form.append(key, item);
       });
     } else {
-      form.append(key, obj[key]);
+      const value = (typeof obj[key] !== 'object') ? obj[key].toString(): obj[key];
+      form.append(key, value);
     }
   });
 

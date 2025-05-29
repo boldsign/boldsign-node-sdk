@@ -8,8 +8,8 @@ async function getContactDetails() {
     try {
         var contactDetailsResponse = await contactsApi.getContact(contactId);
         console.log("Contact details retrieved successfully!:", contactDetailsResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 getContactDetails();

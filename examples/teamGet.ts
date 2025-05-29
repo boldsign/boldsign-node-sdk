@@ -8,8 +8,8 @@ async function getTeam(){
     try {
         var teamDetailsResponse = await teamsApi.getTeam(teamId);  
         console.log("Team Details:", teamDetailsResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 getTeam();

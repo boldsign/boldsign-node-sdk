@@ -17,8 +17,8 @@ async function getEmbeddedTemplateEditUrl() {
     try {
         var embeddedEditTemplateResponse = await templateApi.getEmbeddedTemplateEditUrl(templateId, embeddedEditTemplateRequest);
         console.log("Template Edit URL:", embeddedEditTemplateResponse);
-    } catch (error) {
-        console.error('Error occurred while calling the API:', error);
+    } catch (error:any) {
+        console.error('Error occurred while calling the API:', error.message);
     }
 }
 getEmbeddedTemplateEditUrl();

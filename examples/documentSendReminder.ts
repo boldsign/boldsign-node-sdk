@@ -13,8 +13,8 @@ async function remindDocument() {
     try {
         await documentApi.remindDocument(documentId, receiverEmails, reminderMessage);
         console.log("Reminder sent successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 remindDocument();

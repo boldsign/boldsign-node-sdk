@@ -33,8 +33,8 @@ async function sendDocumentUsingMultipleTemplates() {
     try {
         var multipleTemplateResponse = await templateApi.mergeAndSend(mergeAndSendForsign);
         console.log("Document sent for signing using multiple templates successfully", multipleTemplateResponse);
-    } catch (error) {
-        console.error('Error occurred while calling the API:', error);
+    } catch (error:any) {
+        console.error('Error occurred while calling the API:', error.message);
     }
 }
 sendDocumentUsingMultipleTemplates();

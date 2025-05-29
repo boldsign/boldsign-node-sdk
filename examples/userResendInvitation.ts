@@ -8,8 +8,8 @@ async function resendUserInvitation() {
     try {
         await userApi.resendInvitation(userId);
         console.log("Invitation resent successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 resendUserInvitation();

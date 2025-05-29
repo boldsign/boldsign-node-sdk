@@ -9,8 +9,8 @@ async function listTemplates() {
   try {
     var listTemplateResponse = await templateApi.listTemplates(page, "all", pageSize);
     console.log("Templates listed successfully:", listTemplateResponse);
-  } catch (error) {
-    console.error("Error occurred while calling the API:", error);
+  } catch (error:any) {
+    console.error("Error occurred while calling the API:", error.message);
   }
 }
 listTemplates();

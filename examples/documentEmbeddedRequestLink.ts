@@ -41,9 +41,9 @@ embeddedDocumentRequest.files = [files];
 async function createEmbeddedRequestUrlDocument() {
     try {
         const requestLinkResponse = await documentApi.createEmbeddedRequestUrlDocument(embeddedDocumentRequest);
-        console.log('Embedded Document URL:', requestLinkResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API for embedded template:", error);
+        console.log('Embedded Document URL:', requestLinkResponse.sendUrl);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API for embedded template:", error.message);
     }
 }
 createEmbeddedRequestUrlDocument();

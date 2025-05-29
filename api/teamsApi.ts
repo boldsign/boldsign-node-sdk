@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class TeamsApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -97,7 +97,7 @@ export class TeamsApi {
      * @param createTeamRequest team creation.
      * @param options
      */
-    public async createTeam (createTeamRequest: CreateTeamRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamCreated>> {
+    public async createTeam (createTeamRequest: CreateTeamRequest, options: optionsI = {headers: {}}) : Promise<TeamCreated> {
         createTeamRequest = deserializeIfNeeded(createTeamRequest, "CreateTeamRequest");
         const localVarPath = this.basePath + '/v1/teams/create';
         let localVarQueryParameters: any = {};
@@ -169,7 +169,7 @@ export class TeamsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TeamCreated>>((resolve, reject) => {
+            return new Promise<TeamCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TeamCreated>(
@@ -221,7 +221,7 @@ export class TeamsApi {
      * @param teamId Team Id.
      * @param options
      */
-    public async getTeam (teamId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamResponse>> {
+    public async getTeam (teamId: string, options: optionsI = {headers: {}}) : Promise<TeamResponse> {
         const localVarPath = this.basePath + '/v1/teams/get';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -288,7 +288,7 @@ export class TeamsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TeamResponse>>((resolve, reject) => {
+            return new Promise<TeamResponse>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TeamResponse>(
@@ -342,7 +342,7 @@ export class TeamsApi {
      * @param searchKey Teams can be listed by the search key
      * @param options
      */
-    public async listTeams (page: number, pageSize?: number, searchKey?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamListResponse>> {
+    public async listTeams (page: number, pageSize?: number, searchKey?: string, options: optionsI = {headers: {}}) : Promise<TeamListResponse> {
         const localVarPath = this.basePath + '/v1/teams/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -417,7 +417,7 @@ export class TeamsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TeamListResponse>>((resolve, reject) => {
+            return new Promise<TeamListResponse>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TeamListResponse>(
@@ -590,7 +590,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -612,7 +612,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -628,11 +628,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

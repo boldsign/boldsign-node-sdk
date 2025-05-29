@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    CreateTemplateRequest,DocumentCreated,EditTemplateRequest,EmbeddedCreateTemplateRequest,EmbeddedSendCreated,EmbeddedSendTemplateFormRequest,EmbeddedTemplateCreated,EmbeddedTemplateEditRequest,EmbeddedTemplateEdited,ErrorResult,MergeAndSendForSignForm,SendForSignFromTemplateForm,TemplateCreated,TemplateProperties,TemplateRecords,TemplateTag,
+    CreateTemplateRequest,DocumentCreated,EditTemplateRequest,EmbeddedCreateTemplateRequest,EmbeddedMergeTemplateFormRequest,EmbeddedSendCreated,EmbeddedSendTemplateFormRequest,EmbeddedTemplateCreated,EmbeddedTemplateEditRequest,EmbeddedTemplateEdited,ErrorResult,MergeAndSendForSignForm,SendForSignFromTemplateForm,TemplateCreated,TemplateProperties,TemplateRecords,TemplateTag,
 } from '../model';
 
 import {
@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class TemplateApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -209,7 +209,7 @@ export class TemplateApi {
      * @param embeddedSendTemplateFormRequest Embedded send template json request.
      * @param options
      */
-    public async createEmbeddedRequestUrlTemplate (templateId: string, embeddedSendTemplateFormRequest?: EmbeddedSendTemplateFormRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedSendCreated>> {
+    public async createEmbeddedRequestUrlTemplate (templateId: string, embeddedSendTemplateFormRequest?: EmbeddedSendTemplateFormRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedSendCreated> {
         embeddedSendTemplateFormRequest = deserializeIfNeeded(embeddedSendTemplateFormRequest, "EmbeddedSendTemplateFormRequest");
         const localVarPath = this.basePath + '/v1/template/createEmbeddedRequestUrl';
         let localVarQueryParameters: any = {};
@@ -285,7 +285,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedSendCreated>>((resolve, reject) => {
+            return new Promise<EmbeddedSendCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedSendCreated>(
@@ -337,7 +337,7 @@ export class TemplateApi {
      * @param embeddedCreateTemplateRequest The create embedded template request body.
      * @param options
      */
-    public async createEmbeddedTemplateUrl (embeddedCreateTemplateRequest?: EmbeddedCreateTemplateRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedTemplateCreated>> {
+    public async createEmbeddedTemplateUrl (embeddedCreateTemplateRequest?: EmbeddedCreateTemplateRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedTemplateCreated> {
         embeddedCreateTemplateRequest = deserializeIfNeeded(embeddedCreateTemplateRequest, "EmbeddedCreateTemplateRequest");
         const localVarPath = this.basePath + '/v1/template/createEmbeddedTemplateUrl';
         let localVarQueryParameters: any = {};
@@ -404,7 +404,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedTemplateCreated>>((resolve, reject) => {
+            return new Promise<EmbeddedTemplateCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedTemplateCreated>(
@@ -456,7 +456,7 @@ export class TemplateApi {
      * @param createTemplateRequest The create template request body.
      * @param options
      */
-    public async createTemplate (createTemplateRequest?: CreateTemplateRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<TemplateCreated>> {
+    public async createTemplate (createTemplateRequest?: CreateTemplateRequest, options: optionsI = {headers: {}}) : Promise<TemplateCreated> {
         createTemplateRequest = deserializeIfNeeded(createTemplateRequest, "CreateTemplateRequest");
         const localVarPath = this.basePath + '/v1/template/create';
         let localVarQueryParameters: any = {};
@@ -523,7 +523,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TemplateCreated>>((resolve, reject) => {
+            return new Promise<TemplateCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TemplateCreated>(
@@ -566,117 +566,6 @@ export class TemplateApi {
                             reject,
                             error.response,
                             422,
-                            "ErrorResult",
-                        )) {
-                          return;
-                        }
-
-
-                        reject(error);
-                    });
-            });
-        });
-    }
-    /**
-     * 
-     * @summary Delete the Tags in Templates.
-     * @param templateTag Contains TemplateId and LabelNames for Adding Tags.
-     * @param options
-     */
-    public async deleteTag (templateTag?: TemplateTag, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
-        templateTag = deserializeIfNeeded(templateTag, "TemplateTag");
-        const localVarPath = this.basePath + '/v1/template/deleteTags';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json;odata.metadata=minimal;odata.streaming=true', 'application/json;odata.metadata=minimal;odata.streaming=false', 'application/json;odata.metadata=minimal', 'application/json;odata.metadata=full;odata.streaming=true', 'application/json;odata.metadata=full;odata.streaming=false', 'application/json;odata.metadata=full', 'application/json;odata.metadata=none;odata.streaming=true', 'application/json;odata.metadata=none;odata.streaming=false', 'application/json;odata.metadata=none', 'application/json;odata.streaming=true', 'application/json;odata.streaming=false', 'application/json', 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=minimal;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;IEEE754Compatible=true', 'application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=full;IEEE754Compatible=false', 'application/json;odata.metadata=full;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=none;IEEE754Compatible=false', 'application/json;odata.metadata=none;IEEE754Compatible=true', 'application/json;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.streaming=false;IEEE754Compatible=true', 'application/json;IEEE754Compatible=false', 'application/json;IEEE754Compatible=true', 'application/xml', 'text/plain', 'application/octet-stream', 'text/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams['content-type'] = 'application/json';
-        } else {
-            localVarHeaderParams['content-type'] = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-        let localVarBodyParams: any = undefined;
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        const result = generateFormData(templateTag, TemplateTag);
-        localVarUseFormData = result.localVarUseFormData;
-
-        let data = {};
-        if (localVarUseFormData) {
-          const formData = toFormData(result.data);
-          data = formData;
-          localVarHeaderParams = {
-            ...localVarHeaderParams,
-            ...formData.getHeaders(),
-          };
-        } else {
-          data = ObjectSerializer.serialize(
-            templateTag,
-            "TemplateTag"
-          );
-        }
-
-        let localVarRequestOptions: AxiosRequestConfig = {
-            method: 'DELETE',
-            params: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            url: localVarPath,
-            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
-            maxContentLength: Infinity,
-            maxBodyLength: Infinity,
-            responseType: "json",
-        };
-
-        if (localVarRequestOptions.method !== 'GET') {
-           localVarRequestOptions.data = data;
-        }
-        let authenticationPromise = Promise.resolve();
-
-        if (this.authentications["X-API-KEY"].apiKey) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
-        }
-        if (this.authentications["Bearer"].apiKey) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            return new Promise<returnTypeI>((resolve, reject) => {
-                axios.request(localVarRequestOptions)
-                    .then((response) => {
-                        handleSuccessfulResponse(
-                          resolve,
-                          reject,
-                          response,
-                          
-                        );
-                    }, (error: AxiosError) => {
-                        if (error.response == null) {
-                            reject(error);
-                            return;
-                        }
-
-                        if (handleErrorCodeResponse(
-                            reject,
-                            error.response,
-                            401,
-                            "ErrorResult",
-                        )) {
-                          return;
-                        }
-                        if (handleErrorCodeResponse(
-                            reject,
-                            error.response,
-                            400,
                             "ErrorResult",
                         )) {
                           return;
@@ -806,12 +695,123 @@ export class TemplateApi {
     }
     /**
      * 
+     * @summary Delete the Tags in Templates.
+     * @param templateTag Contains TemplateId and LabelNames for Adding Tags.
+     * @param options
+     */
+    public async deleteTag (templateTag?: TemplateTag, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
+        templateTag = deserializeIfNeeded(templateTag, "TemplateTag");
+        const localVarPath = this.basePath + '/v1/template/deleteTags';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json;odata.metadata=minimal;odata.streaming=true', 'application/json;odata.metadata=minimal;odata.streaming=false', 'application/json;odata.metadata=minimal', 'application/json;odata.metadata=full;odata.streaming=true', 'application/json;odata.metadata=full;odata.streaming=false', 'application/json;odata.metadata=full', 'application/json;odata.metadata=none;odata.streaming=true', 'application/json;odata.metadata=none;odata.streaming=false', 'application/json;odata.metadata=none', 'application/json;odata.streaming=true', 'application/json;odata.streaming=false', 'application/json', 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=minimal;IEEE754Compatible=false', 'application/json;odata.metadata=minimal;IEEE754Compatible=true', 'application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=full;IEEE754Compatible=false', 'application/json;odata.metadata=full;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true', 'application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.metadata=none;IEEE754Compatible=false', 'application/json;odata.metadata=none;IEEE754Compatible=true', 'application/json;odata.streaming=true;IEEE754Compatible=false', 'application/json;odata.streaming=true;IEEE754Compatible=true', 'application/json;odata.streaming=false;IEEE754Compatible=false', 'application/json;odata.streaming=false;IEEE754Compatible=true', 'application/json;IEEE754Compatible=false', 'application/json;IEEE754Compatible=true', 'application/xml', 'text/plain', 'application/octet-stream', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        const result = generateFormData(templateTag, TemplateTag);
+        localVarUseFormData = result.localVarUseFormData;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(result.data);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        } else {
+          data = ObjectSerializer.serialize(
+            templateTag,
+            "TemplateTag"
+          );
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'DELETE',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<returnTypeI>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse(
+                          resolve,
+                          reject,
+                          response,
+                          
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
      * @summary Download the template.
      * @param templateId Template Id.
      * @param onBehalfOf The on behalfof email address.
      * @param options
      */
-    public async download (templateId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<Buffer>> {
+    public async download (templateId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<Buffer> {
         const localVarPath = this.basePath + '/v1/template/download';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -882,7 +882,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
+            return new Promise<Buffer>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<Buffer>(
@@ -1069,7 +1069,7 @@ export class TemplateApi {
      * @param embeddedTemplateEditRequest The embedded edit template request body.
      * @param options
      */
-    public async getEmbeddedTemplateEditUrl (templateId: string, embeddedTemplateEditRequest?: EmbeddedTemplateEditRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedTemplateEdited>> {
+    public async getEmbeddedTemplateEditUrl (templateId: string, embeddedTemplateEditRequest?: EmbeddedTemplateEditRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedTemplateEdited> {
         embeddedTemplateEditRequest = deserializeIfNeeded(embeddedTemplateEditRequest, "EmbeddedTemplateEditRequest");
         const localVarPath = this.basePath + '/v1/template/getEmbeddedTemplateEditUrl';
         let localVarQueryParameters: any = {};
@@ -1145,7 +1145,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedTemplateEdited>>((resolve, reject) => {
+            return new Promise<EmbeddedTemplateEdited>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedTemplateEdited>(
@@ -1197,7 +1197,7 @@ export class TemplateApi {
      * @param templateId Template Id.
      * @param options
      */
-    public async getProperties (templateId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<TemplateProperties>> {
+    public async getProperties (templateId: string, options: optionsI = {headers: {}}) : Promise<TemplateProperties> {
         const localVarPath = this.basePath + '/v1/template/properties';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1213,7 +1213,7 @@ export class TemplateApi {
 
         // verify required parameter 'templateId' is not null or undefined
         if (templateId === null || templateId === undefined) {
-            throw new Error('Required parameter templateId was null or undefined when calling getProperties.');
+            throw new Error('Required parameter templateId was null or undefined when calling getTemplateProperties.');
         }
 
         if (templateId !== undefined) {
@@ -1264,7 +1264,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TemplateProperties>>((resolve, reject) => {
+            return new Promise<TemplateProperties>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TemplateProperties>(
@@ -1325,7 +1325,7 @@ export class TemplateApi {
      * @param brandIds BrandId(s) of the template.
      * @param options
      */
-    public async listTemplates (page: number, templateType?: 'mytemplates' | 'sharedtemplate' | 'all', pageSize?: number, searchKey?: string, onBehalfOf?: Array<string>, createdBy?: Array<string>, templateLabels?: Array<string>, startDate?: Date, endDate?: Date, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TemplateRecords>> {
+    public async listTemplates (page: number, templateType?: 'mytemplates' | 'sharedtemplate' | 'all', pageSize?: number, searchKey?: string, onBehalfOf?: Array<string>, createdBy?: Array<string>, templateLabels?: Array<string>, startDate?: Date, endDate?: Date, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<TemplateRecords> {
         const localVarPath = this.basePath + '/v1/template/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1428,7 +1428,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TemplateRecords>>((resolve, reject) => {
+            return new Promise<TemplateRecords>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TemplateRecords>(
@@ -1472,7 +1472,7 @@ export class TemplateApi {
      * @param mergeAndSendForSignForm The merge and send details as JSON.
      * @param options
      */
-    public async mergeAndSend (mergeAndSendForSignForm?: MergeAndSendForSignForm, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
+    public async mergeAndSend (mergeAndSendForSignForm?: MergeAndSendForSignForm, options: optionsI = {headers: {}}) : Promise<DocumentCreated> {
         mergeAndSendForSignForm = deserializeIfNeeded(mergeAndSendForSignForm, "MergeAndSendForSignForm");
         const localVarPath = this.basePath + '/v1/template/mergeAndSend';
         let localVarQueryParameters: any = {};
@@ -1539,14 +1539,14 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeI>((resolve, reject) => {
+            return new Promise<DocumentCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
-                        handleSuccessfulResponse(
+                        handleSuccessfulResponse<DocumentCreated>(
                           resolve,
                           reject,
                           response,
-                          
+                          "DocumentCreated",
                         );
                     }, (error: AxiosError) => {
                         if (error.response == null) {
@@ -1554,6 +1554,133 @@ export class TemplateApi {
                             return;
                         }
 
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            201,
+                            "DocumentCreated",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Generates a merge request URL using a template that combines document merging and sending processes into your application.
+     * @param embeddedMergeTemplateFormRequest Embedded merge and send template json request.
+     * @param options
+     */
+    public async mergeCreateEmbeddedRequestUrlTemplate (embeddedMergeTemplateFormRequest?: EmbeddedMergeTemplateFormRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedSendCreated> {
+        embeddedMergeTemplateFormRequest = deserializeIfNeeded(embeddedMergeTemplateFormRequest, "EmbeddedMergeTemplateFormRequest");
+        const localVarPath = this.basePath + '/v1/template/mergeCreateEmbeddedRequestUrl';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        const result = generateFormData(embeddedMergeTemplateFormRequest, EmbeddedMergeTemplateFormRequest);
+        localVarUseFormData = result.localVarUseFormData;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(result.data);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        } else {
+          data = ObjectSerializer.serialize(
+            embeddedMergeTemplateFormRequest,
+            "EmbeddedMergeTemplateFormRequest"
+          );
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'POST',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<EmbeddedSendCreated>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse<EmbeddedSendCreated>(
+                          resolve,
+                          reject,
+                          response,
+                          "EmbeddedSendCreated",
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            201,
+                            "EmbeddedSendCreated",
+                        )) {
+                          return;
+                        }
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,
@@ -1584,7 +1711,7 @@ export class TemplateApi {
      * @param sendForSignFromTemplateForm The send template details as JSON.
      * @param options
      */
-    public async sendUsingTemplate (templateId: string, sendForSignFromTemplateForm?: SendForSignFromTemplateForm, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentCreated>> {
+    public async sendUsingTemplate (templateId: string, sendForSignFromTemplateForm?: SendForSignFromTemplateForm, options: optionsI = {headers: {}}) : Promise<DocumentCreated> {
         sendForSignFromTemplateForm = deserializeIfNeeded(sendForSignFromTemplateForm, "SendForSignFromTemplateForm");
         const localVarPath = this.basePath + '/v1/template/send';
         let localVarQueryParameters: any = {};
@@ -1660,7 +1787,7 @@ export class TemplateApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<DocumentCreated>>((resolve, reject) => {
+            return new Promise<DocumentCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<DocumentCreated>(
@@ -1717,7 +1844,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -1739,7 +1866,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -1755,11 +1882,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

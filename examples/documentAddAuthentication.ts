@@ -13,8 +13,8 @@ async function addAuthenticationToDocument() {
     try {
         documentApi.addAuthentication(documentId, accessCodeDetail);
         console.log("Authentication added successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 addAuthenticationToDocument();

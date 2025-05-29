@@ -29,6 +29,11 @@ Name | Type | Description | Notes
 | `offset` | [```TextTagOffset```](TextTagOffset.md) |   |  |
 | `label` | ```string``` |   |  |
 | `tabIndex` | ```number``` |   |  |
+| `dataSyncTag` | ```string``` |   |  |
+| `textAlign` | ```string``` |   |  |
+| `textDirection` | ```string``` |   |  |
+| `characterSpacing` | ```number``` |   |  |
+| `characterLimit` | ```number``` |   |  |
 | `formulaFieldSettings` | [```FormulaFieldSettings```](FormulaFieldSettings.md) |   |  |
 | `resizeOption` | ```string``` |   |  |
 

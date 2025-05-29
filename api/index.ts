@@ -2,6 +2,7 @@ import { BrandingApi } from './brandingApi';
 import { ContactsApi } from './contactsApi';
 import { CustomFieldApi } from './customFieldApi';
 import { DocumentApi } from './documentApi';
+import { IdentityVerificationApi } from './identityVerificationApi';
 import { PlanApi } from './planApi';
 import { SenderIdentitiesApi } from './senderIdentitiesApi';
 import { TeamsApi } from './teamsApi';
@@ -13,6 +14,7 @@ export {
     ContactsApi,
     CustomFieldApi,
     DocumentApi,
+    IdentityVerificationApi,
     PlanApi,
     SenderIdentitiesApi,
     TeamsApi,
@@ -31,4 +33,4 @@ export {
     USER_AGENT,
 } from "./apis";
 
-export const APIS = [BrandingApi, ContactsApi, CustomFieldApi, DocumentApi, PlanApi, SenderIdentitiesApi, TeamsApi, TemplateApi, UserApi];
+export const APIS = [BrandingApi, ContactsApi, CustomFieldApi, DocumentApi, IdentityVerificationApi, PlanApi, SenderIdentitiesApi, TeamsApi, TemplateApi, UserApi];

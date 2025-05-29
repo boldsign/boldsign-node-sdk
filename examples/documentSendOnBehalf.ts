@@ -46,8 +46,8 @@ async function sendDocument() {
     try {
         await documentApi.sendDocument(sendForSign);
         console.log("Document sent for signing successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 sendDocument();

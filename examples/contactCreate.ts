@@ -10,8 +10,8 @@ contactDetails.email = "luthercooper@cubeflakes.com";
 contactDetails.jobTitle = "Developer";
 contactDetails.companyName = "CubeFlakes";
 var phoneNumber = new PhoneNumber();
-phoneNumber.countryCode = "+1";
-phoneNumber.number = "2015550123";
+phoneNumber.countryCode = "+91";
+phoneNumber.number = "8807799764";
 contactDetails.phoneNumber = phoneNumber;
 var contact = [contactDetails];
 
@@ -19,8 +19,8 @@ async function createContact() {
     try {
         var createContactResponse = await contactsApi.createContact(contact);
         console.log("Contacts created successfully:", createContactResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 createContact();

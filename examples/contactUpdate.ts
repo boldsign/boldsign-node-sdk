@@ -11,16 +11,16 @@ contactDetails.email = "test1711@gmail.com";
 contactDetails.jobTitle = "Tester";
 contactDetails.companyName = "Flakes";
 var phoneNumber = new PhoneNumber();
-phoneNumber.countryCode = "+1";
-phoneNumber.number = "2015550123";
+phoneNumber.countryCode = "+91";
+phoneNumber.number = "8807799763";
 contactDetails.phoneNumber = phoneNumber;
 
 async function updateContact() {
     try {
         await contactsApi.updateContact(contactId, contactDetails);
         console.log("Contact updated successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 updateContact();

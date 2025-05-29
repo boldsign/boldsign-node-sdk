@@ -57,6 +57,8 @@ export class TemplateFormFields {
     'tabIndex'?: number;
     'formulaFieldSettings'?: FormulaFieldSettings;
     'resizeOption'?: TemplateFormFields.ResizeOptionEnum;
+    'allowEditFormField'?: boolean;
+    'allowDeleteFormField'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -250,6 +252,16 @@ export class TemplateFormFields {
             "name": "resizeOption",
             "baseName": "resizeOption",
             "type": "TemplateFormFields.ResizeOptionEnum"
+        },
+        {
+            "name": "allowEditFormField",
+            "baseName": "allowEditFormField",
+            "type": "boolean"
+        },
+        {
+            "name": "allowDeleteFormField",
+            "baseName": "allowDeleteFormField",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

@@ -13,9 +13,9 @@ var emailDisplayName = "david@cubeflakes.com";
 async function updateBrand() {
     try {
         const updateBrandApiResponse = await brandingApi.editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName);
-        console.log("Brand updated successfully:", updateBrandApiResponse.body.brandId);
-    } catch (error) {
-        console.error("Error occurred while updating the brand:", error);
+        console.log("Brand updated successfully:", updateBrandApiResponse.brandId);
+    } catch (error:any) {
+        console.error("Error occurred while updating the brand:", error.message);
     }
 }
 updateBrand();

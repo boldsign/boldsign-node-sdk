@@ -43,5 +43,7 @@ Name | Type | Description | Notes
 | `tabIndex` | ```number``` |   |  |
 | `formulaFieldSettings` | [```FormulaFieldSettings```](FormulaFieldSettings.md) |   |  |
 | `resizeOption` | ```string``` |   |  |
+| `allowEditFormField` | ```boolean``` |   |  |
+| `allowDeleteFormField` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

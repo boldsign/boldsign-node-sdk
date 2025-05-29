@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class ContactsApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -100,7 +100,7 @@ export class ContactsApi {
      * @param contactType Contact type whether the contact is My Contacts or All Contacts. Default value is AllContacts.
      * @param options
      */
-    public async contactUserList (page: number, pageSize?: number, searchKey?: string, contactType?: 'MyContacts' | 'AllContacts', options: optionsI = {headers: {}}) : Promise<returnTypeT<ContactsList>> {
+    public async contactUserList (page: number, pageSize?: number, searchKey?: string, contactType?: 'MyContacts' | 'AllContacts', options: optionsI = {headers: {}}) : Promise<ContactsList> {
         const localVarPath = this.basePath + '/v1/contacts/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -179,7 +179,7 @@ export class ContactsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<ContactsList>>((resolve, reject) => {
+            return new Promise<ContactsList>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<ContactsList>(
@@ -231,7 +231,7 @@ export class ContactsApi {
      * @param contactDetails The contact details.
      * @param options
      */
-    public async createContact (contactDetails?: Array<ContactDetails>, options: optionsI = {headers: {}}) : Promise<returnTypeT<CreateContactResponse>> {
+    public async createContact (contactDetails?: Array<ContactDetails>, options: optionsI = {headers: {}}) : Promise<CreateContactResponse> {
         contactDetails = deserializeIfNeeded(contactDetails, "Array<ContactDetails>");
         const localVarPath = this.basePath + '/v1/contacts/create';
         let localVarQueryParameters: any = {};
@@ -298,7 +298,7 @@ export class ContactsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<CreateContactResponse>>((resolve, reject) => {
+            return new Promise<CreateContactResponse>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<CreateContactResponse>(
@@ -461,7 +461,7 @@ export class ContactsApi {
      * @param id Contact Id.
      * @param options
      */
-    public async getContact (id: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<ContactsDetails>> {
+    public async getContact (id: string, options: optionsI = {headers: {}}) : Promise<ContactsDetails> {
         const localVarPath = this.basePath + '/v1/contacts/get';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -528,7 +528,7 @@ export class ContactsApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<ContactsDetails>>((resolve, reject) => {
+            return new Promise<ContactsDetails>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<ContactsDetails>(
@@ -701,7 +701,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -723,7 +723,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -739,11 +739,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

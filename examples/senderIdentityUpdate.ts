@@ -13,8 +13,8 @@ async function updateSenderIdentity() {
     try {
         await senderIdentitiesApi.updateSenderIdentities(email, editSenderIdentityRequest);
         console.log("Sender Identity updated successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 updateSenderIdentity();

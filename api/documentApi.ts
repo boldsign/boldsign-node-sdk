@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class DocumentApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -340,7 +340,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async behalfDocuments (page: number, pageType?: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress?: Array<string>, signers?: Array<string>, pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<BehalfDocumentRecords>> {
+    public async behalfDocuments (page: number, pageType?: 'BehalfOfOthers' | 'BehalfOfMe', emailAddress?: Array<string>, signers?: Array<string>, pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<BehalfDocumentRecords> {
         const localVarPath = this.basePath + '/v1/document/behalfList';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -451,7 +451,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BehalfDocumentRecords>>((resolve, reject) => {
+            return new Promise<BehalfDocumentRecords>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BehalfDocumentRecords>(
@@ -765,7 +765,7 @@ export class DocumentApi {
      * @param embeddedDocumentRequest The embedded send document request body.
      * @param options
      */
-    public async createEmbeddedRequestUrlDocument (embeddedDocumentRequest?: EmbeddedDocumentRequest, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedSendCreated>> {
+    public async createEmbeddedRequestUrlDocument (embeddedDocumentRequest?: EmbeddedDocumentRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedSendCreated> {
         embeddedDocumentRequest = deserializeIfNeeded(embeddedDocumentRequest, "EmbeddedDocumentRequest");
         const localVarPath = this.basePath + '/v1/document/createEmbeddedRequestUrl';
         let localVarQueryParameters: any = {};
@@ -832,7 +832,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedSendCreated>>((resolve, reject) => {
+            return new Promise<EmbeddedSendCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedSendCreated>(
@@ -1129,7 +1129,7 @@ export class DocumentApi {
      * @param onBehalfOf The on behalfof email address.
      * @param options
      */
-    public async downloadAttachment (documentId: string, attachmentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<Buffer>> {
+    public async downloadAttachment (documentId: string, attachmentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<Buffer> {
         const localVarPath = this.basePath + '/v1/document/downloadAttachment';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1209,7 +1209,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
+            return new Promise<Buffer>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<Buffer>(
@@ -1262,7 +1262,7 @@ export class DocumentApi {
      * @param onBehalfOf The on behalfof email address.
      * @param options
      */
-    public async downloadAuditLog (documentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<Buffer>> {
+    public async downloadAuditLog (documentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<Buffer> {
         const localVarPath = this.basePath + '/v1/document/downloadAuditLog';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1333,7 +1333,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
+            return new Promise<Buffer>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<Buffer>(
@@ -1386,7 +1386,7 @@ export class DocumentApi {
      * @param onBehalfOf The on behalfof email address.
      * @param options
      */
-    public async downloadDocument (documentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<Buffer>> {
+    public async downloadDocument (documentId: string, onBehalfOf?: string, options: optionsI = {headers: {}}) : Promise<Buffer> {
         const localVarPath = this.basePath + '/v1/document/download';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1457,7 +1457,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
+            return new Promise<Buffer>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<Buffer>(
@@ -1626,6 +1626,125 @@ export class DocumentApi {
     }
     /**
      * 
+     * @summary Get summary of the document.
+     * @param documentId Document Id.
+     * @param options
+     */
+    public async getProperties (documentId: string, options: optionsI = {headers: {}}) : Promise<DocumentProperties> {
+        const localVarPath = this.basePath + '/v1/document/properties';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        // verify required parameter 'documentId' is not null or undefined
+        if (documentId === null || documentId === undefined) {
+            throw new Error('Required parameter documentId was null or undefined when calling getDocumentProperties.');
+        }
+
+        if (documentId !== undefined) {
+            localVarQueryParameters['documentId'] = ObjectSerializer.serialize(documentId, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(localVarFormParams);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'GET',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<DocumentProperties>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse<DocumentProperties>(
+                          resolve,
+                          reject,
+                          response,
+                          "DocumentProperties",
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            200,
+                            "DocumentProperties",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
      * @summary Get sign link for Embedded Sign.
      * @param documentId 
      * @param signerEmail 
@@ -1635,7 +1754,7 @@ export class DocumentApi {
      * @param redirectUrl 
      * @param options
      */
-    public async getEmbeddedSignLink (documentId: string, signerEmail?: string, countryCode?: string, phoneNumber?: string, signLinkValidTill?: Date, redirectUrl?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<EmbeddedSigningLink>> {
+    public async getEmbeddedSignLink (documentId: string, signerEmail?: string, countryCode?: string, phoneNumber?: string, signLinkValidTill?: Date, redirectUrl?: string, options: optionsI = {headers: {}}) : Promise<EmbeddedSigningLink> {
         const localVarPath = this.basePath + '/v1/document/getEmbeddedSignLink';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1722,7 +1841,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<EmbeddedSigningLink>>((resolve, reject) => {
+            return new Promise<EmbeddedSigningLink>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<EmbeddedSigningLink>(
@@ -1770,125 +1889,6 @@ export class DocumentApi {
     }
     /**
      * 
-     * @summary Get summary of the document.
-     * @param documentId Document Id.
-     * @param options
-     */
-    public async getProperties (documentId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentProperties>> {
-        const localVarPath = this.basePath + '/v1/document/properties';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams['content-type'] = 'application/json';
-        } else {
-            localVarHeaderParams['content-type'] = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-        let localVarBodyParams: any = undefined;
-
-        // verify required parameter 'documentId' is not null or undefined
-        if (documentId === null || documentId === undefined) {
-            throw new Error('Required parameter documentId was null or undefined when calling getProperties.');
-        }
-
-        if (documentId !== undefined) {
-            localVarQueryParameters['documentId'] = ObjectSerializer.serialize(documentId, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let data = {};
-        if (localVarUseFormData) {
-          const formData = toFormData(localVarFormParams);
-          data = formData;
-          localVarHeaderParams = {
-            ...localVarHeaderParams,
-            ...formData.getHeaders(),
-          };
-        }
-
-        let localVarRequestOptions: AxiosRequestConfig = {
-            method: 'GET',
-            params: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            url: localVarPath,
-            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
-            maxContentLength: Infinity,
-            maxBodyLength: Infinity,
-            responseType: "json",
-        };
-
-        if (localVarRequestOptions.method !== 'GET') {
-           localVarRequestOptions.data = data;
-        }
-        let authenticationPromise = Promise.resolve();
-
-        if (this.authentications["X-API-KEY"].apiKey) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
-        }
-        if (this.authentications["Bearer"].apiKey) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<DocumentProperties>>((resolve, reject) => {
-                axios.request(localVarRequestOptions)
-                    .then((response) => {
-                        handleSuccessfulResponse<DocumentProperties>(
-                          resolve,
-                          reject,
-                          response,
-                          "DocumentProperties",
-                        );
-                    }, (error: AxiosError) => {
-                        if (error.response == null) {
-                            reject(error);
-                            return;
-                        }
-
-                        if (handleErrorCodeResponse(
-                            reject,
-                            error.response,
-                            200,
-                            "DocumentProperties",
-                        )) {
-                          return;
-                        }
-                        if (handleErrorCodeResponse(
-                            reject,
-                            error.response,
-                            401,
-                            "ErrorResult",
-                        )) {
-                          return;
-                        }
-                        if (handleErrorCodeResponse(
-                            reject,
-                            error.response,
-                            403,
-                            "ErrorResult",
-                        )) {
-                          return;
-                        }
-
-
-                        reject(error);
-                    });
-            });
-        });
-    }
-    /**
-     * 
      * @summary List user documents.
      * @param page Page index specified in get document list request.
      * @param sentBy 
@@ -1905,7 +1905,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentRecords>> {
+    public async listDocuments (page: number, sentBy?: Array<string>, recipients?: Array<string>, transmitType?: 'Sent' | 'Received' | 'Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<DocumentRecords> {
         const localVarPath = this.basePath + '/v1/document/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1933,7 +1933,7 @@ export class DocumentApi {
         }
 
         if (transmitType !== undefined) {
-            localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | ' Both'");
+            localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | 'Both'");
         }
 
         if (dateFilterType !== undefined) {
@@ -2020,7 +2020,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<DocumentRecords>>((resolve, reject) => {
+            return new Promise<DocumentRecords>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<DocumentRecords>(
@@ -2563,7 +2563,7 @@ export class DocumentApi {
      * @param sendForSign The send for sign request body.
      * @param options
      */
-    public async sendDocument (sendForSign?: SendForSign, options: optionsI = {headers: {}}) : Promise<returnTypeT<DocumentCreated>> {
+    public async sendDocument (sendForSign?: SendForSign, options: optionsI = {headers: {}}) : Promise<DocumentCreated> {
         sendForSign = deserializeIfNeeded(sendForSign, "SendForSign");
         const localVarPath = this.basePath + '/v1/document/send';
         let localVarQueryParameters: any = {};
@@ -2630,7 +2630,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<DocumentCreated>>((resolve, reject) => {
+            return new Promise<DocumentCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<DocumentCreated>(
@@ -2710,7 +2710,7 @@ export class DocumentApi {
      * @param brandIds BrandId(s) of the document.
      * @param options
      */
-    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | ' Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<returnTypeT<TeamDocumentRecords>> {
+    public async teamDocuments (page: number, userId?: Array<string>, teamId?: Array<string>, transmitType?: 'Sent' | 'Received' | 'Both', dateFilterType?: 'SentBetween' | 'Expiring', pageSize?: number, startDate?: Date, status?: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate?: Date, searchKey?: string, labels?: Array<string>, nextCursor?: number, brandIds?: Array<string>, options: optionsI = {headers: {}}) : Promise<TeamDocumentRecords> {
         const localVarPath = this.basePath + '/v1/document/teamlist';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -2738,7 +2738,7 @@ export class DocumentApi {
         }
 
         if (transmitType !== undefined) {
-            localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | ' Both'");
+            localVarQueryParameters['TransmitType'] = ObjectSerializer.serialize(transmitType, "'Sent' | 'Received' | 'Both'");
         }
 
         if (dateFilterType !== undefined) {
@@ -2825,7 +2825,7 @@ export class DocumentApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<TeamDocumentRecords>>((resolve, reject) => {
+            return new Promise<TeamDocumentRecords>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<TeamDocumentRecords>(
@@ -2882,7 +2882,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -2904,7 +2904,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -2920,11 +2920,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

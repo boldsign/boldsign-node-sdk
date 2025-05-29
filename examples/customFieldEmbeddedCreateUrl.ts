@@ -12,8 +12,8 @@ async function embedCustomField() {
     try {
         var embeddedCustomFieldResponse = await customFieldApi.embedCustomField(brandId, linkValidTill);
         console.log("Embedded custom field response:", embeddedCustomFieldResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 embedCustomField();

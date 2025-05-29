@@ -22,8 +22,8 @@ async function createTemplate() {
   try {
     const createTemplateResponse = await templateApi.createTemplate(createTemplateRequest);
     console.log("Template created successfully:", createTemplateResponse);
-  } catch (error) {
-    console.error("Error occurred while calling the API:", error);
+  } catch (error:any) {
+    console.error("Error occurred while calling the API:", error.message);
   }
 }
 createTemplate();

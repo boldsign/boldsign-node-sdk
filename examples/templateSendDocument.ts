@@ -53,8 +53,8 @@ async function sendDocumentFromTemplate() {
     try {
         var sendDocumentTemplateResponse = await templateApi.sendUsingTemplate(templateId, sendForSignFromTemplate);
         console.log("Document sent for signing using template successfully:", sendDocumentTemplateResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 sendDocumentFromTemplate();

@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class BrandingApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -96,7 +96,7 @@ export class BrandingApi {
      * @summary List all the brands.
      * @param options
      */
-    public async brandList (options: optionsI = {headers: {}}) : Promise<returnTypeT<BrandingRecords>> {
+    public async brandList (options: optionsI = {headers: {}}) : Promise<BrandingRecords> {
         const localVarPath = this.basePath + '/v1/brand/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -154,7 +154,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BrandingRecords>>((resolve, reject) => {
+            return new Promise<BrandingRecords>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BrandingRecords>(
@@ -233,7 +233,7 @@ export class BrandingApi {
      * @param customDomainSettingsFromName 
      * @param options
      */
-    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<BrandCreated>> {
+    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/create';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -414,7 +414,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BrandCreated>>((resolve, reject) => {
+            return new Promise<BrandCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BrandCreated>(
@@ -474,7 +474,7 @@ export class BrandingApi {
      * @param brandId brand Id.
      * @param options
      */
-    public async deleteBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<BrandingMessage>> {
+    public async deleteBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<BrandingMessage> {
         const localVarPath = this.basePath + '/v1/brand/delete';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -541,7 +541,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BrandingMessage>>((resolve, reject) => {
+            return new Promise<BrandingMessage>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BrandingMessage>(
@@ -621,7 +621,7 @@ export class BrandingApi {
      * @param customDomainSettingsFromName 
      * @param options
      */
-    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<BrandCreated>> {
+    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/edit';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -801,7 +801,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BrandCreated>>((resolve, reject) => {
+            return new Promise<BrandCreated>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BrandCreated>(
@@ -861,7 +861,7 @@ export class BrandingApi {
      * @param brandId The brand id.
      * @param options
      */
-    public async getBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<ViewBrandDetails>> {
+    public async getBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<ViewBrandDetails> {
         const localVarPath = this.basePath + '/v1/brand/get';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -928,7 +928,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<ViewBrandDetails>>((resolve, reject) => {
+            return new Promise<ViewBrandDetails>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<ViewBrandDetails>(
@@ -988,7 +988,7 @@ export class BrandingApi {
      * @param brandId brand Id.
      * @param options
      */
-    public async resetDefaultBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<returnTypeT<BrandingMessage>> {
+    public async resetDefaultBrand (brandId: string, options: optionsI = {headers: {}}) : Promise<BrandingMessage> {
         const localVarPath = this.basePath + '/v1/brand/resetdefault';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -1055,7 +1055,7 @@ export class BrandingApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BrandingMessage>>((resolve, reject) => {
+            return new Promise<BrandingMessage>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BrandingMessage>(
@@ -1112,7 +1112,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -1134,7 +1134,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -1150,11 +1150,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;

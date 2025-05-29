@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 | `allowNewRoles` | ```boolean``` |   |  [default to true] |
 | `allowNewFiles` | ```boolean``` |   |  [default to true] |
 | `enableReassign` | ```boolean``` |   |  [default to true] |
-| `enablePrintAndAssign` | ```boolean``` |   |  [default to false] |
+| `enablePrintAndSign` | ```boolean``` |   |  [default to false] |
 | `enableSigningOrder` | ```boolean``` |   |  [default to false] |
 | `documentInfo` | [```Array<DocumentInfo>```](DocumentInfo.md) |   |  |
 | `useTextTags` | ```boolean``` |   |  [default to false] |

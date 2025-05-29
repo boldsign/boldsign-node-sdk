@@ -9,8 +9,8 @@ async function listSenderIdentities() {
     try {
         var identityListResponse = await senderIdentitiesApi.listSenderIdentities(page, pageSize);
         console.log("Sender Identity List:", identityListResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 listSenderIdentities();

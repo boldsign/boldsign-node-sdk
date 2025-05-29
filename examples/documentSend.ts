@@ -38,9 +38,9 @@ sendForSign.files = [files];
 async function sendDocument() {
     try {
         var sendDocumentResponse = await documentApi.sendDocument(sendForSign);
-        console.log("Document sent successfully:", sendDocumentResponse.body.documentId);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+        console.log("Document sent successfully:", sendDocumentResponse.documentId);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 

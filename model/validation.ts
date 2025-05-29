@@ -15,6 +15,7 @@ import { RequestFile } from './models';
 export class Validation {
     'type': Validation.TypeEnum;
     'regex'?: string | null;
+    'regexMessage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -28,6 +29,11 @@ export class Validation {
             "name": "regex",
             "baseName": "regex",
             "type": "string"
+        },
+        {
+            "name": "regexMessage",
+            "baseName": "regexMessage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
@@ -40,6 +46,7 @@ export namespace Validation {
         NumberOnly = <any> 'NumberOnly',
         Email = <any> 'Email',
         Currency = <any> 'Currency',
-        Regex = <any> 'Regex'
+        Regex = <any> 'Regex',
+        None = <any> 'None'
     }
 }

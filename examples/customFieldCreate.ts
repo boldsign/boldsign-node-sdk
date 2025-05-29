@@ -21,8 +21,8 @@ async function createCustomField() {
     try {
         var createCustomFieldResponse = await customFieldApi.createCustomField(customFieldDetails);
         console.log("Custom field created successfully:", createCustomFieldResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 createCustomField();

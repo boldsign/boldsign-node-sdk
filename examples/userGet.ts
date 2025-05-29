@@ -8,8 +8,8 @@ async function getUserDetails() {
     try {
         var userDetailsResponse = await userApi.getUser(userId);
         console.log("User Details:", userDetailsResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 getUserDetails();

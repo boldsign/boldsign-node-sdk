@@ -18,6 +18,9 @@ export class Font {
     'size'?: number;
     'style'?: Font.StyleEnum;
     'lineHeight'?: number;
+    'isBoldFont'?: boolean;
+    'isItalicFont'?: boolean;
+    'isUnderLineFont'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -46,6 +49,21 @@ export class Font {
             "name": "lineHeight",
             "baseName": "lineHeight",
             "type": "number"
+        },
+        {
+            "name": "isBoldFont",
+            "baseName": "isBoldFont",
+            "type": "boolean"
+        },
+        {
+            "name": "isItalicFont",
+            "baseName": "isItalicFont",
+            "type": "boolean"
+        },
+        {
+            "name": "isUnderLineFont",
+            "baseName": "isUnderLineFont",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

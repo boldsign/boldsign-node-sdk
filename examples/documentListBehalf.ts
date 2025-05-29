@@ -8,8 +8,8 @@ async function getBehalfDocuments() {
     try {
         var behalfDocumentResponse = await documentApi.behalfDocuments(page);
         console.log("Behalf Documents fetched successfully:", behalfDocumentResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 getBehalfDocuments();

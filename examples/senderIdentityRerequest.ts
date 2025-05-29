@@ -8,8 +8,8 @@ async function rerequestInvitation() {
     try {
         await senderIdentitiesApi.reRequestSenderIdentities(email);
         console.log("Sender identity re-requested successfully!");
-    } catch (error) {
-        console.error("Error occurred while calling the API:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API:", error.message);
     }
 }
 rerequestInvitation();

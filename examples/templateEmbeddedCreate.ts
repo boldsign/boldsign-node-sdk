@@ -22,8 +22,8 @@ async function createEmbeddedTemplate() {
     try {
         const createTemplateResponse = await templateApi.createEmbeddedTemplateUrl(createEmbeddedTemplateRequest);
         console.log("Embedded template created successfully:", createTemplateResponse);
-    } catch (error) {
-        console.error("Error occurred while calling the API for embedded template:", error);
+    } catch (error:any) {
+        console.error("Error occurred while calling the API for embedded template:", error.message);
     }
 }
 createEmbeddedTemplate();

@@ -16,8 +16,8 @@ All URIs are relative to https://api.boldsign.com.
 | [**downloadAuditLog()**](DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | [**downloadDocument()**](DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document. |
 | [**extendExpiry()**](DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
-| [**getEmbeddedSignLink()**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
 | [**getProperties()**](DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document. |
+| [**getEmbeddedSignLink()**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
 | [**listDocuments()**](DocumentApi.md#listDocuments) | **GET** /v1/document/list | List user documents. |
 | [**prefillFields()**](DocumentApi.md#prefillFields) | **PATCH** /v1/document/prefillFields | Updates the value (prefill) of the fields in the document. |
 | [**remindDocument()**](DocumentApi.md#remindDocument) | **POST** /v1/document/remind | Send reminder to pending signers. |
@@ -433,6 +433,38 @@ void (empty response body)
 [[Back to Model list]](../README.md#models)
 [[Back to README]](../README.md)
 
+## `getProperties()`
+
+```typescript
+getProperties(documentId: string): DocumentProperties
+```
+
+Get summary of the document.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **documentId** | **string**| Document Id. | |
+
+### Return type
+
+[**DocumentProperties**](../docs/DocumentProperties.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
 ## `getEmbeddedSignLink()`
 
 ```typescript
@@ -470,42 +502,10 @@ Get sign link for Embedded Sign.
 [[Back to Model list]](../README.md#models)
 [[Back to README]](../README.md)
 
-## `getProperties()`
-
-```typescript
-getProperties(documentId: string): DocumentProperties
-```
-
-Get summary of the document.
-
-
-### Parameters
-
-|Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **documentId** | **string**| Document Id. | |
-
-### Return type
-
-[**DocumentProperties**](../docs/DocumentProperties.md)
-
-### Authorization
-
-[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
-[[Back to Model list]](../README.md#models)
-[[Back to README]](../README.md)
-
 ## `listDocuments()`
 
 ```typescript
-listDocuments(page: number, sentBy: Array<string>, recipients: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', dateFilterType: 'SentBetween' | 'Expiring', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): DocumentRecords
+listDocuments(page: number, sentBy: Array<string>, recipients: Array<string>, transmitType: 'Sent' | 'Received' | 'Both', dateFilterType: 'SentBetween' | 'Expiring', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): DocumentRecords
 ```
 
 List user documents.
@@ -518,7 +518,7 @@ List user documents.
 | **page** | **number**| Page index specified in get document list request. | [default to 1] |
 | **sentBy** | [**Array<string>**](../docs/string.md)|  | [optional] |
 | **recipients** | [**Array<string>**](../docs/string.md)|  | [optional] |
-| **transmitType** | **'Sent' | 'Received' | ' Both'**|  | [optional] |
+| **transmitType** | **'Sent' | 'Received' | 'Both'**|  | [optional] |
 | **dateFilterType** | **'SentBetween' | 'Expiring'**| Date Filter as SentBetween and ExpiresOn. | [optional] |
 | **pageSize** | **number**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **Date**| Start date of the document | [optional] |
@@ -714,7 +714,7 @@ Sends the document for sign.
 ## `teamDocuments()`
 
 ```typescript
-teamDocuments(page: number, userId: Array<string>, teamId: Array<string>, transmitType: 'Sent' | 'Received' | ' Both', dateFilterType: 'SentBetween' | 'Expiring', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): TeamDocumentRecords
+teamDocuments(page: number, userId: Array<string>, teamId: Array<string>, transmitType: 'Sent' | 'Received' | 'Both', dateFilterType: 'SentBetween' | 'Expiring', pageSize: number, startDate: Date, status: Array<'None' | 'WaitingForMe' | 'WaitingForOthers' | 'NeedAttention' | 'Completed' | 'Declined' | 'Revoked' | 'Expired' | 'Draft' | 'Scheduled'>, endDate: Date, searchKey: string, labels: Array<string>, nextCursor: number, brandIds: Array<string>): TeamDocumentRecords
 ```
 
 Get user Team documents.
@@ -727,7 +727,7 @@ Get user Team documents.
 | **page** | **number**| Page index specified in get document list request. | [default to 1] |
 | **userId** | [**Array<string>**](../docs/string.md)| UserId of the  Team document. | [optional] |
 | **teamId** | [**Array<string>**](../docs/string.md)| TeamId  of the  Team document. | [optional] |
-| **transmitType** | **'Sent' | 'Received' | ' Both'**| Transmit type as Sent, Received and Both. | [optional] |
+| **transmitType** | **'Sent' | 'Received' | 'Both'**| Transmit type as Sent, Received and Both. | [optional] |
 | **dateFilterType** | **'SentBetween' | 'Expiring'**| Date Filter as SentBetween and Expiring. | [optional] |
 | **pageSize** | **number**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **Date**| Start date of the document | [optional] |

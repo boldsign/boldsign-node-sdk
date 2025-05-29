@@ -39,7 +39,7 @@ let defaultBasePath = 'https://api.boldsign.com';
 export class PlanApi {
     protected _basePath = defaultBasePath;
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-    protected _useQuerystring : boolean = false;
+    protected _useQuerystring : boolean = true;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
@@ -96,7 +96,7 @@ export class PlanApi {
      * @summary Gets the Api credits details.
      * @param options
      */
-    public async apiCreditsCount (options: optionsI = {headers: {}}) : Promise<returnTypeT<BillingViewModel>> {
+    public async apiCreditsCount (options: optionsI = {headers: {}}) : Promise<BillingViewModel> {
         const localVarPath = this.basePath + '/v1/plan/apiCreditsCount';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -154,7 +154,7 @@ export class PlanApi {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<returnTypeT<BillingViewModel>>((resolve, reject) => {
+            return new Promise<BillingViewModel>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
                         handleSuccessfulResponse<BillingViewModel>(
@@ -203,7 +203,7 @@ function deserializeIfNeeded<T> (obj: T, classname: string): T {
 }
 
 type AxiosResolve<T> = (
-  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+  value: (T | PromiseLike<T>),
 ) => void
 
 type AxiosReject = (reason?: any) => void;
@@ -225,7 +225,7 @@ function handleSuccessfulResponse<T>(
             body = ObjectSerializer.deserialize(body, returnType);
         }
 
-        resolve({ response: response, body: body });
+        resolve(body);
     } else {
         reject(new HttpError(response, body, response.status));
     }
@@ -241,11 +241,10 @@ function handleErrorCodeResponse(
         return false;
     }
 
-    const body = ObjectSerializer.deserialize(
-        response.data,
-        returnType,
-    );
-
+    let body = response.data;
+    if(code === 401) {
+        body = "Unauthorized request (401): Invalid authentication.";
+    }
     reject(new HttpError(response, body, response.status));
 
     return true;
