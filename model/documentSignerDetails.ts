@@ -15,6 +15,7 @@ import { DocumentFormFields } from './documentFormFields';
 import { IdVerification } from './idVerification';
 import { PhoneNumber } from './phoneNumber';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
+import { SignerAuthenticationSettings } from './signerAuthenticationSettings';
 
 export class DocumentSignerDetails {
     'signerName'?: string | null;
@@ -46,6 +47,7 @@ export class DocumentSignerDetails {
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
     'deliveryMode'?: DocumentSignerDetails.DeliveryModeEnum;
+    'authenticationSettings'?: SignerAuthenticationSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -179,6 +181,11 @@ export class DocumentSignerDetails {
             "name": "deliveryMode",
             "baseName": "deliveryMode",
             "type": "DocumentSignerDetails.DeliveryModeEnum"
+        },
+        {
+            "name": "authenticationSettings",
+            "baseName": "authenticationSettings",
+            "type": "SignerAuthenticationSettings"
         }    ];
 
     static getAttributeTypeMap() {

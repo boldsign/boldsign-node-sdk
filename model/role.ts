@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { AuthenticationSettings } from './authenticationSettings';
 import { ExistingFormField } from './existingFormField';
 import { FormField } from './formField';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
@@ -43,6 +44,7 @@ export class Role {
     'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
+    'authenticationSettings'?: AuthenticationSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -156,6 +158,11 @@ export class Role {
             "name": "enableQes",
             "baseName": "enableQes",
             "type": "boolean"
+        },
+        {
+            "name": "authenticationSettings",
+            "baseName": "authenticationSettings",
+            "type": "AuthenticationSettings"
         }    ];
 
     static getAttributeTypeMap() {

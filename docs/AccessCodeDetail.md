@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 | `phoneNumber` | [```PhoneNumber```](PhoneNumber.md) |   |  |
 | `identityVerificationSettings` | [```IdentityVerificationSettings```](IdentityVerificationSettings.md) |   |  |
 | `authenticationRetryCount` | ```number``` |   |  |
+| `authenticationSettings` | [```AuthenticationSettings```](AuthenticationSettings.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

@@ -20,6 +20,7 @@ model/accessCodeDetails.ts
 model/address.ts
 model/attachmentInfo.ts
 model/auditTrail.ts
+model/authenticationSettings.ts
 model/base64File.ts
 model/behalfDocument.ts
 model/behalfDocumentRecords.ts
@@ -113,6 +114,7 @@ model/sendForSignFromTemplateForm.ts
 model/senderIdentityCreated.ts
 model/senderIdentityList.ts
 model/senderIdentityViewModel.ts
+model/signerAuthenticationSettings.ts
 model/size.ts
 model/teamCreated.ts
 model/teamDocumentRecords.ts

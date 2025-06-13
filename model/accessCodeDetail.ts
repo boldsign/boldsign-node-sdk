@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { AuthenticationSettings } from './authenticationSettings';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
 import { PhoneNumber } from './phoneNumber';
 
@@ -23,6 +24,7 @@ export class AccessCodeDetail {
     'phoneNumber'?: PhoneNumber;
     'identityVerificationSettings'?: IdentityVerificationSettings;
     'authenticationRetryCount'?: number | null;
+    'authenticationSettings'?: AuthenticationSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -66,6 +68,11 @@ export class AccessCodeDetail {
             "name": "authenticationRetryCount",
             "baseName": "authenticationRetryCount",
             "type": "number"
+        },
+        {
+            "name": "authenticationSettings",
+            "baseName": "authenticationSettings",
+            "type": "AuthenticationSettings"
         }    ];
 
     static getAttributeTypeMap() {

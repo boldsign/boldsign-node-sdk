@@ -3,6 +3,7 @@ import { AccessCodeDetails } from './accessCodeDetails';
 import { Address } from './address';
 import { AttachmentInfo } from './attachmentInfo';
 import { AuditTrail } from './auditTrail';
+import { AuthenticationSettings } from './authenticationSettings';
 import { Base64File } from './base64File';
 import { BehalfDocument } from './behalfDocument';
 import { BehalfDocumentRecords } from './behalfDocumentRecords';
@@ -94,6 +95,7 @@ import { SendForSignFromTemplateForm } from './sendForSignFromTemplateForm';
 import { SenderIdentityCreated } from './senderIdentityCreated';
 import { SenderIdentityList } from './senderIdentityList';
 import { SenderIdentityViewModel } from './senderIdentityViewModel';
+import { SignerAuthenticationSettings } from './signerAuthenticationSettings';
 import { Size } from './size';
 import { TeamCreated } from './teamCreated';
 import { TeamDocumentRecords } from './teamDocumentRecords';
@@ -144,6 +146,7 @@ import {
 export let enumsMap: {[index: string]: any} = {
         "AccessCodeDetail.AuthenticationTypeEnum": AccessCodeDetail.AuthenticationTypeEnum,
         "AuditTrail.ActionEnum": AuditTrail.ActionEnum,
+        "AuthenticationSettings.AuthenticationFrequencyEnum": AuthenticationSettings.AuthenticationFrequencyEnum,
         "BehalfDocument.StatusEnum": BehalfDocument.StatusEnum,
         "CreateUser.UserRoleEnum": CreateUser.UserRoleEnum,
         "CustomFormField.FieldTypeEnum": CustomFormField.FieldTypeEnum,
@@ -254,6 +257,7 @@ export let typeMap: {[index: string]: any} = {
     "Address": Address,
     "AttachmentInfo": AttachmentInfo,
     "AuditTrail": AuditTrail,
+    "AuthenticationSettings": AuthenticationSettings,
     "Base64File": Base64File,
     "BehalfDocument": BehalfDocument,
     "BehalfDocumentRecords": BehalfDocumentRecords,
@@ -345,6 +349,7 @@ export let typeMap: {[index: string]: any} = {
     "SenderIdentityCreated": SenderIdentityCreated,
     "SenderIdentityList": SenderIdentityList,
     "SenderIdentityViewModel": SenderIdentityViewModel,
+    "SignerAuthenticationSettings": SignerAuthenticationSettings,
     "Size": Size,
     "TeamCreated": TeamCreated,
     "TeamDocumentRecords": TeamDocumentRecords,
@@ -386,6 +391,7 @@ export {
     Address,
     AttachmentInfo,
     AuditTrail,
+    AuthenticationSettings,
     Base64File,
     BehalfDocument,
     BehalfDocumentRecords,
@@ -477,6 +483,7 @@ export {
     SenderIdentityCreated,
     SenderIdentityList,
     SenderIdentityViewModel,
+    SignerAuthenticationSettings,
     Size,
     TeamCreated,
     TeamDocumentRecords,

@@ -32,5 +32,6 @@ Name | Type | Description | Notes
 | `authenticationRetryCount` | ```number``` |   |  |
 | `enableQes` | ```boolean``` |   |  |
 | `deliveryMode` | ```string``` |   |  |
+| `authenticationSettings` | [```SignerAuthenticationSettings```](SignerAuthenticationSettings.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)
