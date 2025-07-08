@@ -29,7 +29,7 @@ export class EmbeddedDocumentRequest {
     'showPreviewButton'?: boolean = true;
     'showNavigationButtons'?: boolean = true;
     'showTooltip'?: boolean = false;
-    'embeddedSendLinkValidTill'?: Date;
+    'embeddedSendLinkValidTill'?: Date | null;
     'files'?: Array<RequestFile> | null;
     'title'?: string | null;
     'message'?: string | null;
@@ -326,10 +326,12 @@ export namespace EmbeddedDocumentRequest {
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',
         Hours = <any> 'Hours',
-        SpecificDateTime = <any> 'SpecificDateTime'
+        SpecificDateTime = <any> 'SpecificDateTime',
+        Null = <any> 'null'
     }
     export enum DocumentDownloadOptionEnum {
         Combined = <any> 'Combined',
-        Individually = <any> 'Individually'
+        Individually = <any> 'Individually',
+        Null = <any> 'null'
     }
 }

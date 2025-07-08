@@ -14,5 +14,8 @@ Name | Type | Description | Notes
 | `ipaddress` | ```string``` |   |  |
 | `action` | ```string``` |   |  |
 | `timestamp` | ```number``` |   |  |
+| `recipientChangeLog` | [```RecipientChangeLog```](RecipientChangeLog.md) |   |  |
+| `documentChangeLog` | [```ModificationDetails```](ModificationDetails.md) |   |  |
+| `fieldChangeLog` | [```ModificationDetails```](ModificationDetails.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

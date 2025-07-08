@@ -187,7 +187,8 @@ export namespace Role {
     export enum SignerTypeEnum {
         Signer = <any> 'Signer',
         Reviewer = <any> 'Reviewer',
-        InPersonSigner = <any> 'InPersonSigner'
+        InPersonSigner = <any> 'InPersonSigner',
+        Null = <any> 'null'
     }
     export enum LanguageEnum {
         NUMBER_0 = <any> 0,

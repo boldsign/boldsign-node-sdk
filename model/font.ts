@@ -76,12 +76,14 @@ export namespace Font {
         Helvetica = <any> 'Helvetica',
         Courier = <any> 'Courier',
         TimesRoman = <any> 'TimesRoman',
-        NotoSans = <any> 'NotoSans'
+        NotoSans = <any> 'NotoSans',
+        Null = <any> 'null'
     }
     export enum StyleEnum {
         Regular = <any> 'Regular',
         Bold = <any> 'Bold',
         Italic = <any> 'Italic',
-        Underline = <any> 'Underline'
+        Underline = <any> 'Underline',
+        Null = <any> 'null'
     }
 }

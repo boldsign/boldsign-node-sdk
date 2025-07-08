@@ -291,6 +291,7 @@ export namespace TemplateFormFields {
         GrowHorizontally = <any> 'GrowHorizontally',
         GrowBoth = <any> 'GrowBoth',
         Fixed = <any> 'Fixed',
-        AutoResizeFont = <any> 'AutoResizeFont'
+        AutoResizeFont = <any> 'AutoResizeFont',
+        Null = <any> 'null'
     }
 }

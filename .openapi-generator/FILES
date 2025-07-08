@@ -17,6 +17,7 @@ api/userApi.ts
 git_push.sh
 model/accessCodeDetail.ts
 model/accessCodeDetails.ts
+model/added.ts
 model/address.ts
 model/attachmentInfo.ts
 model/auditTrail.ts
@@ -96,16 +97,19 @@ model/mergeAndSendForSignForm.ts
 model/modelDate.ts
 model/modelError.ts
 model/models.ts
+model/modificationDetails.ts
 model/notificationSettings.ts
 model/pageDetails.ts
 model/phoneNumber.ts
 model/prefillField.ts
 model/prefillFieldRequest.ts
+model/recipientChangeLog.ts
 model/recipientNotificationSettings.ts
 model/rectangle.ts
 model/reminderMessage.ts
 model/reminderSettings.ts
 model/removeAuthentication.ts
+model/removed.ts
 model/revokeDocument.ts
 model/role.ts
 model/roles.ts

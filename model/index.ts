@@ -1,5 +1,6 @@
 import { AccessCodeDetail } from './accessCodeDetail';
 import { AccessCodeDetails } from './accessCodeDetails';
+import { Added } from './added';
 import { Address } from './address';
 import { AttachmentInfo } from './attachmentInfo';
 import { AuditTrail } from './auditTrail';
@@ -77,16 +78,19 @@ import { ImageInfo } from './imageInfo';
 import { MergeAndSendForSignForm } from './mergeAndSendForSignForm';
 import { ModelDate } from './modelDate';
 import { ModelError } from './modelError';
+import { ModificationDetails } from './modificationDetails';
 import { NotificationSettings } from './notificationSettings';
 import { PageDetails } from './pageDetails';
 import { PhoneNumber } from './phoneNumber';
 import { PrefillField } from './prefillField';
 import { PrefillFieldRequest } from './prefillFieldRequest';
+import { RecipientChangeLog } from './recipientChangeLog';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { Rectangle } from './rectangle';
 import { ReminderMessage } from './reminderMessage';
 import { ReminderSettings } from './reminderSettings';
 import { RemoveAuthentication } from './removeAuthentication';
+import { Removed } from './removed';
 import { RevokeDocument } from './revokeDocument';
 import { Role } from './role';
 import { Roles } from './roles';
@@ -254,6 +258,7 @@ export let enumsMap: {[index: string]: any} = {
 export let typeMap: {[index: string]: any} = {
     "AccessCodeDetail": AccessCodeDetail,
     "AccessCodeDetails": AccessCodeDetails,
+    "Added": Added,
     "Address": Address,
     "AttachmentInfo": AttachmentInfo,
     "AuditTrail": AuditTrail,
@@ -331,16 +336,19 @@ export let typeMap: {[index: string]: any} = {
     "MergeAndSendForSignForm": MergeAndSendForSignForm,
     "ModelDate": ModelDate,
     "ModelError": ModelError,
+    "ModificationDetails": ModificationDetails,
     "NotificationSettings": NotificationSettings,
     "PageDetails": PageDetails,
     "PhoneNumber": PhoneNumber,
     "PrefillField": PrefillField,
     "PrefillFieldRequest": PrefillFieldRequest,
+    "RecipientChangeLog": RecipientChangeLog,
     "RecipientNotificationSettings": RecipientNotificationSettings,
     "Rectangle": Rectangle,
     "ReminderMessage": ReminderMessage,
     "ReminderSettings": ReminderSettings,
     "RemoveAuthentication": RemoveAuthentication,
+    "Removed": Removed,
     "RevokeDocument": RevokeDocument,
     "Role": Role,
     "Roles": Roles,
@@ -388,6 +396,7 @@ export let typeMap: {[index: string]: any} = {
 export {
     AccessCodeDetail,
     AccessCodeDetails,
+    Added,
     Address,
     AttachmentInfo,
     AuditTrail,
@@ -465,16 +474,19 @@ export {
     MergeAndSendForSignForm,
     ModelDate,
     ModelError,
+    ModificationDetails,
     NotificationSettings,
     PageDetails,
     PhoneNumber,
     PrefillField,
     PrefillFieldRequest,
+    RecipientChangeLog,
     RecipientNotificationSettings,
     Rectangle,
     ReminderMessage,
     ReminderSettings,
     RemoveAuthentication,
+    Removed,
     RevokeDocument,
     Role,
     Roles,

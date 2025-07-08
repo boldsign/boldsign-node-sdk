@@ -63,11 +63,13 @@ export namespace IdentityVerificationSettings {
     export enum TypeEnum {
         EveryAccess = <any> 'EveryAccess',
         UntilSignCompleted = <any> 'UntilSignCompleted',
-        OncePerDocument = <any> 'OncePerDocument'
+        OncePerDocument = <any> 'OncePerDocument',
+        Null = <any> 'null'
     }
     export enum NameMatcherEnum {
         Strict = <any> 'Strict',
         Moderate = <any> 'Moderate',
-        Lenient = <any> 'Lenient'
+        Lenient = <any> 'Lenient',
+        Null = <any> 'null'
     }
 }

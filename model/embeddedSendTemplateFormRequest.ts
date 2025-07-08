@@ -313,10 +313,12 @@ export namespace EmbeddedSendTemplateFormRequest {
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',
         Hours = <any> 'Hours',
-        SpecificDateTime = <any> 'SpecificDateTime'
+        SpecificDateTime = <any> 'SpecificDateTime',
+        Null = <any> 'null'
     }
     export enum DocumentDownloadOptionEnum {
         Combined = <any> 'Combined',
-        Individually = <any> 'Individually'
+        Individually = <any> 'Individually',
+        Null = <any> 'null'
     }
 }

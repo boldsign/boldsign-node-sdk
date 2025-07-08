@@ -24,7 +24,7 @@ export const queryParamsSerializer = (params) => {
     return Qs.stringify(params, { arrayFormat: 'repeat' })
 }
 
-export const USER_AGENT = "boldsign-node-sdk/1.0.2";
+export const USER_AGENT = "boldsign-node-sdk/1.0.3";
 
 /**
  * Generates an object containing form data.

@@ -34,6 +34,7 @@ export namespace AuthenticationSettings {
         None = <any> 'None',
         EveryAccess = <any> 'EveryAccess',
         UntilSignCompleted = <any> 'UntilSignCompleted',
-        OncePerDocument = <any> 'OncePerDocument'
+        OncePerDocument = <any> 'OncePerDocument',
+        Null = <any> 'null'
     }
 }

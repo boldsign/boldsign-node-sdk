@@ -11,6 +11,8 @@
  */
 
 import { RequestFile } from './models';
+import { ModificationDetails } from './modificationDetails';
+import { RecipientChangeLog } from './recipientChangeLog';
 
 export class AuditTrail {
     'id'?: string | null;
@@ -21,6 +23,9 @@ export class AuditTrail {
     'ipaddress'?: string | null;
     'action'?: AuditTrail.ActionEnum;
     'timestamp'?: number;
+    'recipientChangeLog'?: RecipientChangeLog;
+    'documentChangeLog'?: ModificationDetails;
+    'fieldChangeLog'?: ModificationDetails;
 
     static discriminator: string | undefined = undefined;
 
@@ -64,6 +69,21 @@ export class AuditTrail {
             "name": "timestamp",
             "baseName": "timestamp",
             "type": "number"
+        },
+        {
+            "name": "recipientChangeLog",
+            "baseName": "recipientChangeLog",
+            "type": "RecipientChangeLog"
+        },
+        {
+            "name": "documentChangeLog",
+            "baseName": "documentChangeLog",
+            "type": "ModificationDetails"
+        },
+        {
+            "name": "fieldChangeLog",
+            "baseName": "fieldChangeLog",
+            "type": "ModificationDetails"
         }    ];
 
     static getAttributeTypeMap() {
