@@ -34,7 +34,9 @@ import { DeleteCustomFieldReply } from './deleteCustomFieldReply';
 import { Document } from './document';
 import { DocumentCC } from './documentCC';
 import { DocumentCcDetails } from './documentCcDetails';
+import { DocumentCcWebhookModel } from './documentCcWebhookModel';
 import { DocumentCreated } from './documentCreated';
+import { DocumentEvent } from './documentEvent';
 import { DocumentExpirySettings } from './documentExpirySettings';
 import { DocumentFiles } from './documentFiles';
 import { DocumentFormFields } from './documentFormFields';
@@ -42,9 +44,11 @@ import { DocumentInfo } from './documentInfo';
 import { DocumentProperties } from './documentProperties';
 import { DocumentReassign } from './documentReassign';
 import { DocumentRecords } from './documentRecords';
+import { DocumentSender } from './documentSender';
 import { DocumentSenderDetail } from './documentSenderDetail';
 import { DocumentSigner } from './documentSigner';
 import { DocumentSignerDetails } from './documentSignerDetails';
+import { DocumentSignerWebhookModel } from './documentSignerWebhookModel';
 import { DocumentTags } from './documentTags';
 import { DownloadImageRequest } from './downloadImageRequest';
 import { EditSenderIdentityRequest } from './editSenderIdentityRequest';
@@ -70,9 +74,11 @@ import { Font } from './font';
 import { FormField } from './formField';
 import { FormGroup } from './formGroup';
 import { FormulaFieldSettings } from './formulaFieldSettings';
+import { IWebhookData } from './iWebhookData';
 import { IdDocument } from './idDocument';
 import { IdReport } from './idReport';
 import { IdVerification } from './idVerification';
+import { IdentityVerificationEvent } from './identityVerificationEvent';
 import { IdentityVerificationSettings } from './identityVerificationSettings';
 import { ImageInfo } from './imageInfo';
 import { MergeAndSendForSignForm } from './mergeAndSendForSignForm';
@@ -82,6 +88,7 @@ import { ModificationDetails } from './modificationDetails';
 import { NotificationSettings } from './notificationSettings';
 import { PageDetails } from './pageDetails';
 import { PhoneNumber } from './phoneNumber';
+import { PhoneNumberWebhookModel } from './phoneNumberWebhookModel';
 import { PrefillField } from './prefillField';
 import { PrefillFieldRequest } from './prefillFieldRequest';
 import { RecipientChangeLog } from './recipientChangeLog';
@@ -97,6 +104,7 @@ import { Roles } from './roles';
 import { SendForSign } from './sendForSign';
 import { SendForSignFromTemplateForm } from './sendForSignFromTemplateForm';
 import { SenderIdentityCreated } from './senderIdentityCreated';
+import { SenderIdentityEvent } from './senderIdentityEvent';
 import { SenderIdentityList } from './senderIdentityList';
 import { SenderIdentityViewModel } from './senderIdentityViewModel';
 import { SignerAuthenticationSettings } from './signerAuthenticationSettings';
@@ -111,14 +119,18 @@ import { TeamUsers } from './teamUsers';
 import { Teams } from './teams';
 import { Template } from './template';
 import { TemplateCC } from './templateCC';
+import { TemplateCcWebhookModel } from './templateCcWebhookModel';
 import { TemplateCreated } from './templateCreated';
+import { TemplateEvent } from './templateEvent';
 import { TemplateFormFields } from './templateFormFields';
 import { TemplateProperties } from './templateProperties';
 import { TemplateRecords } from './templateRecords';
 import { TemplateRole } from './templateRole';
+import { TemplateSender } from './templateSender';
 import { TemplateSenderDetail } from './templateSenderDetail';
 import { TemplateSenderDetails } from './templateSenderDetails';
 import { TemplateSharedTemplateDetail } from './templateSharedTemplateDetail';
+import { TemplateSigner } from './templateSigner';
 import { TemplateSignerDetails } from './templateSignerDetails';
 import { TemplateTag } from './templateTag';
 import { TextTagDefinition } from './textTagDefinition';
@@ -133,6 +145,9 @@ import { Validation } from './validation';
 import { VerificationDataRequest } from './verificationDataRequest';
 import { ViewBrandDetails } from './viewBrandDetails';
 import { ViewCustomFieldDetails } from './viewCustomFieldDetails';
+import { WebhookEvent } from './webhookEvent';
+import { WebhookEventData } from './webhookEventData';
+import { WebhookEventMetadata } from './webhookEventMetadata';
 import {
     RequestDetailedFile,
     RequestFile,
@@ -160,6 +175,7 @@ export let enumsMap: {[index: string]: any} = {
         "CustomFormField.TextDirectionEnum": CustomFormField.TextDirectionEnum,
         "CustomFormField.ResizeOptionEnum": CustomFormField.ResizeOptionEnum,
         "Document.StatusEnum": Document.StatusEnum,
+        "DocumentEvent.StatusEnum": DocumentEvent.StatusEnum,
         "DocumentExpirySettings.ExpiryDateTypeEnum": DocumentExpirySettings.ExpiryDateTypeEnum,
         "DocumentFormFields.ValidationtypeEnum": DocumentFormFields.ValidationtypeEnum,
         "DocumentFormFields.TextAlignEnum": DocumentFormFields.TextAlignEnum,
@@ -182,6 +198,7 @@ export let enumsMap: {[index: string]: any} = {
         "DocumentSignerDetails.LanguageEnum": DocumentSignerDetails.LanguageEnum,
         "DocumentSignerDetails.LocaleEnum": DocumentSignerDetails.LocaleEnum,
         "DocumentSignerDetails.DeliveryModeEnum": DocumentSignerDetails.DeliveryModeEnum,
+        "DocumentSignerWebhookModel.StatusEnum": DocumentSignerWebhookModel.StatusEnum,
         "EmbeddedCreateTemplateRequest.ViewOptionEnum": EmbeddedCreateTemplateRequest.ViewOptionEnum,
         "EmbeddedCreateTemplateRequest.LocaleEnum": EmbeddedCreateTemplateRequest.LocaleEnum,
         "EmbeddedDocumentRequest.SendViewOptionEnum": EmbeddedDocumentRequest.SendViewOptionEnum,
@@ -207,6 +224,7 @@ export let enumsMap: {[index: string]: any} = {
         "FormField.TextDirectionEnum": FormField.TextDirectionEnum,
         "FormField.ResizeOptionEnum": FormField.ResizeOptionEnum,
         "FormGroup.GroupValidationEnum": FormGroup.GroupValidationEnum,
+        "IdentityVerificationEvent.StatusEnum": IdentityVerificationEvent.StatusEnum,
         "IdentityVerificationSettings.TypeEnum": IdentityVerificationSettings.TypeEnum,
         "IdentityVerificationSettings.NameMatcherEnum": IdentityVerificationSettings.NameMatcherEnum,
         "MergeAndSendForSignForm.ExpiryDateTypeEnum": MergeAndSendForSignForm.ExpiryDateTypeEnum,
@@ -229,6 +247,7 @@ export let enumsMap: {[index: string]: any} = {
         "TeamUsers.UserStatusEnum": TeamUsers.UserStatusEnum,
         "Template.StatusEnum": Template.StatusEnum,
         "Template.AccessTypeEnum": Template.AccessTypeEnum,
+        "TemplateEvent.StatusEnum": TemplateEvent.StatusEnum,
         "TemplateFormFields.ValidationtypeEnum": TemplateFormFields.ValidationtypeEnum,
         "TemplateFormFields.TextAlignEnum": TemplateFormFields.TextAlignEnum,
         "TemplateFormFields.TextDirectionEnum": TemplateFormFields.TextDirectionEnum,
@@ -240,6 +259,7 @@ export let enumsMap: {[index: string]: any} = {
         "TemplateRole.ImposeAuthenticationEnum": TemplateRole.ImposeAuthenticationEnum,
         "TemplateRole.DeliveryModeEnum": TemplateRole.DeliveryModeEnum,
         "TemplateSharedTemplateDetail.AccessTypeEnum": TemplateSharedTemplateDetail.AccessTypeEnum,
+        "TemplateSigner.StatusEnum": TemplateSigner.StatusEnum,
         "TemplateSignerDetails.StatusEnum": TemplateSignerDetails.StatusEnum,
         "TemplateSignerDetails.ImposeAuthenticationEnum": TemplateSignerDetails.ImposeAuthenticationEnum,
         "TemplateSignerDetails.DeliveryModeEnum": TemplateSignerDetails.DeliveryModeEnum,
@@ -253,6 +273,9 @@ export let enumsMap: {[index: string]: any} = {
         "UpdateUser.UserStatusEnum": UpdateUser.UserStatusEnum,
         "Validation.TypeEnum": Validation.TypeEnum,
         "ViewBrandDetails.EmailSignedDocumentEnum": ViewBrandDetails.EmailSignedDocumentEnum,
+        "WebhookEventData.StatusEnum": WebhookEventData.StatusEnum,
+        "WebhookEventMetadata.EventTypeEnum": WebhookEventMetadata.EventTypeEnum,
+        "WebhookEventMetadata.EnvironmentEnum": WebhookEventMetadata.EnvironmentEnum,
 }
 
 export let typeMap: {[index: string]: any} = {
@@ -292,7 +315,9 @@ export let typeMap: {[index: string]: any} = {
     "Document": Document,
     "DocumentCC": DocumentCC,
     "DocumentCcDetails": DocumentCcDetails,
+    "DocumentCcWebhookModel": DocumentCcWebhookModel,
     "DocumentCreated": DocumentCreated,
+    "DocumentEvent": DocumentEvent,
     "DocumentExpirySettings": DocumentExpirySettings,
     "DocumentFiles": DocumentFiles,
     "DocumentFormFields": DocumentFormFields,
@@ -300,9 +325,11 @@ export let typeMap: {[index: string]: any} = {
     "DocumentProperties": DocumentProperties,
     "DocumentReassign": DocumentReassign,
     "DocumentRecords": DocumentRecords,
+    "DocumentSender": DocumentSender,
     "DocumentSenderDetail": DocumentSenderDetail,
     "DocumentSigner": DocumentSigner,
     "DocumentSignerDetails": DocumentSignerDetails,
+    "DocumentSignerWebhookModel": DocumentSignerWebhookModel,
     "DocumentTags": DocumentTags,
     "DownloadImageRequest": DownloadImageRequest,
     "EditSenderIdentityRequest": EditSenderIdentityRequest,
@@ -328,9 +355,11 @@ export let typeMap: {[index: string]: any} = {
     "FormField": FormField,
     "FormGroup": FormGroup,
     "FormulaFieldSettings": FormulaFieldSettings,
+    "IWebhookData": IWebhookData,
     "IdDocument": IdDocument,
     "IdReport": IdReport,
     "IdVerification": IdVerification,
+    "IdentityVerificationEvent": IdentityVerificationEvent,
     "IdentityVerificationSettings": IdentityVerificationSettings,
     "ImageInfo": ImageInfo,
     "MergeAndSendForSignForm": MergeAndSendForSignForm,
@@ -340,6 +369,7 @@ export let typeMap: {[index: string]: any} = {
     "NotificationSettings": NotificationSettings,
     "PageDetails": PageDetails,
     "PhoneNumber": PhoneNumber,
+    "PhoneNumberWebhookModel": PhoneNumberWebhookModel,
     "PrefillField": PrefillField,
     "PrefillFieldRequest": PrefillFieldRequest,
     "RecipientChangeLog": RecipientChangeLog,
@@ -355,6 +385,7 @@ export let typeMap: {[index: string]: any} = {
     "SendForSign": SendForSign,
     "SendForSignFromTemplateForm": SendForSignFromTemplateForm,
     "SenderIdentityCreated": SenderIdentityCreated,
+    "SenderIdentityEvent": SenderIdentityEvent,
     "SenderIdentityList": SenderIdentityList,
     "SenderIdentityViewModel": SenderIdentityViewModel,
     "SignerAuthenticationSettings": SignerAuthenticationSettings,
@@ -369,14 +400,18 @@ export let typeMap: {[index: string]: any} = {
     "Teams": Teams,
     "Template": Template,
     "TemplateCC": TemplateCC,
+    "TemplateCcWebhookModel": TemplateCcWebhookModel,
     "TemplateCreated": TemplateCreated,
+    "TemplateEvent": TemplateEvent,
     "TemplateFormFields": TemplateFormFields,
     "TemplateProperties": TemplateProperties,
     "TemplateRecords": TemplateRecords,
     "TemplateRole": TemplateRole,
+    "TemplateSender": TemplateSender,
     "TemplateSenderDetail": TemplateSenderDetail,
     "TemplateSenderDetails": TemplateSenderDetails,
     "TemplateSharedTemplateDetail": TemplateSharedTemplateDetail,
+    "TemplateSigner": TemplateSigner,
     "TemplateSignerDetails": TemplateSignerDetails,
     "TemplateTag": TemplateTag,
     "TextTagDefinition": TextTagDefinition,
@@ -391,6 +426,9 @@ export let typeMap: {[index: string]: any} = {
     "VerificationDataRequest": VerificationDataRequest,
     "ViewBrandDetails": ViewBrandDetails,
     "ViewCustomFieldDetails": ViewCustomFieldDetails,
+    "WebhookEvent": WebhookEvent,
+    "WebhookEventData": WebhookEventData,
+    "WebhookEventMetadata": WebhookEventMetadata,
 }
 
 export {
@@ -430,7 +468,9 @@ export {
     Document,
     DocumentCC,
     DocumentCcDetails,
+    DocumentCcWebhookModel,
     DocumentCreated,
+    DocumentEvent,
     DocumentExpirySettings,
     DocumentFiles,
     DocumentFormFields,
@@ -438,9 +478,11 @@ export {
     DocumentProperties,
     DocumentReassign,
     DocumentRecords,
+    DocumentSender,
     DocumentSenderDetail,
     DocumentSigner,
     DocumentSignerDetails,
+    DocumentSignerWebhookModel,
     DocumentTags,
     DownloadImageRequest,
     EditSenderIdentityRequest,
@@ -466,9 +508,11 @@ export {
     FormField,
     FormGroup,
     FormulaFieldSettings,
+    IWebhookData,
     IdDocument,
     IdReport,
     IdVerification,
+    IdentityVerificationEvent,
     IdentityVerificationSettings,
     ImageInfo,
     MergeAndSendForSignForm,
@@ -478,6 +522,7 @@ export {
     NotificationSettings,
     PageDetails,
     PhoneNumber,
+    PhoneNumberWebhookModel,
     PrefillField,
     PrefillFieldRequest,
     RecipientChangeLog,
@@ -493,6 +538,7 @@ export {
     SendForSign,
     SendForSignFromTemplateForm,
     SenderIdentityCreated,
+    SenderIdentityEvent,
     SenderIdentityList,
     SenderIdentityViewModel,
     SignerAuthenticationSettings,
@@ -507,14 +553,18 @@ export {
     Teams,
     Template,
     TemplateCC,
+    TemplateCcWebhookModel,
     TemplateCreated,
+    TemplateEvent,
     TemplateFormFields,
     TemplateProperties,
     TemplateRecords,
     TemplateRole,
+    TemplateSender,
     TemplateSenderDetail,
     TemplateSenderDetails,
     TemplateSharedTemplateDetail,
+    TemplateSigner,
     TemplateSignerDetails,
     TemplateTag,
     TextTagDefinition,
@@ -529,6 +579,9 @@ export {
     VerificationDataRequest,
     ViewBrandDetails,
     ViewCustomFieldDetails,
+    WebhookEvent,
+    WebhookEventData,
+    WebhookEventMetadata,
     RequestDetailedFile,
     RequestFile,
     AttributeTypeMap,

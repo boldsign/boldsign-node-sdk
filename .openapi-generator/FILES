@@ -51,7 +51,9 @@ model/deleteCustomFieldReply.ts
 model/document.ts
 model/documentCC.ts
 model/documentCcDetails.ts
+model/documentCcWebhookModel.ts
 model/documentCreated.ts
+model/documentEvent.ts
 model/documentExpirySettings.ts
 model/documentFiles.ts
 model/documentFormFields.ts
@@ -59,9 +61,11 @@ model/documentInfo.ts
 model/documentProperties.ts
 model/documentReassign.ts
 model/documentRecords.ts
+model/documentSender.ts
 model/documentSenderDetail.ts
 model/documentSigner.ts
 model/documentSignerDetails.ts
+model/documentSignerWebhookModel.ts
 model/documentTags.ts
 model/downloadImageRequest.ts
 model/editSenderIdentityRequest.ts
@@ -87,9 +91,11 @@ model/font.ts
 model/formField.ts
 model/formGroup.ts
 model/formulaFieldSettings.ts
+model/iWebhookData.ts
 model/idDocument.ts
 model/idReport.ts
 model/idVerification.ts
+model/identityVerificationEvent.ts
 model/identityVerificationSettings.ts
 model/imageInfo.ts
 model/index.ts
@@ -101,6 +107,7 @@ model/modificationDetails.ts
 model/notificationSettings.ts
 model/pageDetails.ts
 model/phoneNumber.ts
+model/phoneNumberWebhookModel.ts
 model/prefillField.ts
 model/prefillFieldRequest.ts
 model/recipientChangeLog.ts
@@ -116,6 +123,7 @@ model/roles.ts
 model/sendForSign.ts
 model/sendForSignFromTemplateForm.ts
 model/senderIdentityCreated.ts
+model/senderIdentityEvent.ts
 model/senderIdentityList.ts
 model/senderIdentityViewModel.ts
 model/signerAuthenticationSettings.ts
@@ -130,14 +138,18 @@ model/teamUsers.ts
 model/teams.ts
 model/template.ts
 model/templateCC.ts
+model/templateCcWebhookModel.ts
 model/templateCreated.ts
+model/templateEvent.ts
 model/templateFormFields.ts
 model/templateProperties.ts
 model/templateRecords.ts
 model/templateRole.ts
+model/templateSender.ts
 model/templateSenderDetail.ts
 model/templateSenderDetails.ts
 model/templateSharedTemplateDetail.ts
+model/templateSigner.ts
 model/templateSignerDetails.ts
 model/templateTag.ts
 model/textTagDefinition.ts
@@ -152,5 +164,8 @@ model/validation.ts
 model/verificationDataRequest.ts
 model/viewBrandDetails.ts
 model/viewCustomFieldDetails.ts
+model/webhookEvent.ts
+model/webhookEventData.ts
+model/webhookEventMetadata.ts
 package.json
 tsconfig.json
