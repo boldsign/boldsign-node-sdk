@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `id` | ```string``` |   |  |
+| `formFieldId` | ```string``` |   |  |
 | `type` | ```string``` |   |  |
 | `value` | ```string``` |   |  |
 | `font` | ```string``` |   |  |
@@ -45,5 +46,8 @@ Name | Type | Description | Notes
 | `resizeOption` | ```string``` |   |  |
 | `allowEditFormField` | ```boolean``` |   |  |
 | `allowDeleteFormField` | ```boolean``` |   |  |
+| `collaborationSettings` | [```CollaborationSettings```](CollaborationSettings.md) |   |  |
+| `hidden` | ```boolean``` |   |  |
+| `isMasked` | ```boolean``` |   |  [default to false] |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

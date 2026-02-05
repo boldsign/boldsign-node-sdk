@@ -12,6 +12,7 @@
 
 import { RequestFile } from './models';
 import { PhoneNumber } from './phoneNumber';
+import { TemplateGroupSigner } from './templateGroupSigner';
 
 export class TemplateSignerDetails {
     'signerName'?: string | null;
@@ -31,6 +32,8 @@ export class TemplateSignerDetails {
     'hostName'?: string | null;
     'hostUserId'?: string | null;
     'signType'?: TemplateSignerDetails.SignTypeEnum;
+    'groupId'?: string | null;
+    'groupSigners'?: Array<TemplateGroupSigner> | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -119,6 +122,16 @@ export class TemplateSignerDetails {
             "name": "signType",
             "baseName": "signType",
             "type": "TemplateSignerDetails.SignTypeEnum"
+        },
+        {
+            "name": "groupId",
+            "baseName": "groupId",
+            "type": "string"
+        },
+        {
+            "name": "groupSigners",
+            "baseName": "groupSigners",
+            "type": "Array<TemplateGroupSigner>"
         }    ];
 
     static getAttributeTypeMap() {

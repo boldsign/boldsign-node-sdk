@@ -12,6 +12,7 @@
 
 import { RequestFile } from './models';
 import { AttachmentInfo } from './attachmentInfo';
+import { CollaborationSettings } from './collaborationSettings';
 import { ConditionalRule } from './conditionalRule';
 import { EditableDateFieldSettings } from './editableDateFieldSettings';
 import { FileInfo } from './fileInfo';
@@ -21,6 +22,7 @@ import { Rectangle } from './rectangle';
 
 export class DocumentFormFields {
     'id'?: string | null;
+    'formFieldId'?: string | null;
     'type'?: string | null;
     'value'?: string | null;
     'font'?: string | null;
@@ -59,6 +61,9 @@ export class DocumentFormFields {
     'resizeOption'?: DocumentFormFields.ResizeOptionEnum;
     'allowEditFormField'?: boolean;
     'allowDeleteFormField'?: boolean;
+    'collaborationSettings'?: CollaborationSettings;
+    'hidden'?: boolean;
+    'isMasked'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -66,6 +71,11 @@ export class DocumentFormFields {
         {
             "name": "id",
             "baseName": "id",
+            "type": "string"
+        },
+        {
+            "name": "formFieldId",
+            "baseName": "formFieldId",
             "type": "string"
         },
         {
@@ -257,6 +267,21 @@ export class DocumentFormFields {
             "name": "allowDeleteFormField",
             "baseName": "allowDeleteFormField",
             "type": "boolean"
+        },
+        {
+            "name": "collaborationSettings",
+            "baseName": "collaborationSettings",
+            "type": "CollaborationSettings"
+        },
+        {
+            "name": "hidden",
+            "baseName": "hidden",
+            "type": "boolean"
+        },
+        {
+            "name": "isMasked",
+            "baseName": "isMasked",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -286,7 +311,6 @@ export namespace DocumentFormFields {
         GrowHorizontally = <any> 'GrowHorizontally',
         GrowBoth = <any> 'GrowBoth',
         Fixed = <any> 'Fixed',
-        AutoResizeFont = <any> 'AutoResizeFont',
-        Null = <any> 'null'
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

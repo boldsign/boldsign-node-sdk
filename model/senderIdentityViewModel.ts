@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { NotificationSettings } from './notificationSettings';
 
 export class SenderIdentityViewModel {
+    'id'?: string | null;
     'name'?: string | null;
     'email'?: string | null;
     'status'?: string | null;
@@ -23,10 +24,16 @@ export class SenderIdentityViewModel {
     'brandId'?: string | null;
     'redirectUrl'?: string | null;
     'metaData'?: { [key: string]: string | null; } | null;
+    'locale'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string"
+        },
         {
             "name": "name",
             "baseName": "name",
@@ -71,6 +78,11 @@ export class SenderIdentityViewModel {
             "name": "metaData",
             "baseName": "metaData",
             "type": "{ [key: string]: string | null; }"
+        },
+        {
+            "name": "locale",
+            "baseName": "locale",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

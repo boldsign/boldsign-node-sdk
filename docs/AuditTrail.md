@@ -9,8 +9,12 @@ Name | Type | Description | Notes
 | `id` | ```string``` |   |  |
 | `name` | ```string``` |   |  |
 | `email` | ```string``` |   |  |
+| `fromName` | ```string``` |   |  |
+| `fromEmail` | ```string``` |   |  |
+| `fromPhoneNumber` | ```string``` |   |  |
 | `toName` | ```string``` |   |  |
 | `toEmail` | ```string``` |   |  |
+| `toPhoneNumber` | ```string``` |   |  |
 | `ipaddress` | ```string``` |   |  |
 | `action` | ```string``` |   |  |
 | `timestamp` | ```number``` |   |  |

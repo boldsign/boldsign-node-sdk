@@ -46,5 +46,9 @@ Name | Type | Description | Notes
 | `enableAuditTrailLocalization` | ```boolean``` |   |  |
 | `downloadFileName` | ```string``` |   |  |
 | `scheduledSendTime` | ```number``` |   |  |
+| `allowedSignatureTypes` | ```Array<string>``` |   |  |
+| `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
+| `inEditingMode` | ```boolean``` |   |  |
+| `displayStatus` | ```string``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

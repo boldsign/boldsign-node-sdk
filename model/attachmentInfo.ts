@@ -14,9 +14,9 @@ import { RequestFile } from './models';
 
 export class AttachmentInfo {
     'title': string | null;
-    'allowedFileTypes': string | null;
+    'acceptedFileTypes': Array<string> | null;
     'description'?: string | null;
-    'acceptedFileTypes'?: Array<string> | null;
+    'allowedFileTypes'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -27,9 +27,9 @@ export class AttachmentInfo {
             "type": "string"
         },
         {
-            "name": "allowedFileTypes",
-            "baseName": "allowedFileTypes",
-            "type": "string"
+            "name": "acceptedFileTypes",
+            "baseName": "acceptedFileTypes",
+            "type": "Array<string>"
         },
         {
             "name": "description",
@@ -37,9 +37,9 @@ export class AttachmentInfo {
             "type": "string"
         },
         {
-            "name": "acceptedFileTypes",
-            "baseName": "acceptedFileTypes",
-            "type": "Array<string>"
+            "name": "allowedFileTypes",
+            "baseName": "allowedFileTypes",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

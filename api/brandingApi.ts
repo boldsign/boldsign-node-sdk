@@ -215,6 +215,7 @@ export class BrandingApi {
      * @param isDefault 
      * @param canHideTagLine 
      * @param combineAuditTrail 
+     * @param combineAttachments 
      * @param excludeAuditTrailFromEmail 
      * @param emailSignedDocument 
      * @param documentTimeZone 
@@ -231,9 +232,13 @@ export class BrandingApi {
      * @param documentExpirySettingsReminderCount 
      * @param customDomainSettingsDomainName 
      * @param customDomainSettingsFromName 
+     * @param signatureFrameSettingsEnableSignatureFrame 
+     * @param signatureFrameSettingsShowRecipientName 
+     * @param signatureFrameSettingsShowRecipientEmail 
+     * @param signatureFrameSettingsShowTimeStamp 
      * @param options
      */
-    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
+    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/create';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -310,6 +315,10 @@ export class BrandingApi {
             localVarFormParams['CombineAuditTrail'] = ObjectSerializer.serialize(combineAuditTrail, "boolean");
         }
 
+        if (combineAttachments !== undefined) {
+            localVarFormParams['CombineAttachments'] = ObjectSerializer.serialize(combineAttachments, "boolean");
+        }
+
         if (excludeAuditTrailFromEmail !== undefined) {
             localVarFormParams['ExcludeAuditTrailFromEmail'] = ObjectSerializer.serialize(excludeAuditTrailFromEmail, "boolean");
         }
@@ -372,6 +381,22 @@ export class BrandingApi {
 
         if (customDomainSettingsFromName !== undefined) {
             localVarFormParams['CustomDomainSettings.FromName'] = ObjectSerializer.serialize(customDomainSettingsFromName, "string");
+        }
+
+        if (signatureFrameSettingsEnableSignatureFrame !== undefined) {
+            localVarFormParams['SignatureFrameSettings.EnableSignatureFrame'] = ObjectSerializer.serialize(signatureFrameSettingsEnableSignatureFrame, "boolean");
+        }
+
+        if (signatureFrameSettingsShowRecipientName !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowRecipientName'] = ObjectSerializer.serialize(signatureFrameSettingsShowRecipientName, "boolean");
+        }
+
+        if (signatureFrameSettingsShowRecipientEmail !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowRecipientEmail'] = ObjectSerializer.serialize(signatureFrameSettingsShowRecipientEmail, "boolean");
+        }
+
+        if (signatureFrameSettingsShowTimeStamp !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowTimeStamp'] = ObjectSerializer.serialize(signatureFrameSettingsShowTimeStamp, "boolean");
         }
 
         let data = {};
@@ -603,6 +628,7 @@ export class BrandingApi {
      * @param isDefault 
      * @param canHideTagLine 
      * @param combineAuditTrail 
+     * @param combineAttachments 
      * @param excludeAuditTrailFromEmail 
      * @param emailSignedDocument 
      * @param documentTimeZone 
@@ -619,9 +645,13 @@ export class BrandingApi {
      * @param documentExpirySettingsReminderCount 
      * @param customDomainSettingsDomainName 
      * @param customDomainSettingsFromName 
+     * @param signatureFrameSettingsEnableSignatureFrame 
+     * @param signatureFrameSettingsShowRecipientName 
+     * @param signatureFrameSettingsShowRecipientEmail 
+     * @param signatureFrameSettingsShowTimeStamp 
      * @param options
      */
-    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
+    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/edit';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -697,6 +727,10 @@ export class BrandingApi {
             localVarFormParams['CombineAuditTrail'] = ObjectSerializer.serialize(combineAuditTrail, "boolean");
         }
 
+        if (combineAttachments !== undefined) {
+            localVarFormParams['CombineAttachments'] = ObjectSerializer.serialize(combineAttachments, "boolean");
+        }
+
         if (excludeAuditTrailFromEmail !== undefined) {
             localVarFormParams['ExcludeAuditTrailFromEmail'] = ObjectSerializer.serialize(excludeAuditTrailFromEmail, "boolean");
         }
@@ -759,6 +793,22 @@ export class BrandingApi {
 
         if (customDomainSettingsFromName !== undefined) {
             localVarFormParams['CustomDomainSettings.FromName'] = ObjectSerializer.serialize(customDomainSettingsFromName, "string");
+        }
+
+        if (signatureFrameSettingsEnableSignatureFrame !== undefined) {
+            localVarFormParams['SignatureFrameSettings.EnableSignatureFrame'] = ObjectSerializer.serialize(signatureFrameSettingsEnableSignatureFrame, "boolean");
+        }
+
+        if (signatureFrameSettingsShowRecipientName !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowRecipientName'] = ObjectSerializer.serialize(signatureFrameSettingsShowRecipientName, "boolean");
+        }
+
+        if (signatureFrameSettingsShowRecipientEmail !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowRecipientEmail'] = ObjectSerializer.serialize(signatureFrameSettingsShowRecipientEmail, "boolean");
+        }
+
+        if (signatureFrameSettingsShowTimeStamp !== undefined) {
+            localVarFormParams['SignatureFrameSettings.ShowTimeStamp'] = ObjectSerializer.serialize(signatureFrameSettingsShowTimeStamp, "boolean");
         }
 
         let data = {};

@@ -40,7 +40,10 @@ Name | Type | Description | Notes
 | `onBehalfOf` | ```string``` |   |  |
 | `labels` | ```Array<string>``` |   |  |
 | `templateLabels` | ```Array<string>``` |   |  |
-| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `formGroups` | [```Array<FormGroup>```](FormGroup.md) |   |  |
+| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
+| `allowedSignatureTypes` | ```Array<string>``` |   |  |
+| `formFieldPermission` | [```FormFieldPermission```](FormFieldPermission.md) |   |  |
+| `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

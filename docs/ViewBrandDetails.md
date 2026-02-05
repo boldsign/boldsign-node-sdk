@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 | `isDefault` | ```boolean``` |   |  |
 | `canHideTagLine` | ```boolean``` |   |  |
 | `combineAuditTrail` | ```boolean``` |   |  |
+| `combineAttachments` | ```boolean``` |   |  |
 | `excludeAuditTrailFromEmail` | ```boolean``` |   |  |
 | `emailSignedDocument` | ```string``` |   |  |
 | `documentTimeZone` | ```string``` |   |  |
@@ -30,5 +31,6 @@ Name | Type | Description | Notes
 | `documentExpirySettings` | [```DocumentExpirySettings```](DocumentExpirySettings.md) |   |  |
 | `customDomainSettings` | [```CustomDomainSettings```](CustomDomainSettings.md) |   |  |
 | `isDomainVerified` | ```boolean``` |   |  |
+| `signatureFrameSettings` | [```SignatureFrameSettings```](SignatureFrameSettings.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

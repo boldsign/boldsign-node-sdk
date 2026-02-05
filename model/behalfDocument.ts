@@ -34,6 +34,8 @@ export class BehalfDocument {
     'cursor'?: number;
     'brandId'?: string | null;
     'scheduledSendTime'?: number | null;
+    'inEditingMode'?: boolean;
+    'displayStatus'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -122,6 +124,16 @@ export class BehalfDocument {
             "name": "scheduledSendTime",
             "baseName": "scheduledSendTime",
             "type": "number"
+        },
+        {
+            "name": "inEditingMode",
+            "baseName": "inEditingMode",
+            "type": "boolean"
+        },
+        {
+            "name": "displayStatus",
+            "baseName": "displayStatus",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

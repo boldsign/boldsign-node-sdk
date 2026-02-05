@@ -45,12 +45,14 @@ Name | Type | Description | Notes
 | `roleRemovalIndices` | ```Array<number>``` |   |  |
 | `documentDownloadOption` | ```string``` |   |  |
 | `metaData` | ```{ [key: string]: string | null; }``` |   |  |
-| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `formGroups` | [```Array<FormGroup>```](FormGroup.md) |   |  |
 | `removeFormFields` | ```Array<string>``` |   |  |
+| `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
 | `enableAuditTrailLocalization` | ```boolean``` |   |  |
 | `downloadFileName` | ```string``` |   |  |
 | `scheduledSendTime` | ```number``` |   |  |
 | `allowScheduledSend` | ```boolean``` |   |  [default to false] |
+| `allowedSignatureTypes` | ```Array<string>``` |   |  |
+| `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

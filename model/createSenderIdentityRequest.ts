@@ -20,6 +20,7 @@ export class CreateSenderIdentityRequest {
     'brandId'?: string | null;
     'redirectUrl'?: string | null;
     'metaData'?: { [key: string]: string | null; } | null;
+    'locale'?: CreateSenderIdentityRequest.LocaleEnum;
 
     static discriminator: string | undefined = undefined;
 
@@ -53,6 +54,11 @@ export class CreateSenderIdentityRequest {
             "name": "metaData",
             "baseName": "metaData",
             "type": "{ [key: string]: string | null; }"
+        },
+        {
+            "name": "locale",
+            "baseName": "locale",
+            "type": "CreateSenderIdentityRequest.LocaleEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -60,3 +66,28 @@ export class CreateSenderIdentityRequest {
     }
 }
 
+export namespace CreateSenderIdentityRequest {
+    export enum LocaleEnum {
+        En = <any> 'EN',
+        No = <any> 'NO',
+        Fr = <any> 'FR',
+        De = <any> 'DE',
+        Es = <any> 'ES',
+        Bg = <any> 'BG',
+        Cs = <any> 'CS',
+        Da = <any> 'DA',
+        It = <any> 'IT',
+        Nl = <any> 'NL',
+        Pl = <any> 'PL',
+        Pt = <any> 'PT',
+        Ro = <any> 'RO',
+        Ru = <any> 'RU',
+        Sv = <any> 'SV',
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
+    }
+}

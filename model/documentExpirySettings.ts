@@ -63,7 +63,6 @@ export namespace DocumentExpirySettings {
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',
         Hours = <any> 'Hours',
-        SpecificDateTime = <any> 'SpecificDateTime',
-        Null = <any> 'null'
+        SpecificDateTime = <any> 'SpecificDateTime'
     }
 }

@@ -13,6 +13,7 @@
 import { RequestFile } from './models';
 import { CustomDomainSettings } from './customDomainSettings';
 import { DocumentExpirySettings } from './documentExpirySettings';
+import { SignatureFrameSettings } from './signatureFrameSettings';
 
 export class ViewBrandDetails {
     'brandId'?: string | null;
@@ -28,6 +29,7 @@ export class ViewBrandDetails {
     'isDefault'?: boolean;
     'canHideTagLine'?: boolean;
     'combineAuditTrail'?: boolean;
+    'combineAttachments'?: boolean;
     'excludeAuditTrailFromEmail'?: boolean;
     'emailSignedDocument'?: ViewBrandDetails.EmailSignedDocumentEnum;
     'documentTimeZone'?: string | null;
@@ -39,6 +41,7 @@ export class ViewBrandDetails {
     'documentExpirySettings'?: DocumentExpirySettings;
     'customDomainSettings'?: CustomDomainSettings;
     'isDomainVerified'?: boolean;
+    'signatureFrameSettings'?: SignatureFrameSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -109,6 +112,11 @@ export class ViewBrandDetails {
             "type": "boolean"
         },
         {
+            "name": "combineAttachments",
+            "baseName": "combineAttachments",
+            "type": "boolean"
+        },
+        {
             "name": "excludeAuditTrailFromEmail",
             "baseName": "excludeAuditTrailFromEmail",
             "type": "boolean"
@@ -162,6 +170,11 @@ export class ViewBrandDetails {
             "name": "isDomainVerified",
             "baseName": "isDomainVerified",
             "type": "boolean"
+        },
+        {
+            "name": "signatureFrameSettings",
+            "baseName": "signatureFrameSettings",
+            "type": "SignatureFrameSettings"
         }    ];
 
     static getAttributeTypeMap() {

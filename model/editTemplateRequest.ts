@@ -13,7 +13,9 @@
 import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
+import { FormFieldPermission } from './formFieldPermission';
 import { FormGroup } from './formGroup';
+import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { TemplateRole } from './templateRole';
 
@@ -37,6 +39,9 @@ export class EditTemplateRequest {
     'templateLabels'?: Array<string> | null;
     'formGroups'?: Array<FormGroup> | null;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
+    'allowedSignatureTypes'?: Array<EditTemplateRequest.AllowedSignatureTypesEnum>;
+    'formFieldPermission'?: FormFieldPermission;
+    'groupSignerSettings'?: GroupSignerSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -135,6 +140,21 @@ export class EditTemplateRequest {
             "name": "recipientNotificationSettings",
             "baseName": "recipientNotificationSettings",
             "type": "RecipientNotificationSettings"
+        },
+        {
+            "name": "allowedSignatureTypes",
+            "baseName": "allowedSignatureTypes",
+            "type": "Array<EditTemplateRequest.AllowedSignatureTypesEnum>"
+        },
+        {
+            "name": "formFieldPermission",
+            "baseName": "formFieldPermission",
+            "type": "FormFieldPermission"
+        },
+        {
+            "name": "groupSignerSettings",
+            "baseName": "groupSignerSettings",
+            "type": "GroupSignerSettings"
         }    ];
 
     static getAttributeTypeMap() {
@@ -142,3 +162,10 @@ export class EditTemplateRequest {
     }
 }
 
+export namespace EditTemplateRequest {
+    export enum AllowedSignatureTypesEnum {
+        Text = <any> 'Text',
+        Draw = <any> 'Draw',
+        Image = <any> 'Image'
+    }
+}

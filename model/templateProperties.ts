@@ -12,14 +12,17 @@
 
 import { RequestFile } from './models';
 import { BehalfOf } from './behalfOf';
-import { DocumentFiles } from './documentFiles';
 import { DocumentInfo } from './documentInfo';
+import { FormFieldPermission } from './formFieldPermission';
 import { FormGroup } from './formGroup';
+import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { Roles } from './roles';
+import { TemplateFiles } from './templateFiles';
 import { TemplateFormFields } from './templateFormFields';
 import { TemplateSenderDetail } from './templateSenderDetail';
 import { TemplateSharedTemplateDetail } from './templateSharedTemplateDetail';
+import { TemplateSharing } from './templateSharing';
 
 export class TemplateProperties {
     'templateId'?: string | null;
@@ -27,7 +30,7 @@ export class TemplateProperties {
     'description'?: string | null;
     'documentTitle'?: string | null;
     'documentMessage'?: string | null;
-    'files'?: Array<DocumentFiles> | null;
+    'files'?: Array<TemplateFiles> | null;
     'roles'?: Array<Roles> | null;
     'formGroups'?: Array<FormGroup> | null;
     'commonFields'?: Array<TemplateFormFields> | null;
@@ -49,6 +52,10 @@ export class TemplateProperties {
     'behalfOf'?: BehalfOf;
     'documentDownloadOption'?: TemplateProperties.DocumentDownloadOptionEnum;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
+    'formFieldPermission'?: FormFieldPermission;
+    'allowedSignatureTypes'?: Array<TemplateProperties.AllowedSignatureTypesEnum>;
+    'groupSignerSettings'?: GroupSignerSettings;
+    'sharing'?: TemplateSharing;
 
     static discriminator: string | undefined = undefined;
 
@@ -81,7 +88,7 @@ export class TemplateProperties {
         {
             "name": "files",
             "baseName": "files",
-            "type": "Array<DocumentFiles>"
+            "type": "Array<TemplateFiles>"
         },
         {
             "name": "roles",
@@ -187,6 +194,26 @@ export class TemplateProperties {
             "name": "recipientNotificationSettings",
             "baseName": "recipientNotificationSettings",
             "type": "RecipientNotificationSettings"
+        },
+        {
+            "name": "formFieldPermission",
+            "baseName": "formFieldPermission",
+            "type": "FormFieldPermission"
+        },
+        {
+            "name": "allowedSignatureTypes",
+            "baseName": "allowedSignatureTypes",
+            "type": "Array<TemplateProperties.AllowedSignatureTypesEnum>"
+        },
+        {
+            "name": "groupSignerSettings",
+            "baseName": "groupSignerSettings",
+            "type": "GroupSignerSettings"
+        },
+        {
+            "name": "sharing",
+            "baseName": "sharing",
+            "type": "TemplateSharing"
         }    ];
 
     static getAttributeTypeMap() {
@@ -198,5 +225,10 @@ export namespace TemplateProperties {
     export enum DocumentDownloadOptionEnum {
         Combined = <any> 'Combined',
         Individually = <any> 'Individually'
+    }
+    export enum AllowedSignatureTypesEnum {
+        Text = <any> 'Text',
+        Draw = <any> 'Draw',
+        Image = <any> 'Image'
     }
 }

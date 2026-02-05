@@ -16,6 +16,7 @@ export class EditableDateFieldSettings {
     'dateFormat': string | null;
     'minDate'?: Date | null;
     'maxDate'?: Date | null;
+    'timeFormat'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -34,6 +35,11 @@ export class EditableDateFieldSettings {
             "name": "maxDate",
             "baseName": "maxDate",
             "type": "Date"
+        },
+        {
+            "name": "timeFormat",
+            "baseName": "timeFormat",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
