@@ -24,7 +24,7 @@ export const queryParamsSerializer = (params) => {
     return Qs.stringify(params, { arrayFormat: 'repeat' })
 }
 
-export const USER_AGENT = "boldsign-node-sdk/1.0.3";
+export const USER_AGENT = "boldsign-node-sdk/3.0.3";
 
 /**
  * Generates an object containing form data.
@@ -109,6 +109,18 @@ export const generateFormData = (
       return;
     }
 
+    // Special handling for dictionary/metadata objects with signature { [key: string]: string | null; }
+    if (paramInfo.type.includes("{ [key: string]:") && typeof obj[paramInfo.name] === "object" && obj[paramInfo.name] !== null) {
+      // For metadata objects, we need to send each key-value pair separately
+      Object.keys(obj[paramInfo.name]).forEach((key) => {
+        const value = obj[paramInfo.name][key];
+        if (value !== null && value !== undefined) {
+          data[`${paramInfo.baseName}[${key}]`] = value.toString();
+        }
+      });
+      return;
+    }
+    
     /**
      * Everything else that is not binary data (file uploads) can be
      * serialized to JSON and sent over. This helps reduce complexity
@@ -135,15 +147,31 @@ export const toFormData = (obj: object): any => {
   const form = new formData();
 
   Object.keys(obj).forEach((key) => {
-    if (isBufferDetailedFile(obj[key])) {
+    if (Array.isArray(obj[key])) {
+      obj[key].forEach(function (item, index) {
+        // Handle RequestDetailedFile objects in arrays
+        if (isBufferDetailedFile(item)) {
+          form.append(key, item.value, item.options);
+        }
+        // Handle ReadStream objects in arrays
+        else if (item && typeof item === 'object' && typeof item.pipe === 'function') {
+          form.append(key, item);
+        }
+        // Handle other values
+        else {
+          form.append(key, item);
+        }
+      });
+    } 
+    else if (isBufferDetailedFile(obj[key])) {
       form.append(key, obj[key].value, obj[key].options);
       return;
     }
-    else if (Array.isArray(obj[key])) {
-      obj[key].forEach(function (item, index) {
-        form.append(key, item);
-      });
-    } else {
+    else if (obj[key] && typeof obj[key] === 'object' && typeof obj[key].pipe === 'function') {
+      // Handle ReadStream objects
+      form.append(key, obj[key]);
+    } 
+    else {
       const value = (typeof obj[key] !== 'object') ? obj[key].toString(): obj[key];
       form.append(key, value);
     }
@@ -153,9 +181,13 @@ export const toFormData = (obj: object): any => {
 };
 
 function isBufferDetailedFile(obj: any): obj is RequestDetailedFile {
-  return (<RequestDetailedFile>obj).value !== undefined
+  return obj !== null 
+    && obj !== undefined
+    && typeof obj === 'object'
+    && (<RequestDetailedFile>obj).value !== undefined
     && Buffer.isBuffer(obj.value)
     && (<RequestDetailedFile>obj).options !== undefined
+    && typeof (<RequestDetailedFile>obj).options === 'object'
     && (<RequestDetailedFile>obj).options?.filename !== undefined
     && (<RequestDetailedFile>obj).options?.contentType !== undefined
 }

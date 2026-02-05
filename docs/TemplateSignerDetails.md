@@ -23,5 +23,7 @@ Name | Type | Description | Notes
 | `hostName` | ```string``` |   |  |
 | `hostUserId` | ```string``` |   |  |
 | `signType` | ```string``` |   |  |
+| `groupId` | ```string``` |   |  |
+| `groupSigners` | [```Array<TemplateGroupSigner>```](TemplateGroupSigner.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

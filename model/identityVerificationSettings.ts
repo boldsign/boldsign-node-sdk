@@ -19,6 +19,7 @@ export class IdentityVerificationSettings {
     'requireMatchingSelfie'?: boolean | null;
     'nameMatcher'?: IdentityVerificationSettings.NameMatcherEnum;
     'holdForPrefill'?: boolean | null;
+    'allowedDocumentTypes'?: Array<IdentityVerificationSettings.AllowedDocumentTypesEnum>;
 
     static discriminator: string | undefined = undefined;
 
@@ -52,6 +53,11 @@ export class IdentityVerificationSettings {
             "name": "holdForPrefill",
             "baseName": "holdForPrefill",
             "type": "boolean"
+        },
+        {
+            "name": "allowedDocumentTypes",
+            "baseName": "allowedDocumentTypes",
+            "type": "Array<IdentityVerificationSettings.AllowedDocumentTypesEnum>"
         }    ];
 
     static getAttributeTypeMap() {
@@ -63,13 +69,16 @@ export namespace IdentityVerificationSettings {
     export enum TypeEnum {
         EveryAccess = <any> 'EveryAccess',
         UntilSignCompleted = <any> 'UntilSignCompleted',
-        OncePerDocument = <any> 'OncePerDocument',
-        Null = <any> 'null'
+        OncePerDocument = <any> 'OncePerDocument'
     }
     export enum NameMatcherEnum {
         Strict = <any> 'Strict',
         Moderate = <any> 'Moderate',
-        Lenient = <any> 'Lenient',
-        Null = <any> 'null'
+        Lenient = <any> 'Lenient'
+    }
+    export enum AllowedDocumentTypesEnum {
+        Passport = <any> 'Passport',
+        IdCard = <any> 'IDCard',
+        DriverLicense = <any> 'DriverLicense'
     }
 }

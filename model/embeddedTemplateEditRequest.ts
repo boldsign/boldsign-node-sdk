@@ -110,6 +110,11 @@ export namespace EmbeddedTemplateEditRequest {
         Ro = <any> 'RO',
         Ru = <any> 'RU',
         Sv = <any> 'SV',
-        Default = <any> 'Default'
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
     }
 }

@@ -21,6 +21,7 @@ export class IdVerification {
     'requireMatchingSelfie'?: boolean | null;
     'holdForPrefill'?: boolean | null;
     'prefillCompleted'?: boolean | null;
+    'allowedDocumentTypes'?: Array<string> | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -64,6 +65,11 @@ export class IdVerification {
             "name": "prefillCompleted",
             "baseName": "prefillCompleted",
             "type": "boolean"
+        },
+        {
+            "name": "allowedDocumentTypes",
+            "baseName": "allowedDocumentTypes",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {

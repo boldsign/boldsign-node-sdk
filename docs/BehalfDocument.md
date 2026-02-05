@@ -23,5 +23,7 @@ Name | Type | Description | Notes
 | `cursor` | ```number``` |   |  |
 | `brandId` | ```string``` |   |  |
 | `scheduledSendTime` | ```number``` |   |  |
+| `inEditingMode` | ```boolean``` |   |  |
+| `displayStatus` | ```string``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

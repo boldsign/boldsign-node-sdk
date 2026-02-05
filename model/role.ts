@@ -37,10 +37,12 @@ export class Role {
     'existingFormFields'?: Array<ExistingFormField> | null;
     'identityVerificationSettings'?: IdentityVerificationSettings;
     /**
-    * <p>Description:</p><ul><li><i>0</i> - None</li><li><i>1</i> - English</li><li><i>2</i> - Spanish</li><li><i>3</i> - German</li><li><i>4</i> - French</li><li><i>5</i> - Romanian</li><li><i>6</i> - Norwegian</li><li><i>7</i> - Bulgarian</li><li><i>8</i> - Italian</li><li><i>9</i> - Danish</li><li><i>10</i> - Polish</li><li><i>11</i> - Portuguese</li><li><i>12</i> - Czech</li><li><i>13</i> - Dutch</li><li><i>14</i> - Swedish</li><li><i>15</i> - Russian</li></ul>
+    * <p>Description:</p><ul><li><i>0</i> - None</li><li><i>1</i> - English</li><li><i>2</i> - Spanish</li><li><i>3</i> - German</li><li><i>4</i> - French</li><li><i>5</i> - Romanian</li><li><i>6</i> - Norwegian</li><li><i>7</i> - Bulgarian</li><li><i>8</i> - Italian</li><li><i>9</i> - Danish</li><li><i>10</i> - Polish</li><li><i>11</i> - Portuguese</li><li><i>12</i> - Czech</li><li><i>13</i> - Dutch</li><li><i>14</i> - Swedish</li><li><i>15</i> - Russian</li><li><i>16</i> - Japanese</li><li><i>17</i> - Thai</li><li><i>18</i> - SimplifiedChinese</li><li><i>19</i> - TraditionalChinese</li><li><i>20</i> - Korean</li></ul>
     */
     'language'?: Role.LanguageEnum;
     'locale'?: Role.LocaleEnum;
+    'signType'?: Role.SignTypeEnum;
+    'groupId'?: string | null;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
     'authenticationRetryCount'?: number | null;
     'enableQes'?: boolean | null;
@@ -145,6 +147,16 @@ export class Role {
             "type": "Role.LocaleEnum"
         },
         {
+            "name": "signType",
+            "baseName": "signType",
+            "type": "Role.SignTypeEnum"
+        },
+        {
+            "name": "groupId",
+            "baseName": "groupId",
+            "type": "string"
+        },
+        {
             "name": "recipientNotificationSettings",
             "baseName": "recipientNotificationSettings",
             "type": "RecipientNotificationSettings"
@@ -187,8 +199,7 @@ export namespace Role {
     export enum SignerTypeEnum {
         Signer = <any> 'Signer',
         Reviewer = <any> 'Reviewer',
-        InPersonSigner = <any> 'InPersonSigner',
-        Null = <any> 'null'
+        InPersonSigner = <any> 'InPersonSigner'
     }
     export enum LanguageEnum {
         NUMBER_0 = <any> 0,
@@ -206,7 +217,12 @@ export namespace Role {
         NUMBER_12 = <any> 12,
         NUMBER_13 = <any> 13,
         NUMBER_14 = <any> 14,
-        NUMBER_15 = <any> 15
+        NUMBER_15 = <any> 15,
+        NUMBER_16 = <any> 16,
+        NUMBER_17 = <any> 17,
+        NUMBER_18 = <any> 18,
+        NUMBER_19 = <any> 19,
+        NUMBER_20 = <any> 20
     }
     export enum LocaleEnum {
         En = <any> 'EN',
@@ -224,6 +240,15 @@ export namespace Role {
         Ro = <any> 'RO',
         Ru = <any> 'RU',
         Sv = <any> 'SV',
-        Default = <any> 'Default'
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
+    }
+    export enum SignTypeEnum {
+        Single = <any> 'Single',
+        Group = <any> 'Group'
     }
 }

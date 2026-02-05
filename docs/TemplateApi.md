@@ -5,6 +5,7 @@ All URIs are relative to https://api.boldsign.com.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addTag()**](TemplateApi.md#addTag) | **PATCH** /v1/template/addTags | Add the Tags in Templates. |
+| [**createEmbeddedPreviewUrl()**](TemplateApi.md#createEmbeddedPreviewUrl) | **POST** /v1/template/createEmbeddedPreviewUrl | Generates a preview URL for a template to view it. |
 | [**createEmbeddedRequestUrlTemplate()**](TemplateApi.md#createEmbeddedRequestUrlTemplate) | **POST** /v1/template/createEmbeddedRequestUrl | Generates a send URL using a template which embeds document sending process into your application. |
 | [**createEmbeddedTemplateUrl()**](TemplateApi.md#createEmbeddedTemplateUrl) | **POST** /v1/template/createEmbeddedTemplateUrl | Generates a create URL to embeds template create process into your application. |
 | [**createTemplate()**](TemplateApi.md#createTemplate) | **POST** /v1/template/create | Creates a new template. |
@@ -47,6 +48,39 @@ void (empty response body)
 
 - **Content-Type**: `application/json;odata.metadata=minimal;odata.streaming=true`, `application/json;odata.metadata=minimal;odata.streaming=false`, `application/json;odata.metadata=minimal`, `application/json;odata.metadata=full;odata.streaming=true`, `application/json;odata.metadata=full;odata.streaming=false`, `application/json;odata.metadata=full`, `application/json;odata.metadata=none;odata.streaming=true`, `application/json;odata.metadata=none;odata.streaming=false`, `application/json;odata.metadata=none`, `application/json;odata.streaming=true`, `application/json;odata.streaming=false`, `application/json`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=full;IEEE754Compatible=false`, `application/json;odata.metadata=full;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=true`, `application/json;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.streaming=false;IEEE754Compatible=true`, `application/json;IEEE754Compatible=false`, `application/json;IEEE754Compatible=true`, `application/xml`, `text/plain`, `application/json-patch+json`, `text/json`, `application/*+json`
 - **Accept**: `application/json;odata.metadata=minimal;odata.streaming=true`, `application/json;odata.metadata=minimal;odata.streaming=false`, `application/json;odata.metadata=minimal`, `application/json;odata.metadata=full;odata.streaming=true`, `application/json;odata.metadata=full;odata.streaming=false`, `application/json;odata.metadata=full`, `application/json;odata.metadata=none;odata.streaming=true`, `application/json;odata.metadata=none;odata.streaming=false`, `application/json;odata.metadata=none`, `application/json;odata.streaming=true`, `application/json;odata.streaming=false`, `application/json`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=full;IEEE754Compatible=false`, `application/json;odata.metadata=full;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=true`, `application/json;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.streaming=false;IEEE754Compatible=true`, `application/json;IEEE754Compatible=false`, `application/json;IEEE754Compatible=true`, `application/xml`, `text/plain`, `application/octet-stream`, `text/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
+## `createEmbeddedPreviewUrl()`
+
+```typescript
+createEmbeddedPreviewUrl(templateId: string, embeddedTemplatePreviewJsonRequest: EmbeddedTemplatePreviewJsonRequest): EmbeddedTemplatePreview
+```
+
+Generates a preview URL for a template to view it.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **templateId** | **string**| The template id. | |
+| **embeddedTemplatePreviewJsonRequest** | [**EmbeddedTemplatePreviewJsonRequest**](../docs/EmbeddedTemplatePreviewJsonRequest.md)| The embedded template preview request body. | [optional] |
+
+### Return type
+
+[**EmbeddedTemplatePreview**](../docs/EmbeddedTemplatePreview.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`, `application/x-www-form-urlencoded`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
 [[Back to Model list]](../README.md#models)
@@ -217,7 +251,7 @@ void (empty response body)
 ## `download()`
 
 ```typescript
-download(templateId: string, onBehalfOf: string): Buffer
+download(templateId: string, onBehalfOf: string, includeFormFieldValues: boolean): Buffer
 ```
 
 Download the template.
@@ -229,6 +263,7 @@ Download the template.
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| Template Id. | |
 | **onBehalfOf** | **string**| The on behalfof email address. | [optional] |
+| **includeFormFieldValues** | **boolean**| Include form field data. | [optional] [default to false] |
 
 ### Return type
 
@@ -348,7 +383,7 @@ Get summary of the template.
 ## `listTemplates()`
 
 ```typescript
-listTemplates(page: number, templateType: 'mytemplates' | 'sharedtemplate' | 'all', pageSize: number, searchKey: string, onBehalfOf: Array<string>, createdBy: Array<string>, templateLabels: Array<string>, startDate: Date, endDate: Date, brandIds: Array<string>): TemplateRecords
+listTemplates(page: number, templateType: 'mytemplates' | 'sharedtemplate' | 'all', pageSize: number, searchKey: string, onBehalfOf: Array<string>, createdBy: Array<string>, templateLabels: Array<string>, startDate: Date, endDate: Date, brandIds: Array<string>, sharedWithTeamId: Array<string>): TemplateRecords
 ```
 
 List all the templates.
@@ -368,6 +403,7 @@ List all the templates.
 | **startDate** | **Date**| Start date of the template | [optional] |
 | **endDate** | **Date**| End date of the template | [optional] |
 | **brandIds** | [**Array<string>**](../docs/string.md)| BrandId(s) of the template. | [optional] |
+| **sharedWithTeamId** | [**Array<string>**](../docs/string.md)| The templates can be listed by the shared teams. | [optional] |
 
 ### Return type
 

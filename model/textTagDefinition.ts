@@ -12,6 +12,7 @@
 
 import { RequestFile } from './models';
 import { AttachmentInfo } from './attachmentInfo';
+import { CollaborationSettings } from './collaborationSettings';
 import { Font } from './font';
 import { FormulaFieldSettings } from './formulaFieldSettings';
 import { ImageInfo } from './imageInfo';
@@ -50,6 +51,8 @@ export class TextTagDefinition {
     'characterLimit'?: number;
     'formulaFieldSettings'?: FormulaFieldSettings;
     'resizeOption'?: TextTagDefinition.ResizeOptionEnum;
+    'collaborationSettings'?: CollaborationSettings;
+    'isMasked'?: boolean | null = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -203,6 +206,16 @@ export class TextTagDefinition {
             "name": "resizeOption",
             "baseName": "resizeOption",
             "type": "TextTagDefinition.ResizeOptionEnum"
+        },
+        {
+            "name": "collaborationSettings",
+            "baseName": "collaborationSettings",
+            "type": "CollaborationSettings"
+        },
+        {
+            "name": "isMasked",
+            "baseName": "isMasked",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -242,7 +255,6 @@ export namespace TextTagDefinition {
         GrowHorizontally = <any> 'GrowHorizontally',
         GrowBoth = <any> 'GrowBoth',
         Fixed = <any> 'Fixed',
-        AutoResizeFont = <any> 'AutoResizeFont',
-        Null = <any> 'null'
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

@@ -18,8 +18,12 @@ export class AuditTrail {
     'id'?: string | null;
     'name'?: string | null;
     'email'?: string | null;
+    'fromName'?: string | null;
+    'fromEmail'?: string | null;
+    'fromPhoneNumber'?: string | null;
     'toName'?: string | null;
     'toEmail'?: string | null;
+    'toPhoneNumber'?: string | null;
     'ipaddress'?: string | null;
     'action'?: AuditTrail.ActionEnum;
     'timestamp'?: number;
@@ -46,6 +50,21 @@ export class AuditTrail {
             "type": "string"
         },
         {
+            "name": "fromName",
+            "baseName": "fromName",
+            "type": "string"
+        },
+        {
+            "name": "fromEmail",
+            "baseName": "fromEmail",
+            "type": "string"
+        },
+        {
+            "name": "fromPhoneNumber",
+            "baseName": "fromPhoneNumber",
+            "type": "string"
+        },
+        {
             "name": "toName",
             "baseName": "toName",
             "type": "string"
@@ -53,6 +72,11 @@ export class AuditTrail {
         {
             "name": "toEmail",
             "baseName": "toEmail",
+            "type": "string"
+        },
+        {
+            "name": "toPhoneNumber",
+            "baseName": "toPhoneNumber",
             "type": "string"
         },
         {
@@ -170,6 +194,8 @@ export namespace AuditTrail {
         QesVerified = <any> 'QESVerified',
         QesRejected = <any> 'QESRejected',
         QesExpired = <any> 'QESExpired',
-        QesWithdrawn = <any> 'QESWithdrawn'
+        QesWithdrawn = <any> 'QESWithdrawn',
+        ResentForApproval = <any> 'ResentForApproval',
+        DocumentFieldMarkup = <any> 'DocumentFieldMarkup'
     }
 }

@@ -5,6 +5,7 @@ All URIs are relative to https://api.boldsign.com.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**cancelInvitation()**](UserApi.md#cancelInvitation) | **POST** /v1/users/cancelInvitation | Cancel the users invitation. |
+| [**changeTeam()**](UserApi.md#changeTeam) | **PUT** /v1/users/changeTeam | Change users to other team. |
 | [**createUser()**](UserApi.md#createUser) | **POST** /v1/users/create | Create the user. |
 | [**getUser()**](UserApi.md#getUser) | **GET** /v1/users/get | Get summary of the user. |
 | [**listUsers()**](UserApi.md#listUsers) | **GET** /v1/users/list | List user documents. |
@@ -39,6 +40,39 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
+## `changeTeam()`
+
+```typescript
+changeTeam(userId: string, changeTeamRequest: ChangeTeamRequest)
+```
+
+Change users to other team.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **userId** | **string**| user Id. | |
+| **changeTeamRequest** | [**ChangeTeamRequest**](../docs/ChangeTeamRequest.md)| Change team request. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json;odata.metadata=minimal;odata.streaming=true`, `application/json;odata.metadata=minimal;odata.streaming=false`, `application/json;odata.metadata=minimal`, `application/json;odata.metadata=full;odata.streaming=true`, `application/json;odata.metadata=full;odata.streaming=false`, `application/json;odata.metadata=full`, `application/json;odata.metadata=none;odata.streaming=true`, `application/json;odata.metadata=none;odata.streaming=false`, `application/json;odata.metadata=none`, `application/json;odata.streaming=true`, `application/json;odata.streaming=false`, `application/json`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=minimal;IEEE754Compatible=false`, `application/json;odata.metadata=minimal;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=full;IEEE754Compatible=false`, `application/json;odata.metadata=full;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true`, `application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=false`, `application/json;odata.metadata=none;IEEE754Compatible=true`, `application/json;odata.streaming=true;IEEE754Compatible=false`, `application/json;odata.streaming=true;IEEE754Compatible=true`, `application/json;odata.streaming=false;IEEE754Compatible=false`, `application/json;odata.streaming=false;IEEE754Compatible=true`, `application/json;IEEE754Compatible=false`, `application/json;IEEE754Compatible=true`, `application/xml`, `text/plain`, `application/json-patch+json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
@@ -112,7 +146,7 @@ Get summary of the user.
 ## `listUsers()`
 
 ```typescript
-listUsers(page: number, pageSize: number, search: string): UserRecords
+listUsers(page: number, pageSize: number, search: string, userId: Array<string>): UserRecords
 ```
 
 List user documents.
@@ -125,6 +159,7 @@ List user documents.
 | **page** | **number**| Page index specified in get user list request. | [default to 1] |
 | **pageSize** | **number**| Page size specified in get user list request. | [optional] [default to 10] |
 | **search** | **string**| Users can be listed by the search  based on the user ID | [optional] |
+| **userId** | [**Array<string>**](../docs/string.md)| Users can be listed by the search based on the user IDs | [optional] |
 
 ### Return type
 

@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    CreateUser,ErrorResult,UpdateUser,UpdateUserMetaData,UserProperties,UserRecords,
+    ChangeTeamRequest,CreateUser,ErrorResult,UpdateUser,UpdateUserMetaData,UserProperties,UserRecords,
 } from '../model';
 
 import {
@@ -136,6 +136,127 @@ export class UserApi {
 
         let localVarRequestOptions: AxiosRequestConfig = {
             method: 'POST',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<returnTypeI>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse(
+                          resolve,
+                          reject,
+                          response,
+                          
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Change users to other team.
+     * @param userId user Id.
+     * @param changeTeamRequest Change team request.
+     * @param options
+     */
+    public async changeTeam (userId: string, changeTeamRequest?: ChangeTeamRequest, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
+        changeTeamRequest = deserializeIfNeeded(changeTeamRequest, "ChangeTeamRequest");
+        const localVarPath = this.basePath + '/v1/users/changeTeam';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new Error('Required parameter userId was null or undefined when calling changeTeam.');
+        }
+
+        if (userId !== undefined) {
+            localVarQueryParameters['userId'] = ObjectSerializer.serialize(userId, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        const result = generateFormData(changeTeamRequest, ChangeTeamRequest);
+        localVarUseFormData = result.localVarUseFormData;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(result.data);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        } else {
+          data = ObjectSerializer.serialize(
+            changeTeamRequest,
+            "ChangeTeamRequest"
+          );
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'PUT',
             params: localVarQueryParameters,
             headers: localVarHeaderParams,
             url: localVarPath,
@@ -438,9 +559,10 @@ export class UserApi {
      * @param page Page index specified in get user list request.
      * @param pageSize Page size specified in get user list request.
      * @param search Users can be listed by the search  based on the user ID
+     * @param userId Users can be listed by the search based on the user IDs
      * @param options
      */
-    public async listUsers (page: number, pageSize?: number, search?: string, options: optionsI = {headers: {}}) : Promise<UserRecords> {
+    public async listUsers (page: number, pageSize?: number, search?: string, userId?: Array<string>, options: optionsI = {headers: {}}) : Promise<UserRecords> {
         const localVarPath = this.basePath + '/v1/users/list';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -469,6 +591,10 @@ export class UserApi {
 
         if (search !== undefined) {
             localVarQueryParameters['Search'] = ObjectSerializer.serialize(search, "string");
+        }
+
+        if (userId !== undefined) {
+            localVarQueryParameters['UserId'] = ObjectSerializer.serialize(userId, "Array<string>");
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);

@@ -13,13 +13,21 @@
 import { RequestFile } from './models';
 
 export class DocumentFiles {
+    'id'?: string | null;
     'documentName'?: string | null;
     'order'?: number;
     'pageCount'?: number;
+    'templateName'?: string | null;
+    'templateId'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "string"
+        },
         {
             "name": "documentName",
             "baseName": "documentName",
@@ -34,6 +42,16 @@ export class DocumentFiles {
             "name": "pageCount",
             "baseName": "pageCount",
             "type": "number"
+        },
+        {
+            "name": "templateName",
+            "baseName": "templateName",
+            "type": "string"
+        },
+        {
+            "name": "templateId",
+            "baseName": "templateId",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

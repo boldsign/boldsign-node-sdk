@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    CreateSenderIdentityRequest,EditSenderIdentityRequest,ErrorResult,SenderIdentityCreated,SenderIdentityList,
+    CreateSenderIdentityRequest,EditSenderIdentityRequest,ErrorResult,SenderIdentityCreated,SenderIdentityList,SenderIdentityViewModel,
 } from '../model';
 
 import {
@@ -311,6 +311,125 @@ export class SenderIdentitiesApi {
                             return;
                         }
 
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Gets sender identity by ID or email.
+     * @param id The sender identity id.
+     * @param email The sender identity email.
+     * @param options
+     */
+    public async getSenderIdentityProperties (id?: string, email?: string, options: optionsI = {headers: {}}) : Promise<SenderIdentityViewModel> {
+        const localVarPath = this.basePath + '/v1/senderIdentities/properties';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        if (id !== undefined) {
+            localVarQueryParameters['id'] = ObjectSerializer.serialize(id, "string");
+        }
+
+        if (email !== undefined) {
+            localVarQueryParameters['email'] = ObjectSerializer.serialize(email, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(localVarFormParams);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'GET',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<SenderIdentityViewModel>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse<SenderIdentityViewModel>(
+                          resolve,
+                          reject,
+                          response,
+                          "SenderIdentityViewModel",
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            200,
+                            "SenderIdentityViewModel",
+                        )) {
+                          return;
+                        }
                         if (handleErrorCodeResponse(
                             reject,
                             error.response,

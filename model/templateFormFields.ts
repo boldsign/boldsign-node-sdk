@@ -12,6 +12,7 @@
 
 import { RequestFile } from './models';
 import { AttachmentInfo } from './attachmentInfo';
+import { CollaborationSettings } from './collaborationSettings';
 import { ConditionalRule } from './conditionalRule';
 import { EditableDateFieldSettings } from './editableDateFieldSettings';
 import { FormulaFieldSettings } from './formulaFieldSettings';
@@ -59,6 +60,8 @@ export class TemplateFormFields {
     'resizeOption'?: TemplateFormFields.ResizeOptionEnum;
     'allowEditFormField'?: boolean;
     'allowDeleteFormField'?: boolean;
+    'collaborationSettings'?: CollaborationSettings;
+    'isMasked'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -262,6 +265,16 @@ export class TemplateFormFields {
             "name": "allowDeleteFormField",
             "baseName": "allowDeleteFormField",
             "type": "boolean"
+        },
+        {
+            "name": "collaborationSettings",
+            "baseName": "collaborationSettings",
+            "type": "CollaborationSettings"
+        },
+        {
+            "name": "isMasked",
+            "baseName": "isMasked",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -291,7 +304,6 @@ export namespace TemplateFormFields {
         GrowHorizontally = <any> 'GrowHorizontally',
         GrowBoth = <any> 'GrowBoth',
         Fixed = <any> 'Fixed',
-        AutoResizeFont = <any> 'AutoResizeFont',
-        Null = <any> 'null'
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

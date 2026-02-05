@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { PhoneNumber } from './phoneNumber';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { TemplateFormFields } from './templateFormFields';
+import { TemplateGroupSigner } from './templateGroupSigner';
 
 export class Roles {
     'name'?: string | null;
@@ -26,10 +27,12 @@ export class Roles {
     'hostEmail'?: string | null;
     'hostName'?: string | null;
     /**
-    * <p>Description:</p><ul><li><i>0</i> - None</li><li><i>1</i> - English</li><li><i>2</i> - Spanish</li><li><i>3</i> - German</li><li><i>4</i> - French</li><li><i>5</i> - Romanian</li><li><i>6</i> - Norwegian</li><li><i>7</i> - Bulgarian</li><li><i>8</i> - Italian</li><li><i>9</i> - Danish</li><li><i>10</i> - Polish</li><li><i>11</i> - Portuguese</li><li><i>12</i> - Czech</li><li><i>13</i> - Dutch</li><li><i>14</i> - Swedish</li><li><i>15</i> - Russian</li></ul>
+    * <p>Description:</p><ul><li><i>0</i> - None</li><li><i>1</i> - English</li><li><i>2</i> - Spanish</li><li><i>3</i> - German</li><li><i>4</i> - French</li><li><i>5</i> - Romanian</li><li><i>6</i> - Norwegian</li><li><i>7</i> - Bulgarian</li><li><i>8</i> - Italian</li><li><i>9</i> - Danish</li><li><i>10</i> - Polish</li><li><i>11</i> - Portuguese</li><li><i>12</i> - Czech</li><li><i>13</i> - Dutch</li><li><i>14</i> - Swedish</li><li><i>15</i> - Russian</li><li><i>16</i> - Japanese</li><li><i>17</i> - Thai</li><li><i>18</i> - SimplifiedChinese</li><li><i>19</i> - TraditionalChinese</li><li><i>20</i> - Korean</li></ul>
     */
     'language'?: Roles.LanguageEnum;
     'locale'?: Roles.LocaleEnum;
+    'signType'?: Roles.SignTypeEnum;
+    'defaultGroupId'?: string | null;
     'allowRoleEdit'?: boolean;
     'allowRoleDelete'?: boolean;
     'enableAccessCode'?: boolean;
@@ -42,6 +45,7 @@ export class Roles {
     'enableDeleteRecipients'?: boolean;
     'recipientNotificationSettings'?: RecipientNotificationSettings;
     'enableQes'?: boolean;
+    'groupSigners'?: Array<TemplateGroupSigner> | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -102,6 +106,16 @@ export class Roles {
             "type": "Roles.LocaleEnum"
         },
         {
+            "name": "signType",
+            "baseName": "signType",
+            "type": "Roles.SignTypeEnum"
+        },
+        {
+            "name": "defaultGroupId",
+            "baseName": "defaultGroupId",
+            "type": "string"
+        },
+        {
             "name": "allowRoleEdit",
             "baseName": "allowRoleEdit",
             "type": "boolean"
@@ -160,6 +174,11 @@ export class Roles {
             "name": "enableQes",
             "baseName": "enableQes",
             "type": "boolean"
+        },
+        {
+            "name": "groupSigners",
+            "baseName": "groupSigners",
+            "type": "Array<TemplateGroupSigner>"
         }    ];
 
     static getAttributeTypeMap() {
@@ -189,7 +208,12 @@ export namespace Roles {
         NUMBER_12 = <any> 12,
         NUMBER_13 = <any> 13,
         NUMBER_14 = <any> 14,
-        NUMBER_15 = <any> 15
+        NUMBER_15 = <any> 15,
+        NUMBER_16 = <any> 16,
+        NUMBER_17 = <any> 17,
+        NUMBER_18 = <any> 18,
+        NUMBER_19 = <any> 19,
+        NUMBER_20 = <any> 20
     }
     export enum LocaleEnum {
         En = <any> 'EN',
@@ -207,7 +231,16 @@ export namespace Roles {
         Ro = <any> 'RO',
         Ru = <any> 'RU',
         Sv = <any> 'SV',
-        Default = <any> 'Default'
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
+    }
+    export enum SignTypeEnum {
+        Single = <any> 'Single',
+        Group = <any> 'Group'
     }
     export enum ImposeAuthenticationEnum {
         None = <any> 'None',

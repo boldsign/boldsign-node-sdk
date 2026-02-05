@@ -6,6 +6,7 @@ All URIs are relative to https://api.boldsign.com.
 | ------------- | ------------- | ------------- |
 | [**createSenderIdentities()**](SenderIdentitiesApi.md#createSenderIdentities) | **POST** /v1/senderIdentities/create | Creates sender identity. |
 | [**deleteSenderIdentities()**](SenderIdentitiesApi.md#deleteSenderIdentities) | **DELETE** /v1/senderIdentities/delete | Deletes sender identity. |
+| [**getSenderIdentityProperties()**](SenderIdentitiesApi.md#getSenderIdentityProperties) | **GET** /v1/senderIdentities/properties | Gets sender identity by ID or email. |
 | [**listSenderIdentities()**](SenderIdentitiesApi.md#listSenderIdentities) | **GET** /v1/senderIdentities/list | Lists sender identity. |
 | [**reRequestSenderIdentities()**](SenderIdentitiesApi.md#reRequestSenderIdentities) | **POST** /v1/senderIdentities/rerequest | Rerequests denied sender identity. |
 | [**resendInvitationSenderIdentities()**](SenderIdentitiesApi.md#resendInvitationSenderIdentities) | **POST** /v1/senderIdentities/resendInvitation | Resends sender identity invitation. |
@@ -62,6 +63,39 @@ Deletes sender identity.
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
+## `getSenderIdentityProperties()`
+
+```typescript
+getSenderIdentityProperties(id: string, email: string): SenderIdentityViewModel
+```
+
+Gets sender identity by ID or email.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| The sender identity id. | [optional] |
+| **email** | **string**| The sender identity email. | [optional] |
+
+### Return type
+
+[**SenderIdentityViewModel**](../docs/SenderIdentityViewModel.md)
 
 ### Authorization
 

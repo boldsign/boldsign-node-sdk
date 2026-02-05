@@ -15,9 +15,9 @@ import { RequestFile } from './models';
 export class Font {
     'name'?: Font.NameEnum;
     'color'?: string | null;
-    'size'?: number;
+    'size'?: number | null;
     'style'?: Font.StyleEnum;
-    'lineHeight'?: number;
+    'lineHeight'?: number | null;
     'isBoldFont'?: boolean;
     'isItalicFont'?: boolean;
     'isUnderLineFont'?: boolean;
@@ -77,13 +77,12 @@ export namespace Font {
         Courier = <any> 'Courier',
         TimesRoman = <any> 'TimesRoman',
         NotoSans = <any> 'NotoSans',
-        Null = <any> 'null'
+        Carlito = <any> 'Carlito'
     }
     export enum StyleEnum {
         Regular = <any> 'Regular',
         Bold = <any> 'Bold',
         Italic = <any> 'Italic',
-        Underline = <any> 'Underline',
-        Null = <any> 'null'
+        Underline = <any> 'Underline'
     }
 }

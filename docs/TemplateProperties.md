@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 | `description` | ```string``` |   |  |
 | `documentTitle` | ```string``` |   |  |
 | `documentMessage` | ```string``` |   |  |
-| `files` | [```Array<DocumentFiles>```](DocumentFiles.md) |   |  |
+| `files` | [```Array<TemplateFiles>```](TemplateFiles.md) |   |  |
 | `roles` | [```Array<Roles>```](Roles.md) |   |  |
 | `formGroups` | [```Array<FormGroup>```](FormGroup.md) |   |  |
 | `commonFields` | [```Array<TemplateFormFields>```](TemplateFormFields.md) |   |  |
@@ -33,5 +33,9 @@ Name | Type | Description | Notes
 | `behalfOf` | [```BehalfOf```](BehalfOf.md) |   |  |
 | `documentDownloadOption` | ```string``` |   |  |
 | `recipientNotificationSettings` | [```RecipientNotificationSettings```](RecipientNotificationSettings.md) |   |  |
+| `formFieldPermission` | [```FormFieldPermission```](FormFieldPermission.md) |   |  |
+| `allowedSignatureTypes` | ```Array<string>``` |   |  |
+| `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
+| `sharing` | [```TemplateSharing```](TemplateSharing.md) |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

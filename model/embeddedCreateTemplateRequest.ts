@@ -13,7 +13,9 @@
 import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
+import { FormFieldPermission } from './formFieldPermission';
 import { FormGroup } from './formGroup';
+import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { TemplateRole } from './templateRole';
 import { TextTagDefinition } from './textTagDefinition';
@@ -53,8 +55,11 @@ export class EmbeddedCreateTemplateRequest {
     'onBehalfOf'?: string | null;
     'labels'?: Array<string> | null;
     'templateLabels'?: Array<string> | null;
-    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'formGroups'?: Array<FormGroup> | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
+    'allowedSignatureTypes'?: Array<EmbeddedCreateTemplateRequest.AllowedSignatureTypesEnum>;
+    'formFieldPermission'?: FormFieldPermission;
+    'groupSignerSettings'?: GroupSignerSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -230,14 +235,29 @@ export class EmbeddedCreateTemplateRequest {
             "type": "Array<string>"
         },
         {
+            "name": "formGroups",
+            "baseName": "formGroups",
+            "type": "Array<FormGroup>"
+        },
+        {
             "name": "recipientNotificationSettings",
             "baseName": "recipientNotificationSettings",
             "type": "RecipientNotificationSettings"
         },
         {
-            "name": "formGroups",
-            "baseName": "formGroups",
-            "type": "Array<FormGroup>"
+            "name": "allowedSignatureTypes",
+            "baseName": "allowedSignatureTypes",
+            "type": "Array<EmbeddedCreateTemplateRequest.AllowedSignatureTypesEnum>"
+        },
+        {
+            "name": "formFieldPermission",
+            "baseName": "formFieldPermission",
+            "type": "FormFieldPermission"
+        },
+        {
+            "name": "groupSignerSettings",
+            "baseName": "groupSignerSettings",
+            "type": "GroupSignerSettings"
         }    ];
 
     static getAttributeTypeMap() {
@@ -266,6 +286,16 @@ export namespace EmbeddedCreateTemplateRequest {
         Ro = <any> 'RO',
         Ru = <any> 'RU',
         Sv = <any> 'SV',
-        Default = <any> 'Default'
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
+    }
+    export enum AllowedSignatureTypesEnum {
+        Text = <any> 'Text',
+        Draw = <any> 'Draw',
+        Image = <any> 'Image'
     }
 }

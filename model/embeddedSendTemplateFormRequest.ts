@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { DocumentCC } from './documentCC';
 import { DocumentInfo } from './documentInfo';
 import { FormGroup } from './formGroup';
+import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { ReminderSettings } from './reminderSettings';
 import { Role } from './role';
@@ -55,13 +56,15 @@ export class EmbeddedSendTemplateFormRequest {
     'roleRemovalIndices'?: Array<number> | null;
     'documentDownloadOption'?: EmbeddedSendTemplateFormRequest.DocumentDownloadOptionEnum;
     'metaData'?: { [key: string]: string | null; } | null;
-    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'formGroups'?: Array<FormGroup> | null;
     'removeFormFields'?: Array<string> | null;
+    'recipientNotificationSettings'?: RecipientNotificationSettings;
     'enableAuditTrailLocalization'?: boolean | null;
     'downloadFileName'?: string | null;
     'scheduledSendTime'?: number | null;
     'allowScheduledSend'?: boolean = false;
+    'allowedSignatureTypes'?: Array<EmbeddedSendTemplateFormRequest.AllowedSignatureTypesEnum>;
+    'groupSignerSettings'?: GroupSignerSettings;
 
     static discriminator: string | undefined = undefined;
 
@@ -247,11 +250,6 @@ export class EmbeddedSendTemplateFormRequest {
             "type": "{ [key: string]: string | null; }"
         },
         {
-            "name": "recipientNotificationSettings",
-            "baseName": "recipientNotificationSettings",
-            "type": "RecipientNotificationSettings"
-        },
-        {
             "name": "formGroups",
             "baseName": "formGroups",
             "type": "Array<FormGroup>"
@@ -260,6 +258,11 @@ export class EmbeddedSendTemplateFormRequest {
             "name": "removeFormFields",
             "baseName": "removeFormFields",
             "type": "Array<string>"
+        },
+        {
+            "name": "recipientNotificationSettings",
+            "baseName": "recipientNotificationSettings",
+            "type": "RecipientNotificationSettings"
         },
         {
             "name": "enableAuditTrailLocalization",
@@ -280,6 +283,16 @@ export class EmbeddedSendTemplateFormRequest {
             "name": "allowScheduledSend",
             "baseName": "allowScheduledSend",
             "type": "boolean"
+        },
+        {
+            "name": "allowedSignatureTypes",
+            "baseName": "allowedSignatureTypes",
+            "type": "Array<EmbeddedSendTemplateFormRequest.AllowedSignatureTypesEnum>"
+        },
+        {
+            "name": "groupSignerSettings",
+            "baseName": "groupSignerSettings",
+            "type": "GroupSignerSettings"
         }    ];
 
     static getAttributeTypeMap() {
@@ -308,17 +321,25 @@ export namespace EmbeddedSendTemplateFormRequest {
         Ro = <any> 'RO',
         Ru = <any> 'RU',
         Sv = <any> 'SV',
-        Default = <any> 'Default'
+        Default = <any> 'Default',
+        Ja = <any> 'JA',
+        Th = <any> 'TH',
+        ZhCn = <any> 'ZH_CN',
+        ZhTw = <any> 'ZH_TW',
+        Ko = <any> 'KO'
     }
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',
         Hours = <any> 'Hours',
-        SpecificDateTime = <any> 'SpecificDateTime',
-        Null = <any> 'null'
+        SpecificDateTime = <any> 'SpecificDateTime'
     }
     export enum DocumentDownloadOptionEnum {
         Combined = <any> 'Combined',
-        Individually = <any> 'Individually',
-        Null = <any> 'null'
+        Individually = <any> 'Individually'
+    }
+    export enum AllowedSignatureTypesEnum {
+        Text = <any> 'Text',
+        Draw = <any> 'Draw',
+        Image = <any> 'Image'
     }
 }

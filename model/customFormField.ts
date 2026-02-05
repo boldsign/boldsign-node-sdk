@@ -49,6 +49,7 @@ export class CustomFormField {
     'restrictIdPrefixChange'?: boolean = false;
     'backgroundHexColor'?: string | null;
     'resizeOption'?: CustomFormField.ResizeOptionEnum;
+    'isMasked'?: boolean | null = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -217,6 +218,11 @@ export class CustomFormField {
             "name": "resizeOption",
             "baseName": "resizeOption",
             "type": "CustomFormField.ResizeOptionEnum"
+        },
+        {
+            "name": "isMasked",
+            "baseName": "isMasked",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -246,7 +252,8 @@ export namespace CustomFormField {
         Helvetica = <any> 'Helvetica',
         Courier = <any> 'Courier',
         TimesRoman = <any> 'TimesRoman',
-        NotoSans = <any> 'NotoSans'
+        NotoSans = <any> 'NotoSans',
+        Carlito = <any> 'Carlito'
     }
     export enum ValidationTypeEnum {
         None = <any> 'None',
@@ -269,7 +276,6 @@ export namespace CustomFormField {
         GrowHorizontally = <any> 'GrowHorizontally',
         GrowBoth = <any> 'GrowBoth',
         Fixed = <any> 'Fixed',
-        AutoResizeFont = <any> 'AutoResizeFont',
-        Null = <any> 'null'
+        AutoResizeFont = <any> 'AutoResizeFont'
     }
 }

@@ -45,7 +45,7 @@ List all the brands.
 ## `createBrand()`
 
 ```typescript
-createBrand(brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string): BrandCreated
+createBrand(brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean): BrandCreated
 ```
 
 Create the brand.
@@ -67,6 +67,7 @@ Create the brand.
 | **isDefault** | **boolean**|  | [optional] [default to false] |
 | **canHideTagLine** | **boolean**|  | [optional] [default to false] |
 | **combineAuditTrail** | **boolean**|  | [optional] [default to false] |
+| **combineAttachments** | **boolean**|  | [optional] [default to false] |
 | **excludeAuditTrailFromEmail** | **boolean**|  | [optional] [default to false] |
 | **emailSignedDocument** | **string**|  | [optional] [default to &#39;Attachment&#39;] |
 | **documentTimeZone** | **string**|  | [optional] |
@@ -83,6 +84,10 @@ Create the brand.
 | **documentExpirySettingsReminderCount** | **number**|  | [optional] |
 | **customDomainSettingsDomainName** | **string**|  | [optional] |
 | **customDomainSettingsFromName** | **string**|  | [optional] |
+| **signatureFrameSettingsEnableSignatureFrame** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientName** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientEmail** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowTimeStamp** | **boolean**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -136,7 +141,7 @@ Delete the brand.
 ## `editBrand()`
 
 ```typescript
-editBrand(brandId: string, brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string): BrandCreated
+editBrand(brandId: string, brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean): BrandCreated
 ```
 
 Edit the brand.
@@ -159,6 +164,7 @@ Edit the brand.
 | **isDefault** | **boolean**|  | [optional] [default to false] |
 | **canHideTagLine** | **boolean**|  | [optional] [default to false] |
 | **combineAuditTrail** | **boolean**|  | [optional] [default to false] |
+| **combineAttachments** | **boolean**|  | [optional] [default to false] |
 | **excludeAuditTrailFromEmail** | **boolean**|  | [optional] [default to false] |
 | **emailSignedDocument** | **string**|  | [optional] [default to &#39;Attachment&#39;] |
 | **documentTimeZone** | **string**|  | [optional] |
@@ -175,6 +181,10 @@ Edit the brand.
 | **documentExpirySettingsReminderCount** | **number**|  | [optional] |
 | **customDomainSettingsDomainName** | **string**|  | [optional] |
 | **customDomainSettingsFromName** | **string**|  | [optional] |
+| **signatureFrameSettingsEnableSignatureFrame** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientName** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientEmail** | **boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowTimeStamp** | **boolean**|  | [optional] [default to false] |
 
 ### Return type
 

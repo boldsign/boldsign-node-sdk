@@ -1505,6 +1505,117 @@ export class DocumentApi {
     }
     /**
      * 
+     * @summary Sends a draft-status document out for signature.
+     * @param documentId The ID of the document to be sent.
+     * @param options
+     */
+    public async draftSend (documentId: string, options: optionsI = {headers: {}}) : Promise<returnTypeI> {
+        const localVarPath = this.basePath + '/v1/document/draftSend';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        // verify required parameter 'documentId' is not null or undefined
+        if (documentId === null || documentId === undefined) {
+            throw new Error('Required parameter documentId was null or undefined when calling draftSend.');
+        }
+
+        if (documentId !== undefined) {
+            localVarQueryParameters['documentId'] = ObjectSerializer.serialize(documentId, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(localVarFormParams);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'POST',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<returnTypeI>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse(
+                          resolve,
+                          reject,
+                          response,
+                          
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
      * @summary Extends the expiration date of the document.
      * @param documentId Document Id.
      * @param extendExpiry The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type.
