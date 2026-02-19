@@ -16,6 +16,7 @@ All URIs are relative to https://api.boldsign.com.
 | [**downloadAuditLog()**](DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | [**downloadDocument()**](DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document. |
 | [**draftSend()**](DocumentApi.md#draftSend) | **POST** /v1/document/draftSend | Sends a draft-status document out for signature. |
+| [**editDocument()**](DocumentApi.md#editDocument) | **PUT** /v1/document/edit | Edit and updates an existing document. |
 | [**extendExpiry()**](DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
 | [**getProperties()**](DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document. |
 | [**getEmbeddedSignLink()**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
@@ -427,6 +428,39 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
+## `editDocument()`
+
+```typescript
+editDocument(documentId: string, editDocumentRequest: EditDocumentRequest): DocumentEdited
+```
+
+Edit and updates an existing document.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **documentId** | **string**| Document Id. | |
+| **editDocumentRequest** | [**EditDocumentRequest**](../docs/EditDocumentRequest.md)| Edit document JSON request. | [optional] |
+
+### Return type
+
+[**DocumentEdited**](../docs/DocumentEdited.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`, `application/x-www-form-urlencoded`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)

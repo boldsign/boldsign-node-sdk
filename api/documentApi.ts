@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    AccessCodeDetail,AccessCodeDetails,BehalfDocumentRecords,ChangeRecipient,DocumentCreated,DocumentProperties,DocumentRecords,DocumentTags,EmbeddedDocumentRequest,EmbeddedSendCreated,EmbeddedSigningLink,ErrorResult,ExtendExpiry,PrefillFieldRequest,ReminderMessage,RemoveAuthentication,RevokeDocument,SendForSign,TeamDocumentRecords,
+    AccessCodeDetail,AccessCodeDetails,BehalfDocumentRecords,ChangeRecipient,DocumentCreated,DocumentEdited,DocumentProperties,DocumentRecords,DocumentTags,EditDocumentRequest,EmbeddedDocumentRequest,EmbeddedSendCreated,EmbeddedSigningLink,ErrorResult,ExtendExpiry,PrefillFieldRequest,ReminderMessage,RemoveAuthentication,RevokeDocument,SendForSign,TeamDocumentRecords,
 } from '../model';
 
 import {
@@ -1603,6 +1603,151 @@ export class DocumentApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Edit and updates an existing document.
+     * @param documentId Document Id.
+     * @param editDocumentRequest Edit document JSON request.
+     * @param options
+     */
+    public async editDocument (documentId: string, editDocumentRequest?: EditDocumentRequest, options: optionsI = {headers: {}}) : Promise<DocumentEdited> {
+        editDocumentRequest = deserializeIfNeeded(editDocumentRequest, "EditDocumentRequest");
+        const localVarPath = this.basePath + '/v1/document/edit';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        // verify required parameter 'documentId' is not null or undefined
+        if (documentId === null || documentId === undefined) {
+            throw new Error('Required parameter documentId was null or undefined when calling editDocument.');
+        }
+
+        if (documentId !== undefined) {
+            localVarQueryParameters['documentId'] = ObjectSerializer.serialize(documentId, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        const result = generateFormData(editDocumentRequest, EditDocumentRequest);
+        localVarUseFormData = result.localVarUseFormData;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(result.data);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        } else {
+          data = ObjectSerializer.serialize(
+            editDocumentRequest,
+            "EditDocumentRequest"
+          );
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'PUT',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<DocumentEdited>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse<DocumentEdited>(
+                          resolve,
+                          reject,
+                          response,
+                          "DocumentEdited",
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            200,
+                            "DocumentEdited",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;
