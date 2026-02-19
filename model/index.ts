@@ -37,6 +37,7 @@ import { Document } from './document';
 import { DocumentCC } from './documentCC';
 import { DocumentCcDetails } from './documentCcDetails';
 import { DocumentCreated } from './documentCreated';
+import { DocumentEdited } from './documentEdited';
 import { DocumentExpirySettings } from './documentExpirySettings';
 import { DocumentFiles } from './documentFiles';
 import { DocumentFormFields } from './documentFormFields';
@@ -49,6 +50,10 @@ import { DocumentSigner } from './documentSigner';
 import { DocumentSignerDetails } from './documentSignerDetails';
 import { DocumentTags } from './documentTags';
 import { DownloadImageRequest } from './downloadImageRequest';
+import { EditDocumentFile } from './editDocumentFile';
+import { EditDocumentRequest } from './editDocumentRequest';
+import { EditDocumentSigner } from './editDocumentSigner';
+import { EditFormField } from './editFormField';
 import { EditSenderIdentityRequest } from './editSenderIdentityRequest';
 import { EditTemplateRequest } from './editTemplateRequest';
 import { EditableDateFieldSettings } from './editableDateFieldSettings';
@@ -174,6 +179,7 @@ export let enumsMap: {[index: string]: any} = {
         "CustomFormField.TextDirectionEnum": CustomFormField.TextDirectionEnum,
         "CustomFormField.ResizeOptionEnum": CustomFormField.ResizeOptionEnum,
         "Document.StatusEnum": Document.StatusEnum,
+        "DocumentEdited.StatusEnum": DocumentEdited.StatusEnum,
         "DocumentExpirySettings.ExpiryDateTypeEnum": DocumentExpirySettings.ExpiryDateTypeEnum,
         "DocumentFormFields.ValidationtypeEnum": DocumentFormFields.ValidationtypeEnum,
         "DocumentFormFields.TextAlignEnum": DocumentFormFields.TextAlignEnum,
@@ -199,6 +205,24 @@ export let enumsMap: {[index: string]: any} = {
         "DocumentSignerDetails.LocaleEnum": DocumentSignerDetails.LocaleEnum,
         "DocumentSignerDetails.SignTypeEnum": DocumentSignerDetails.SignTypeEnum,
         "DocumentSignerDetails.DeliveryModeEnum": DocumentSignerDetails.DeliveryModeEnum,
+        "EditDocumentFile.EditActionEnum": EditDocumentFile.EditActionEnum,
+        "EditDocumentRequest.ExpiryDateTypeEnum": EditDocumentRequest.ExpiryDateTypeEnum,
+        "EditDocumentRequest.DocumentDownloadOptionEnum": EditDocumentRequest.DocumentDownloadOptionEnum,
+        "EditDocumentRequest.AllowedSignatureTypesEnum": EditDocumentRequest.AllowedSignatureTypesEnum,
+        "EditDocumentSigner.EditActionEnum": EditDocumentSigner.EditActionEnum,
+        "EditDocumentSigner.AuthenticationTypeEnum": EditDocumentSigner.AuthenticationTypeEnum,
+        "EditDocumentSigner.DeliveryModeEnum": EditDocumentSigner.DeliveryModeEnum,
+        "EditDocumentSigner.SignerTypeEnum": EditDocumentSigner.SignerTypeEnum,
+        "EditDocumentSigner.LanguageEnum": EditDocumentSigner.LanguageEnum,
+        "EditDocumentSigner.LocaleEnum": EditDocumentSigner.LocaleEnum,
+        "EditDocumentSigner.SignTypeEnum": EditDocumentSigner.SignTypeEnum,
+        "EditFormField.EditActionEnum": EditFormField.EditActionEnum,
+        "EditFormField.FieldTypeEnum": EditFormField.FieldTypeEnum,
+        "EditFormField.FontEnum": EditFormField.FontEnum,
+        "EditFormField.ValidationTypeEnum": EditFormField.ValidationTypeEnum,
+        "EditFormField.TextAlignEnum": EditFormField.TextAlignEnum,
+        "EditFormField.TextDirectionEnum": EditFormField.TextDirectionEnum,
+        "EditFormField.ResizeOptionEnum": EditFormField.ResizeOptionEnum,
         "EditSenderIdentityRequest.LocaleEnum": EditSenderIdentityRequest.LocaleEnum,
         "EditTemplateRequest.AllowedSignatureTypesEnum": EditTemplateRequest.AllowedSignatureTypesEnum,
         "EmbeddedCreateTemplateRequest.ViewOptionEnum": EmbeddedCreateTemplateRequest.ViewOptionEnum,
@@ -328,6 +352,7 @@ export let typeMap: {[index: string]: any} = {
     "DocumentCC": DocumentCC,
     "DocumentCcDetails": DocumentCcDetails,
     "DocumentCreated": DocumentCreated,
+    "DocumentEdited": DocumentEdited,
     "DocumentExpirySettings": DocumentExpirySettings,
     "DocumentFiles": DocumentFiles,
     "DocumentFormFields": DocumentFormFields,
@@ -340,6 +365,10 @@ export let typeMap: {[index: string]: any} = {
     "DocumentSignerDetails": DocumentSignerDetails,
     "DocumentTags": DocumentTags,
     "DownloadImageRequest": DownloadImageRequest,
+    "EditDocumentFile": EditDocumentFile,
+    "EditDocumentRequest": EditDocumentRequest,
+    "EditDocumentSigner": EditDocumentSigner,
+    "EditFormField": EditFormField,
     "EditSenderIdentityRequest": EditSenderIdentityRequest,
     "EditTemplateRequest": EditTemplateRequest,
     "EditableDateFieldSettings": EditableDateFieldSettings,
@@ -478,6 +507,7 @@ export {
     DocumentCC,
     DocumentCcDetails,
     DocumentCreated,
+    DocumentEdited,
     DocumentExpirySettings,
     DocumentFiles,
     DocumentFormFields,
@@ -490,6 +520,10 @@ export {
     DocumentSignerDetails,
     DocumentTags,
     DownloadImageRequest,
+    EditDocumentFile,
+    EditDocumentRequest,
+    EditDocumentSigner,
+    EditFormField,
     EditSenderIdentityRequest,
     EditTemplateRequest,
     EditableDateFieldSettings,

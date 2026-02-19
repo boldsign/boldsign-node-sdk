@@ -94,6 +94,7 @@ All URIs are relative to *https://api.boldsign.com*
 | *DocumentApi* | [**downloadAuditLog**](./docs/DocumentApi.md#downloadauditlog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | *DocumentApi* | [**downloadDocument**](./docs/DocumentApi.md#downloaddocument) | **GET** /v1/document/download | Download the document. |
 | *DocumentApi* | [**draftSend**](./docs/DocumentApi.md#draftsend) | **POST** /v1/document/draftSend | Sends a draft-status document out for signature. |
+| *DocumentApi* | [**editDocument**](./docs/DocumentApi.md#editdocument) | **PUT** /v1/document/edit | Edit and updates an existing document. |
 | *DocumentApi* | [**extendExpiry**](./docs/DocumentApi.md#extendexpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
 | *DocumentApi* | [**getProperties**](./docs/DocumentApi.md#getproperties) | **GET** /v1/document/properties | Get summary of the document. |
 | *DocumentApi* | [**getEmbeddedSignLink**](./docs/DocumentApi.md#getembeddedsignlink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
@@ -184,6 +185,7 @@ All URIs are relative to *https://api.boldsign.com*
 - [DocumentCC](./docs/DocumentCC.md)
 - [DocumentCcDetails](./docs/DocumentCcDetails.md)
 - [DocumentCreated](./docs/DocumentCreated.md)
+- [DocumentEdited](./docs/DocumentEdited.md)
 - [DocumentExpirySettings](./docs/DocumentExpirySettings.md)
 - [DocumentFiles](./docs/DocumentFiles.md)
 - [DocumentFormFields](./docs/DocumentFormFields.md)
@@ -196,6 +198,10 @@ All URIs are relative to *https://api.boldsign.com*
 - [DocumentSignerDetails](./docs/DocumentSignerDetails.md)
 - [DocumentTags](./docs/DocumentTags.md)
 - [DownloadImageRequest](./docs/DownloadImageRequest.md)
+- [EditDocumentFile](./docs/EditDocumentFile.md)
+- [EditDocumentRequest](./docs/EditDocumentRequest.md)
+- [EditDocumentSigner](./docs/EditDocumentSigner.md)
+- [EditFormField](./docs/EditFormField.md)
 - [EditSenderIdentityRequest](./docs/EditSenderIdentityRequest.md)
 - [EditTemplateRequest](./docs/EditTemplateRequest.md)
 - [EditableDateFieldSettings](./docs/EditableDateFieldSettings.md)
