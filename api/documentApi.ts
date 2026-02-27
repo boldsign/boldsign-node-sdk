@@ -15,7 +15,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth, RequestFile, 
-    AccessCodeDetail,AccessCodeDetails,BehalfDocumentRecords,ChangeRecipient,DocumentCreated,DocumentEdited,DocumentProperties,DocumentRecords,DocumentTags,EditDocumentRequest,EmbeddedDocumentRequest,EmbeddedSendCreated,EmbeddedSigningLink,ErrorResult,ExtendExpiry,PrefillFieldRequest,ReminderMessage,RemoveAuthentication,RevokeDocument,SendForSign,TeamDocumentRecords,
+    AccessCodeDetail,AccessCodeDetails,BehalfDocumentRecords,ChangeRecipient,DocumentCreated,DocumentEdited,DocumentProperties,DocumentRecords,DocumentTags,EditDocumentRequest,EmbeddedDocumentEditJsonRequest,EmbeddedDocumentEdited,EmbeddedDocumentRequest,EmbeddedSendCreated,EmbeddedSigningLink,ErrorResult,ExtendExpiry,PrefillFieldRequest,ReminderMessage,RemoveAuthentication,RevokeDocument,SendForSign,TeamDocumentRecords,
 } from '../model';
 
 import {
@@ -748,6 +748,151 @@ export class DocumentApi {
                             reject,
                             error.response,
                             403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+
+
+                        reject(error);
+                    });
+            });
+        });
+    }
+    /**
+     * 
+     * @summary Generates an embedded edit URL that allows the document editing process to be integrated into your application.
+     * @param documentId The document id.
+     * @param embeddedDocumentEditJsonRequest The embedded edit document request body.
+     * @param options
+     */
+    public async createEmbeddedEditUrl (documentId: string, embeddedDocumentEditJsonRequest?: EmbeddedDocumentEditJsonRequest, options: optionsI = {headers: {}}) : Promise<EmbeddedDocumentEdited> {
+        embeddedDocumentEditJsonRequest = deserializeIfNeeded(embeddedDocumentEditJsonRequest, "EmbeddedDocumentEditJsonRequest");
+        const localVarPath = this.basePath + '/v1/document/createEmbeddedEditUrl';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams['content-type'] = 'application/json';
+        } else {
+            localVarHeaderParams['content-type'] = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+        let localVarBodyParams: any = undefined;
+
+        // verify required parameter 'documentId' is not null or undefined
+        if (documentId === null || documentId === undefined) {
+            throw new Error('Required parameter documentId was null or undefined when calling createEmbeddedEditUrl.');
+        }
+
+        if (documentId !== undefined) {
+            localVarQueryParameters['documentId'] = ObjectSerializer.serialize(documentId, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        const result = generateFormData(embeddedDocumentEditJsonRequest, EmbeddedDocumentEditJsonRequest);
+        localVarUseFormData = result.localVarUseFormData;
+
+        let data = {};
+        if (localVarUseFormData) {
+          const formData = toFormData(result.data);
+          data = formData;
+          localVarHeaderParams = {
+            ...localVarHeaderParams,
+            ...formData.getHeaders(),
+          };
+        } else {
+          data = ObjectSerializer.serialize(
+            embeddedDocumentEditJsonRequest,
+            "EmbeddedDocumentEditJsonRequest"
+          );
+        }
+
+        let localVarRequestOptions: AxiosRequestConfig = {
+            method: 'POST',
+            params: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            url: localVarPath,
+            paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
+            responseType: "json",
+        };
+
+        if (localVarRequestOptions.method !== 'GET') {
+           localVarRequestOptions.data = data;
+        }
+        let authenticationPromise = Promise.resolve();
+
+        if (this.authentications["X-API-KEY"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["X-API-KEY"].applyToRequest(localVarRequestOptions));
+        }
+        if (this.authentications["Bearer"].apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications["Bearer"].applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            return new Promise<EmbeddedDocumentEdited>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse<EmbeddedDocumentEdited>(
+                          resolve,
+                          reject,
+                          response,
+                          "EmbeddedDocumentEdited",
+                        );
+                    }, (error: AxiosError) => {
+                        if (error.response == null) {
+                            reject(error);
+                            return;
+                        }
+
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            201,
+                            "EmbeddedDocumentEdited",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            400,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            401,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            403,
+                            "ErrorResult",
+                        )) {
+                          return;
+                        }
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            422,
                             "ErrorResult",
                         )) {
                           return;

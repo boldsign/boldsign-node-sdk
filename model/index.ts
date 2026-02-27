@@ -24,10 +24,12 @@ import { ContactPageDetails } from './contactPageDetails';
 import { ContactsDetails } from './contactsDetails';
 import { ContactsList } from './contactsList';
 import { CreateContactResponse } from './createContactResponse';
+import { CreateGroupContactResponse } from './createGroupContactResponse';
 import { CreateSenderIdentityRequest } from './createSenderIdentityRequest';
 import { CreateTeamRequest } from './createTeamRequest';
 import { CreateTemplateRequest } from './createTemplateRequest';
 import { CreateUser } from './createUser';
+import { Creators } from './creators';
 import { CustomDomainSettings } from './customDomainSettings';
 import { CustomFieldCollection } from './customFieldCollection';
 import { CustomFieldMessage } from './customFieldMessage';
@@ -59,6 +61,8 @@ import { EditTemplateRequest } from './editTemplateRequest';
 import { EditableDateFieldSettings } from './editableDateFieldSettings';
 import { EmbeddedCreateTemplateRequest } from './embeddedCreateTemplateRequest';
 import { EmbeddedCustomFieldCreated } from './embeddedCustomFieldCreated';
+import { EmbeddedDocumentEditJsonRequest } from './embeddedDocumentEditJsonRequest';
+import { EmbeddedDocumentEdited } from './embeddedDocumentEdited';
 import { EmbeddedDocumentRequest } from './embeddedDocumentRequest';
 import { EmbeddedFileDetails } from './embeddedFileDetails';
 import { EmbeddedFileLink } from './embeddedFileLink';
@@ -80,8 +84,13 @@ import { FormField } from './formField';
 import { FormFieldPermission } from './formFieldPermission';
 import { FormGroup } from './formGroup';
 import { FormulaFieldSettings } from './formulaFieldSettings';
+import { GetGroupContactDetails } from './getGroupContactDetails';
+import { GroupContact } from './groupContact';
+import { GroupContactDetails } from './groupContactDetails';
+import { GroupContactsList } from './groupContactsList';
 import { GroupSigner } from './groupSigner';
 import { GroupSignerSettings } from './groupSignerSettings';
+import { GroupUser } from './groupUser';
 import { IdDocument } from './idDocument';
 import { IdReport } from './idReport';
 import { IdVerificationDetails } from './idVerificationDetails';
@@ -140,6 +149,7 @@ import { TemplateTag } from './templateTag';
 import { TemplateTeamShare } from './templateTeamShare';
 import { TextTagDefinition } from './textTagDefinition';
 import { TextTagOffset } from './textTagOffset';
+import { UpdateGroupContact } from './updateGroupContact';
 import { UpdateUser } from './updateUser';
 import { UpdateUserMetaData } from './updateUserMetaData';
 import { UserPageDetails } from './userPageDetails';
@@ -228,6 +238,8 @@ export let enumsMap: {[index: string]: any} = {
         "EmbeddedCreateTemplateRequest.ViewOptionEnum": EmbeddedCreateTemplateRequest.ViewOptionEnum,
         "EmbeddedCreateTemplateRequest.LocaleEnum": EmbeddedCreateTemplateRequest.LocaleEnum,
         "EmbeddedCreateTemplateRequest.AllowedSignatureTypesEnum": EmbeddedCreateTemplateRequest.AllowedSignatureTypesEnum,
+        "EmbeddedDocumentEditJsonRequest.SendViewOptionEnum": EmbeddedDocumentEditJsonRequest.SendViewOptionEnum,
+        "EmbeddedDocumentEditJsonRequest.LocaleEnum": EmbeddedDocumentEditJsonRequest.LocaleEnum,
         "EmbeddedDocumentRequest.SendViewOptionEnum": EmbeddedDocumentRequest.SendViewOptionEnum,
         "EmbeddedDocumentRequest.LocaleEnum": EmbeddedDocumentRequest.LocaleEnum,
         "EmbeddedDocumentRequest.ExpiryDateTypeEnum": EmbeddedDocumentRequest.ExpiryDateTypeEnum,
@@ -339,10 +351,12 @@ export let typeMap: {[index: string]: any} = {
     "ContactsDetails": ContactsDetails,
     "ContactsList": ContactsList,
     "CreateContactResponse": CreateContactResponse,
+    "CreateGroupContactResponse": CreateGroupContactResponse,
     "CreateSenderIdentityRequest": CreateSenderIdentityRequest,
     "CreateTeamRequest": CreateTeamRequest,
     "CreateTemplateRequest": CreateTemplateRequest,
     "CreateUser": CreateUser,
+    "Creators": Creators,
     "CustomDomainSettings": CustomDomainSettings,
     "CustomFieldCollection": CustomFieldCollection,
     "CustomFieldMessage": CustomFieldMessage,
@@ -374,6 +388,8 @@ export let typeMap: {[index: string]: any} = {
     "EditableDateFieldSettings": EditableDateFieldSettings,
     "EmbeddedCreateTemplateRequest": EmbeddedCreateTemplateRequest,
     "EmbeddedCustomFieldCreated": EmbeddedCustomFieldCreated,
+    "EmbeddedDocumentEditJsonRequest": EmbeddedDocumentEditJsonRequest,
+    "EmbeddedDocumentEdited": EmbeddedDocumentEdited,
     "EmbeddedDocumentRequest": EmbeddedDocumentRequest,
     "EmbeddedFileDetails": EmbeddedFileDetails,
     "EmbeddedFileLink": EmbeddedFileLink,
@@ -395,8 +411,13 @@ export let typeMap: {[index: string]: any} = {
     "FormFieldPermission": FormFieldPermission,
     "FormGroup": FormGroup,
     "FormulaFieldSettings": FormulaFieldSettings,
+    "GetGroupContactDetails": GetGroupContactDetails,
+    "GroupContact": GroupContact,
+    "GroupContactDetails": GroupContactDetails,
+    "GroupContactsList": GroupContactsList,
     "GroupSigner": GroupSigner,
     "GroupSignerSettings": GroupSignerSettings,
+    "GroupUser": GroupUser,
     "IdDocument": IdDocument,
     "IdReport": IdReport,
     "IdVerificationDetails": IdVerificationDetails,
@@ -455,6 +476,7 @@ export let typeMap: {[index: string]: any} = {
     "TemplateTeamShare": TemplateTeamShare,
     "TextTagDefinition": TextTagDefinition,
     "TextTagOffset": TextTagOffset,
+    "UpdateGroupContact": UpdateGroupContact,
     "UpdateUser": UpdateUser,
     "UpdateUserMetaData": UpdateUserMetaData,
     "UserPageDetails": UserPageDetails,
@@ -494,10 +516,12 @@ export {
     ContactsDetails,
     ContactsList,
     CreateContactResponse,
+    CreateGroupContactResponse,
     CreateSenderIdentityRequest,
     CreateTeamRequest,
     CreateTemplateRequest,
     CreateUser,
+    Creators,
     CustomDomainSettings,
     CustomFieldCollection,
     CustomFieldMessage,
@@ -529,6 +553,8 @@ export {
     EditableDateFieldSettings,
     EmbeddedCreateTemplateRequest,
     EmbeddedCustomFieldCreated,
+    EmbeddedDocumentEditJsonRequest,
+    EmbeddedDocumentEdited,
     EmbeddedDocumentRequest,
     EmbeddedFileDetails,
     EmbeddedFileLink,
@@ -550,8 +576,13 @@ export {
     FormFieldPermission,
     FormGroup,
     FormulaFieldSettings,
+    GetGroupContactDetails,
+    GroupContact,
+    GroupContactDetails,
+    GroupContactsList,
     GroupSigner,
     GroupSignerSettings,
+    GroupUser,
     IdDocument,
     IdReport,
     IdVerificationDetails,
@@ -610,6 +641,7 @@ export {
     TemplateTeamShare,
     TextTagDefinition,
     TextTagOffset,
+    UpdateGroupContact,
     UpdateUser,
     UpdateUserMetaData,
     UserPageDetails,

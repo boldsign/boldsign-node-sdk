@@ -87,6 +87,7 @@ All URIs are relative to *https://api.boldsign.com*
 | *DocumentApi* | [**behalfDocuments**](./docs/DocumentApi.md#behalfdocuments) | **GET** /v1/document/behalfList | Gets the behalf documents. |
 | *DocumentApi* | [**changeAccessCode**](./docs/DocumentApi.md#changeaccesscode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | *DocumentApi* | [**changeRecipient**](./docs/DocumentApi.md#changerecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
+| *DocumentApi* | [**createEmbeddedEditUrl**](./docs/DocumentApi.md#createembeddedediturl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
 | *DocumentApi* | [**createEmbeddedRequestUrlDocument**](./docs/DocumentApi.md#createembeddedrequesturldocument) | **POST** /v1/document/createEmbeddedRequestUrl | Generates a send URL which embeds document sending process into your application. |
 | *DocumentApi* | [**deleteDocument**](./docs/DocumentApi.md#deletedocument) | **DELETE** /v1/document/delete | Delete the document. |
 | *DocumentApi* | [**deleteTag**](./docs/DocumentApi.md#deletetag) | **DELETE** /v1/document/deleteTags | Delete the Tags in Documents. |
@@ -105,6 +106,11 @@ All URIs are relative to *https://api.boldsign.com*
 | *DocumentApi* | [**revokeDocument**](./docs/DocumentApi.md#revokedocument) | **POST** /v1/document/revoke | Revoke the document. |
 | *DocumentApi* | [**sendDocument**](./docs/DocumentApi.md#senddocument) | **POST** /v1/document/send | Sends the document for sign. |
 | *DocumentApi* | [**teamDocuments**](./docs/DocumentApi.md#teamdocuments) | **GET** /v1/document/teamlist | Get user Team documents. |
+| *GroupContactsApi* | [**createGroupContact**](./docs/GroupContactsApi.md#creategroupcontact) | **POST** /v1/contactGroups/create | Create a new Group Contact. |
+| *GroupContactsApi* | [**deleteGroupContact**](./docs/GroupContactsApi.md#deletegroupcontact) | **DELETE** /v1/contactGroups/delete | Deletes a Group Contact. |
+| *GroupContactsApi* | [**getGroupContact**](./docs/GroupContactsApi.md#getgroupcontact) | **GET** /v1/contactGroups/get | Get Summary of the Group Contact. |
+| *GroupContactsApi* | [**groupContactList**](./docs/GroupContactsApi.md#groupcontactlist) | **GET** /v1/contactGroups/list | List Group Contacts. |
+| *GroupContactsApi* | [**updateGroupContact**](./docs/GroupContactsApi.md#updategroupcontact) | **PUT** /v1/contactGroups/update | Update the Group Contact. |
 | *IdentityVerificationApi* | [**createEmbeddedVerificationUrl**](./docs/IdentityVerificationApi.md#createembeddedverificationurl) | **POST** /v1/identityVerification/createEmbeddedVerificationUrl | Generate a URL that embeds manual ID verification for the specified document signer into your application. |
 | *IdentityVerificationApi* | [**image**](./docs/IdentityVerificationApi.md#image) | **POST** /v1/identityVerification/image | Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID. |
 | *IdentityVerificationApi* | [**report**](./docs/IdentityVerificationApi.md#report) | **POST** /v1/identityVerification/report | Retrieve the ID verification report for the specified document signer. |
@@ -172,10 +178,12 @@ All URIs are relative to *https://api.boldsign.com*
 - [ContactsDetails](./docs/ContactsDetails.md)
 - [ContactsList](./docs/ContactsList.md)
 - [CreateContactResponse](./docs/CreateContactResponse.md)
+- [CreateGroupContactResponse](./docs/CreateGroupContactResponse.md)
 - [CreateSenderIdentityRequest](./docs/CreateSenderIdentityRequest.md)
 - [CreateTeamRequest](./docs/CreateTeamRequest.md)
 - [CreateTemplateRequest](./docs/CreateTemplateRequest.md)
 - [CreateUser](./docs/CreateUser.md)
+- [Creators](./docs/Creators.md)
 - [CustomDomainSettings](./docs/CustomDomainSettings.md)
 - [CustomFieldCollection](./docs/CustomFieldCollection.md)
 - [CustomFieldMessage](./docs/CustomFieldMessage.md)
@@ -207,6 +215,8 @@ All URIs are relative to *https://api.boldsign.com*
 - [EditableDateFieldSettings](./docs/EditableDateFieldSettings.md)
 - [EmbeddedCreateTemplateRequest](./docs/EmbeddedCreateTemplateRequest.md)
 - [EmbeddedCustomFieldCreated](./docs/EmbeddedCustomFieldCreated.md)
+- [EmbeddedDocumentEditJsonRequest](./docs/EmbeddedDocumentEditJsonRequest.md)
+- [EmbeddedDocumentEdited](./docs/EmbeddedDocumentEdited.md)
 - [EmbeddedDocumentRequest](./docs/EmbeddedDocumentRequest.md)
 - [EmbeddedFileDetails](./docs/EmbeddedFileDetails.md)
 - [EmbeddedFileLink](./docs/EmbeddedFileLink.md)
@@ -228,8 +238,13 @@ All URIs are relative to *https://api.boldsign.com*
 - [FormFieldPermission](./docs/FormFieldPermission.md)
 - [FormGroup](./docs/FormGroup.md)
 - [FormulaFieldSettings](./docs/FormulaFieldSettings.md)
+- [GetGroupContactDetails](./docs/GetGroupContactDetails.md)
+- [GroupContact](./docs/GroupContact.md)
+- [GroupContactDetails](./docs/GroupContactDetails.md)
+- [GroupContactsList](./docs/GroupContactsList.md)
 - [GroupSigner](./docs/GroupSigner.md)
 - [GroupSignerSettings](./docs/GroupSignerSettings.md)
+- [GroupUser](./docs/GroupUser.md)
 - [IdDocument](./docs/IdDocument.md)
 - [IdReport](./docs/IdReport.md)
 - [IdVerificationDetails](./docs/IdVerificationDetails.md)
@@ -288,6 +303,7 @@ All URIs are relative to *https://api.boldsign.com*
 - [TemplateTeamShare](./docs/TemplateTeamShare.md)
 - [TextTagDefinition](./docs/TextTagDefinition.md)
 - [TextTagOffset](./docs/TextTagOffset.md)
+- [UpdateGroupContact](./docs/UpdateGroupContact.md)
 - [UpdateUser](./docs/UpdateUser.md)
 - [UpdateUserMetaData](./docs/UpdateUserMetaData.md)
 - [UserPageDetails](./docs/UserPageDetails.md)

@@ -7,6 +7,7 @@ api/brandingApi.ts
 api/contactsApi.ts
 api/customFieldApi.ts
 api/documentApi.ts
+api/groupContactsApi.ts
 api/identityVerificationApi.ts
 api/index.ts
 api/planApi.ts
@@ -41,10 +42,12 @@ model/contactPageDetails.ts
 model/contactsDetails.ts
 model/contactsList.ts
 model/createContactResponse.ts
+model/createGroupContactResponse.ts
 model/createSenderIdentityRequest.ts
 model/createTeamRequest.ts
 model/createTemplateRequest.ts
 model/createUser.ts
+model/creators.ts
 model/customDomainSettings.ts
 model/customFieldCollection.ts
 model/customFieldMessage.ts
@@ -76,6 +79,8 @@ model/editTemplateRequest.ts
 model/editableDateFieldSettings.ts
 model/embeddedCreateTemplateRequest.ts
 model/embeddedCustomFieldCreated.ts
+model/embeddedDocumentEditJsonRequest.ts
+model/embeddedDocumentEdited.ts
 model/embeddedDocumentRequest.ts
 model/embeddedFileDetails.ts
 model/embeddedFileLink.ts
@@ -97,8 +102,13 @@ model/formField.ts
 model/formFieldPermission.ts
 model/formGroup.ts
 model/formulaFieldSettings.ts
+model/getGroupContactDetails.ts
+model/groupContact.ts
+model/groupContactDetails.ts
+model/groupContactsList.ts
 model/groupSigner.ts
 model/groupSignerSettings.ts
+model/groupUser.ts
 model/idDocument.ts
 model/idReport.ts
 model/idVerificationDetails.ts
@@ -159,6 +169,7 @@ model/templateTag.ts
 model/templateTeamShare.ts
 model/textTagDefinition.ts
 model/textTagOffset.ts
+model/updateGroupContact.ts
 model/updateUser.ts
 model/updateUserMetaData.ts
 model/userPageDetails.ts
