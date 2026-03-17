@@ -7,6 +7,7 @@ All URIs are relative to https://api.boldsign.com.
 | [**addAuthentication()**](DocumentApi.md#addAuthentication) | **PATCH** /v1/document/addAuthentication | The add authentication to recipient. |
 | [**addTag()**](DocumentApi.md#addTag) | **PATCH** /v1/document/addTags | Add the Tags in Documents. |
 | [**behalfDocuments()**](DocumentApi.md#behalfDocuments) | **GET** /v1/document/behalfList | Gets the behalf documents. |
+| [**cancelEditing()**](DocumentApi.md#cancelEditing) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode. |
 | [**changeAccessCode()**](DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | [**changeRecipient()**](DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
 | [**createEmbeddedEditUrl()**](DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
@@ -124,6 +125,39 @@ Gets the behalf documents.
 ### Return type
 
 [**BehalfDocumentRecords**](../docs/BehalfDocumentRecords.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints)
+[[Back to Model list]](../README.md#models)
+[[Back to README]](../README.md)
+
+## `cancelEditing()`
+
+```typescript
+cancelEditing(documentId: string, onBehalfOf: string)
+```
+
+Cancels editing for a document that is currently in edit-mode.
+
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **documentId** | **string**| The document id. | |
+| **onBehalfOf** | **string**| The onbehalfof email id. | [optional] |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

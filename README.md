@@ -85,6 +85,7 @@ All URIs are relative to *https://api.boldsign.com*
 | *DocumentApi* | [**addAuthentication**](./docs/DocumentApi.md#addauthentication) | **PATCH** /v1/document/addAuthentication | The add authentication to recipient. |
 | *DocumentApi* | [**addTag**](./docs/DocumentApi.md#addtag) | **PATCH** /v1/document/addTags | Add the Tags in Documents. |
 | *DocumentApi* | [**behalfDocuments**](./docs/DocumentApi.md#behalfdocuments) | **GET** /v1/document/behalfList | Gets the behalf documents. |
+| *DocumentApi* | [**cancelEditing**](./docs/DocumentApi.md#cancelediting) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode. |
 | *DocumentApi* | [**changeAccessCode**](./docs/DocumentApi.md#changeaccesscode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | *DocumentApi* | [**changeRecipient**](./docs/DocumentApi.md#changerecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
 | *DocumentApi* | [**createEmbeddedEditUrl**](./docs/DocumentApi.md#createembeddedediturl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
