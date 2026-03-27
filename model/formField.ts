@@ -298,7 +298,8 @@ export namespace FormField {
         Dropdown = <any> 'Dropdown',
         Title = <any> 'Title',
         Company = <any> 'Company',
-        Formula = <any> 'Formula'
+        Formula = <any> 'Formula',
+        Drawing = <any> 'Drawing'
     }
     export enum FontEnum {
         Helvetica = <any> 'Helvetica',
