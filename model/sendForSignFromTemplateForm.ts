@@ -55,6 +55,7 @@ export class SendForSignFromTemplateForm {
     'allowScheduledSend'?: boolean = false;
     'allowedSignatureTypes'?: Array<SendForSignFromTemplateForm.AllowedSignatureTypesEnum>;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -233,6 +234,11 @@ export class SendForSignFromTemplateForm {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

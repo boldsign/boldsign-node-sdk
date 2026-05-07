@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 | `scheduledSendTime` | ```number``` |   |  |
 | `allowedSignatureTypes` | ```Array<string>``` |   |  |
 | `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
+| `enableAllowSignEverywhere` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

@@ -60,6 +60,7 @@ export class EmbeddedCreateTemplateRequest {
     'allowedSignatureTypes'?: Array<EmbeddedCreateTemplateRequest.AllowedSignatureTypesEnum>;
     'formFieldPermission'?: FormFieldPermission;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -258,6 +259,11 @@ export class EmbeddedCreateTemplateRequest {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

@@ -44,5 +44,6 @@ Name | Type | Description | Notes
 | `allowScheduledSend` | ```boolean``` |   |  [default to false] |
 | `allowedSignatureTypes` | ```Array<string>``` |   |  |
 | `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
+| `enableAllowSignEverywhere` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

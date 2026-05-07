@@ -34,5 +34,6 @@ Name | Type | Description | Notes
 | `allowedSignatureTypes` | ```Array<string>``` |   |  |
 | `formFieldPermission` | [```FormFieldPermission```](FormFieldPermission.md) |   |  |
 | `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
+| `enableAllowSignEverywhere` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

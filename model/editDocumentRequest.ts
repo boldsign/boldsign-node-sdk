@@ -52,6 +52,7 @@ export class EditDocumentRequest {
     'scheduledSendTime'?: number | null;
     'allowedSignatureTypes'?: Array<EditDocumentRequest.AllowedSignatureTypesEnum>;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -205,6 +206,11 @@ export class EditDocumentRequest {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

@@ -30,6 +30,7 @@ export class EditTemplateRequest {
     'allowMessageEditing'?: boolean | null;
     'allowNewRoles'?: boolean | null;
     'allowNewFiles'?: boolean | null;
+    'allowModifyFiles'?: boolean | null;
     'enableReassign'?: boolean | null;
     'enablePrintAndSign'?: boolean | null;
     'enableSigningOrder'?: boolean | null;
@@ -42,6 +43,7 @@ export class EditTemplateRequest {
     'allowedSignatureTypes'?: Array<EditTemplateRequest.AllowedSignatureTypesEnum>;
     'formFieldPermission'?: FormFieldPermission;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -94,6 +96,11 @@ export class EditTemplateRequest {
         {
             "name": "allowNewFiles",
             "baseName": "allowNewFiles",
+            "type": "boolean"
+        },
+        {
+            "name": "allowModifyFiles",
+            "baseName": "allowModifyFiles",
             "type": "boolean"
         },
         {
@@ -155,6 +162,11 @@ export class EditTemplateRequest {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
