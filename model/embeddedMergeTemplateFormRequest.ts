@@ -69,6 +69,7 @@ export class EmbeddedMergeTemplateFormRequest {
     'allowScheduledSend'?: boolean = false;
     'allowedSignatureTypes'?: Array<EmbeddedMergeTemplateFormRequest.AllowedSignatureTypesEnum>;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -312,6 +313,11 @@ export class EmbeddedMergeTemplateFormRequest {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

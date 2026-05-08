@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "Node16",
         "noImplicitAny": false,
         "target": "ES6",
+        "types": ["node", "jest"],
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "strict": true,
-        "moduleResolution": "node",
+        "moduleResolution": "node16",
         "removeComments": true,
         "sourceMap": true,
         "noLib": false,

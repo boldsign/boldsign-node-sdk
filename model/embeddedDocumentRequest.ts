@@ -68,6 +68,7 @@ export class EmbeddedDocumentRequest {
     'allowScheduledSend'?: boolean = false;
     'allowedSignatureTypes'?: Array<EmbeddedDocumentRequest.AllowedSignatureTypesEnum>;
     'groupSignerSettings'?: GroupSignerSettings;
+    'enableAllowSignEverywhere'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -306,6 +307,11 @@ export class EmbeddedDocumentRequest {
             "name": "groupSignerSettings",
             "baseName": "groupSignerSettings",
             "type": "GroupSignerSettings"
+        },
+        {
+            "name": "enableAllowSignEverywhere",
+            "baseName": "enableAllowSignEverywhere",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

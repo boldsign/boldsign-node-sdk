@@ -62,6 +62,7 @@ export class TemplateFormFields {
     'allowDeleteFormField'?: boolean;
     'collaborationSettings'?: CollaborationSettings;
     'isMasked'?: boolean = false;
+    'isDefaultValueRequired'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -274,6 +275,11 @@ export class TemplateFormFields {
         {
             "name": "isMasked",
             "baseName": "isMasked",
+            "type": "boolean"
+        },
+        {
+            "name": "isDefaultValueRequired",
+            "baseName": "isDefaultValueRequired",
             "type": "boolean"
         }    ];
 

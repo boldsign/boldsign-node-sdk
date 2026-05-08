@@ -62,6 +62,7 @@ export class FormField {
     'allowDeleteFormField'?: boolean | null;
     'collaborationSettings'?: CollaborationSettings;
     'isMasked'?: boolean | null = false;
+    'isDefaultValueRequired'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -274,6 +275,11 @@ export class FormField {
         {
             "name": "isMasked",
             "baseName": "isMasked",
+            "type": "boolean"
+        },
+        {
+            "name": "isDefaultValueRequired",
+            "baseName": "isDefaultValueRequired",
             "type": "boolean"
         }    ];
 
