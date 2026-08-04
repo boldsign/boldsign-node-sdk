@@ -42,6 +42,7 @@ export class ViewBrandDetails {
     'customDomainSettings'?: CustomDomainSettings;
     'isDomainVerified'?: boolean;
     'signatureFrameSettings'?: SignatureFrameSettings;
+    'hideReassign'?: boolean = false;
 
     static discriminator: string | undefined = undefined;
 
@@ -175,6 +176,11 @@ export class ViewBrandDetails {
             "name": "signatureFrameSettings",
             "baseName": "signatureFrameSettings",
             "type": "SignatureFrameSettings"
+        },
+        {
+            "name": "hideReassign",
+            "baseName": "hideReassign",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

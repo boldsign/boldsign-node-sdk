@@ -236,9 +236,10 @@ export class BrandingApi {
      * @param signatureFrameSettingsShowRecipientName 
      * @param signatureFrameSettingsShowRecipientEmail 
      * @param signatureFrameSettingsShowTimeStamp 
+     * @param hideReassign Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation.
      * @param options
      */
-    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
+    public async createBrand (brandName: string, brandLogo: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, hideReassign?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/create';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -397,6 +398,10 @@ export class BrandingApi {
 
         if (signatureFrameSettingsShowTimeStamp !== undefined) {
             localVarFormParams['SignatureFrameSettings.ShowTimeStamp'] = ObjectSerializer.serialize(signatureFrameSettingsShowTimeStamp, "boolean");
+        }
+
+        if (hideReassign !== undefined) {
+            localVarFormParams['HideReassign'] = ObjectSerializer.serialize(hideReassign, "boolean");
         }
 
         let data = {};
@@ -649,9 +654,10 @@ export class BrandingApi {
      * @param signatureFrameSettingsShowRecipientName 
      * @param signatureFrameSettingsShowRecipientEmail 
      * @param signatureFrameSettingsShowTimeStamp 
+     * @param hideReassign Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation.
      * @param options
      */
-    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
+    public async editBrand (brandId: string, brandName?: string, brandLogo?: RequestFile, backgroundColor?: string, buttonColor?: string, buttonTextColor?: string, emailDisplayName?: string, disclaimerDescription?: string, disclaimerTitle?: string, redirectUrl?: string, isDefault?: boolean, canHideTagLine?: boolean, combineAuditTrail?: boolean, combineAttachments?: boolean, excludeAuditTrailFromEmail?: boolean, emailSignedDocument?: string, documentTimeZone?: string, showBuiltInFormFields?: boolean, allowCustomFieldCreation?: boolean, showSharedCustomFields?: boolean, hideDecline?: boolean, hideSave?: boolean, documentExpirySettingsExpiryDateType?: string, documentExpirySettingsExpiryValue?: number, documentExpirySettingsEnableDefaultExpiryAlert?: boolean, documentExpirySettingsEnableAutoReminder?: boolean, documentExpirySettingsReminderDays?: number, documentExpirySettingsReminderCount?: number, customDomainSettingsDomainName?: string, customDomainSettingsFromName?: string, signatureFrameSettingsEnableSignatureFrame?: boolean, signatureFrameSettingsShowRecipientName?: boolean, signatureFrameSettingsShowRecipientEmail?: boolean, signatureFrameSettingsShowTimeStamp?: boolean, hideReassign?: boolean, options: optionsI = {headers: {}}) : Promise<BrandCreated> {
         const localVarPath = this.basePath + '/v1/brand/edit';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -809,6 +815,10 @@ export class BrandingApi {
 
         if (signatureFrameSettingsShowTimeStamp !== undefined) {
             localVarFormParams['SignatureFrameSettings.ShowTimeStamp'] = ObjectSerializer.serialize(signatureFrameSettingsShowTimeStamp, "boolean");
+        }
+
+        if (hideReassign !== undefined) {
+            localVarFormParams['HideReassign'] = ObjectSerializer.serialize(hideReassign, "boolean");
         }
 
         let data = {};

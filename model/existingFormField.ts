@@ -18,6 +18,10 @@ export class ExistingFormField {
     'id'?: string | null;
     'value'?: string | null;
     'isReadOnly'?: boolean | null;
+    /**
+    * Used to apply a prefilled form field value to a specific occurrence of a template when the same template is included multiple times. Values start at 1. Supported only by the Merge and Send API.
+    */
+    'templateOrder'?: number | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -46,6 +50,11 @@ export class ExistingFormField {
             "name": "isReadOnly",
             "baseName": "isReadOnly",
             "type": "boolean"
+        },
+        {
+            "name": "templateOrder",
+            "baseName": "templateOrder",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
