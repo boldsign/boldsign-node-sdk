@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 | `applicationId` | ```string``` |   |  |
 | `labels` | ```Array<string>``` |   |  |
 | `disableEmails` | ```boolean``` |   |  |
+| `disableSMS` | ```boolean``` |   |  |
 | `enablePrintAndSign` | ```boolean``` |   |  |
 | `enableReassign` | ```boolean``` |   |  |
 | `disableExpiryAlert` | ```boolean``` |   |  |

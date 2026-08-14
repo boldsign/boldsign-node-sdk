@@ -53,6 +53,7 @@ export class DocumentProperties {
     'applicationId'?: string | null;
     'labels'?: Array<string> | null;
     'disableEmails'?: boolean;
+    'disableSMS'?: boolean;
     'enablePrintAndSign'?: boolean;
     'enableReassign'?: boolean;
     'disableExpiryAlert'?: boolean;
@@ -215,6 +216,11 @@ export class DocumentProperties {
         {
             "name": "disableEmails",
             "baseName": "disableEmails",
+            "type": "boolean"
+        },
+        {
+            "name": "disableSMS",
+            "baseName": "disableSMS",
             "type": "boolean"
         },
         {

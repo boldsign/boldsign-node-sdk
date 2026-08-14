@@ -27,7 +27,7 @@ export class Role {
     'hostEmail'?: string | null;
     'privateMessage'?: string | null;
     'authenticationCode'?: string | null;
-    'enableEmailOTP'?: boolean;
+    'enableEmailOTP'?: boolean | null;
     'authenticationType'?: Role.AuthenticationTypeEnum;
     'phoneNumber'?: PhoneNumber;
     'deliveryMode'?: Role.DeliveryModeEnum;
