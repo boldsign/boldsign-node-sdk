@@ -92,7 +92,7 @@ export class PlanApi {
     }
 
     /**
-     * 
+     * Deprecated: use /v1-beta/plan/credits instead. The response and behaviour of this operation are unchanged and will be removed in a future version.
      * @summary Gets the Api credits details.
      * @param options
      */

@@ -53,6 +53,7 @@ export class IWebhookData {
     'groupSignerSettings'?: GroupSignerSettingsWebhookModel;
     'enableAllowSignEverywhere'?: boolean | null;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean;
     'id'?: string;
     'name'?: string | null;
     'email'?: string | null;
@@ -210,6 +211,11 @@ export class IWebhookData {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         },
         {
             "name": "id",

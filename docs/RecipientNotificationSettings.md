@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 | `editRecipient` | ```boolean``` |   |  [default to true] |
 | `editDocument` | ```boolean``` |   |  [default to true] |
 | `viewed` | ```boolean``` |   |  |
+| `commentOnDocument` | ```boolean``` |   |  [default to true] |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

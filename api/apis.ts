@@ -24,7 +24,7 @@ export const queryParamsSerializer = (params) => {
     return Qs.stringify(params, { arrayFormat: 'repeat' })
 }
 
-export const USER_AGENT = "boldsign-node-sdk/3.3.4";
+export const USER_AGENT = "boldsign-node-sdk/4.0.0";
 
 /**
  * Generates an object containing form data.
@@ -92,17 +92,22 @@ export const generateFormData = (
       return;
     }
 
-    if (paramInfo.type.includes('Array') && paramInfo.type.includes('EditDocumentFile')) {
-      obj[paramInfo.name].forEach((childObject, i) => {
-        Object.entries(childObject).forEach(([property, value]) => {
-          const key = `${paramInfo.baseName}[${i}].${property}`;
-          if(property == "file"){
-            localVarUseFormData = true;
-          }
-          data[key] = value;
+    if (paramInfo.type.includes('Array') && Array.isArray(obj[paramInfo.name])) {
+      const containsFileModel = obj[paramInfo.name].some(
+        (item) => item && typeof item === 'object' && 'file' in item
+      );
+
+      if (containsFileModel) {
+        localVarUseFormData = true;
+
+        obj[paramInfo.name].forEach((childObject, i) => {
+          Object.entries(childObject).forEach(([property, value]) => {
+            data[`${paramInfo.baseName}[${i}].${property}`] = value;
+          });
         });
-      });
-      return;
+
+        return;
+      }
     }
 
     if(paramInfo.type.indexOf("Array") !== -1) {

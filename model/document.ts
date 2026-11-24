@@ -34,6 +34,7 @@ export class Document {
     'scheduledSendTime'?: number | null;
     'inEditingMode'?: boolean;
     'displayStatus'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -127,6 +128,11 @@ export class Document {
             "name": "displayStatus",
             "baseName": "displayStatus",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

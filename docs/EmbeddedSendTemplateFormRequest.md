@@ -6,6 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+| `fileChanges` | [```Array<TemplateFileChangeForm>```](TemplateFileChangeForm.md) |   |  |
 | `files` | ```Array<RequestFile>``` |   |  |
 | `fileUrls` | ```Array<string>``` |   |  |
 | `redirectUrl` | ```string``` |   |  |
@@ -53,5 +54,6 @@ Name | Type | Description | Notes
 | `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
 | `enableAllowSignEverywhere` | ```boolean``` |   |  |
 | `documentTimeZone` | ```string``` |   |  |
+| `allowCommenting` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

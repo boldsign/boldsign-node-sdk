@@ -36,6 +36,7 @@ export class BehalfDocument {
     'scheduledSendTime'?: number | null;
     'inEditingMode'?: boolean;
     'displayStatus'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -134,6 +135,11 @@ export class BehalfDocument {
             "name": "displayStatus",
             "baseName": "displayStatus",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

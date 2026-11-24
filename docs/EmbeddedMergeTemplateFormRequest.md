@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 | `templateIds` | ```Array<string>``` |   |  |
 | `useTextTags` | ```boolean``` |   |  |
 | `textTagDefinitions` | [```Array<TextTagDefinition>```](TextTagDefinition.md) |   |  |
+| `fileChanges` | [```Array<TemplateFileChange>```](TemplateFileChange.md) |   |  |
 | `documentId` | ```string``` |   |  |
 | `title` | ```string``` |   |  |
 | `message` | ```string``` |   |  |
@@ -56,5 +57,6 @@ Name | Type | Description | Notes
 | `groupSignerSettings` | [```GroupSignerSettings```](GroupSignerSettings.md) |   |  |
 | `enableAllowSignEverywhere` | ```boolean``` |   |  |
 | `documentTimeZone` | ```string``` |   |  |
+| `allowCommenting` | ```boolean``` |   |  |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

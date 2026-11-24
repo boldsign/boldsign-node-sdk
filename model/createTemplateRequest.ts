@@ -51,6 +51,7 @@ export class CreateTemplateRequest {
     'groupSignerSettings'?: GroupSignerSettings;
     'enableAllowSignEverywhere'?: boolean | null;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -204,6 +205,11 @@ export class CreateTemplateRequest {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

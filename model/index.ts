@@ -163,6 +163,9 @@ import { TemplateCC } from './templateCC';
 import { TemplateCcWebhookModel } from './templateCcWebhookModel';
 import { TemplateCreated } from './templateCreated';
 import { TemplateEvent } from './templateEvent';
+import { TemplateFileChange } from './templateFileChange';
+import { TemplateFileChangeForm } from './templateFileChangeForm';
+import { TemplateFileChangeJson } from './templateFileChangeJson';
 import { TemplateFiles } from './templateFiles';
 import { TemplateFormFields } from './templateFormFields';
 import { TemplateGroupSigner } from './templateGroupSigner';
@@ -353,6 +356,9 @@ export let enumsMap: {[index: string]: any} = {
         "Template.StatusEnum": Template.StatusEnum,
         "Template.AccessTypeEnum": Template.AccessTypeEnum,
         "TemplateEvent.StatusEnum": TemplateEvent.StatusEnum,
+        "TemplateFileChange.EditActionEnum": TemplateFileChange.EditActionEnum,
+        "TemplateFileChangeForm.EditActionEnum": TemplateFileChangeForm.EditActionEnum,
+        "TemplateFileChangeJson.EditActionEnum": TemplateFileChangeJson.EditActionEnum,
         "TemplateFormFields.ValidationtypeEnum": TemplateFormFields.ValidationtypeEnum,
         "TemplateFormFields.TextAlignEnum": TemplateFormFields.TextAlignEnum,
         "TemplateFormFields.TextDirectionEnum": TemplateFormFields.TextDirectionEnum,
@@ -555,6 +561,9 @@ export let typeMap: {[index: string]: any} = {
     "TemplateCcWebhookModel": TemplateCcWebhookModel,
     "TemplateCreated": TemplateCreated,
     "TemplateEvent": TemplateEvent,
+    "TemplateFileChange": TemplateFileChange,
+    "TemplateFileChangeForm": TemplateFileChangeForm,
+    "TemplateFileChangeJson": TemplateFileChangeJson,
     "TemplateFiles": TemplateFiles,
     "TemplateFormFields": TemplateFormFields,
     "TemplateGroupSigner": TemplateGroupSigner,
@@ -759,6 +768,9 @@ export {
     TemplateCcWebhookModel,
     TemplateCreated,
     TemplateEvent,
+    TemplateFileChange,
+    TemplateFileChangeForm,
+    TemplateFileChangeJson,
     TemplateFiles,
     TemplateFormFields,
     TemplateGroupSigner,

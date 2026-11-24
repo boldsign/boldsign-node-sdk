@@ -183,6 +183,9 @@ model/templateCC.ts
 model/templateCcWebhookModel.ts
 model/templateCreated.ts
 model/templateEvent.ts
+model/templateFileChange.ts
+model/templateFileChangeForm.ts
+model/templateFileChangeJson.ts
 model/templateFiles.ts
 model/templateFormFields.ts
 model/templateGroupSigner.ts

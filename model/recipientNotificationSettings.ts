@@ -25,6 +25,7 @@ export class RecipientNotificationSettings {
     'editRecipient'?: boolean = true;
     'editDocument'?: boolean = true;
     'viewed'?: boolean;
+    'commentOnDocument'?: boolean = true;
 
     static discriminator: string | undefined = undefined;
 
@@ -87,6 +88,11 @@ export class RecipientNotificationSettings {
         {
             "name": "viewed",
             "baseName": "viewed",
+            "type": "boolean"
+        },
+        {
+            "name": "commentOnDocument",
+            "baseName": "commentOnDocument",
             "type": "boolean"
         }    ];
 
