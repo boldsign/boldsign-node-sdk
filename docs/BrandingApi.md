@@ -45,7 +45,7 @@ List all the brands.
 ## `createBrand()`
 
 ```typescript
-createBrand(brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean, hideReassign: boolean): BrandCreated
+createBrand(brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean, hideReassign: boolean, hideCommenting: boolean): BrandCreated
 ```
 
 Create the brand.
@@ -89,6 +89,7 @@ Create the brand.
 | **signatureFrameSettingsShowRecipientEmail** | **boolean**|  | [optional] [default to false] |
 | **signatureFrameSettingsShowTimeStamp** | **boolean**|  | [optional] [default to false] |
 | **hideReassign** | **boolean**| Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation. | [optional] [default to false] |
+| **hideCommenting** | **boolean**|  | [optional] [default to true] |
 
 ### Return type
 
@@ -142,7 +143,7 @@ Delete the brand.
 ## `editBrand()`
 
 ```typescript
-editBrand(brandId: string, brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean, hideReassign: boolean): BrandCreated
+editBrand(brandId: string, brandName: string, brandLogo: RequestFile, backgroundColor: string, buttonColor: string, buttonTextColor: string, emailDisplayName: string, disclaimerDescription: string, disclaimerTitle: string, redirectUrl: string, isDefault: boolean, canHideTagLine: boolean, combineAuditTrail: boolean, combineAttachments: boolean, excludeAuditTrailFromEmail: boolean, emailSignedDocument: string, documentTimeZone: string, showBuiltInFormFields: boolean, allowCustomFieldCreation: boolean, showSharedCustomFields: boolean, hideDecline: boolean, hideSave: boolean, documentExpirySettingsExpiryDateType: string, documentExpirySettingsExpiryValue: number, documentExpirySettingsEnableDefaultExpiryAlert: boolean, documentExpirySettingsEnableAutoReminder: boolean, documentExpirySettingsReminderDays: number, documentExpirySettingsReminderCount: number, customDomainSettingsDomainName: string, customDomainSettingsFromName: string, signatureFrameSettingsEnableSignatureFrame: boolean, signatureFrameSettingsShowRecipientName: boolean, signatureFrameSettingsShowRecipientEmail: boolean, signatureFrameSettingsShowTimeStamp: boolean, hideReassign: boolean, hideCommenting: boolean): BrandCreated
 ```
 
 Edit the brand.
@@ -187,6 +188,7 @@ Edit the brand.
 | **signatureFrameSettingsShowRecipientEmail** | **boolean**|  | [optional] [default to false] |
 | **signatureFrameSettingsShowTimeStamp** | **boolean**|  | [optional] [default to false] |
 | **hideReassign** | **boolean**| Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation. | [optional] [default to false] |
+| **hideCommenting** | **boolean**|  | [optional] [default to true] |
 
 ### Return type
 

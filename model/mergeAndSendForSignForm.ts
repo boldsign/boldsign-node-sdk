@@ -18,6 +18,7 @@ import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { ReminderSettings } from './reminderSettings';
 import { Role } from './role';
+import { TemplateFileChange } from './templateFileChange';
 import { TextTagDefinition } from './textTagDefinition';
 
 export class MergeAndSendForSignForm {
@@ -26,6 +27,7 @@ export class MergeAndSendForSignForm {
     'templateIds'?: Array<string> | null;
     'useTextTags'?: boolean;
     'textTagDefinitions'?: Array<TextTagDefinition> | null;
+    'fileChanges'?: Array<TemplateFileChange> | null;
     'documentId'?: string | null;
     'title'?: string | null;
     'message'?: string | null;
@@ -61,6 +63,7 @@ export class MergeAndSendForSignForm {
     'groupSignerSettings'?: GroupSignerSettings;
     'enableAllowSignEverywhere'?: boolean | null;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -89,6 +92,11 @@ export class MergeAndSendForSignForm {
             "name": "textTagDefinitions",
             "baseName": "textTagDefinitions",
             "type": "Array<TextTagDefinition>"
+        },
+        {
+            "name": "fileChanges",
+            "baseName": "fileChanges",
+            "type": "Array<TemplateFileChange>"
         },
         {
             "name": "documentId",
@@ -264,6 +272,11 @@ export class MergeAndSendForSignForm {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

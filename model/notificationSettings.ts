@@ -25,6 +25,7 @@ export class NotificationSettings {
     'authenticationFailed'?: boolean = true;
     'reminders'?: boolean = true;
     'attachSignedDocument'?: boolean = false;
+    'commentOnDocument'?: boolean = true;
 
     static discriminator: string | undefined = undefined;
 
@@ -87,6 +88,11 @@ export class NotificationSettings {
         {
             "name": "attachSignedDocument",
             "baseName": "attachSignedDocument",
+            "type": "boolean"
+        },
+        {
+            "name": "commentOnDocument",
+            "baseName": "commentOnDocument",
             "type": "boolean"
         }    ];
 

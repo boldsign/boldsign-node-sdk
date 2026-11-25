@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `documentId` | ```string``` |   |  |
+| `id` | ```string``` |   |  |
 | `documentName` | ```string``` |   |  |
 | `order` | ```number``` |   |  |
 | `pageCount` | ```number``` |   |  |

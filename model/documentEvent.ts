@@ -45,6 +45,7 @@ export class DocumentEvent {
     'groupSignerSettings'?: GroupSignerSettingsWebhookModel;
     'enableAllowSignEverywhere'?: boolean | null;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -183,6 +184,11 @@ export class DocumentEvent {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

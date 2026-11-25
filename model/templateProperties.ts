@@ -58,6 +58,7 @@ export class TemplateProperties {
     'sharing'?: TemplateSharing;
     'enableAllowSignEverywhere'?: boolean;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -226,6 +227,11 @@ export class TemplateProperties {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

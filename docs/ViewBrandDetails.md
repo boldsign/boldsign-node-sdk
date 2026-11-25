@@ -33,5 +33,6 @@ Name | Type | Description | Notes
 | `isDomainVerified` | ```boolean``` |   |  |
 | `signatureFrameSettings` | [```SignatureFrameSettings```](SignatureFrameSettings.md) |   |  |
 | `hideReassign` | ```boolean``` |   |  [default to false] |
+| `hideCommenting` | ```boolean``` |   |  [default to true] |
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

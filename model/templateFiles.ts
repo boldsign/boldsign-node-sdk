@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 
 export class TemplateFiles {
     'documentId'?: string | null;
+    'id'?: string | null;
     'documentName'?: string | null;
     'order'?: number;
     'pageCount'?: number;
@@ -24,6 +25,11 @@ export class TemplateFiles {
         {
             "name": "documentId",
             "baseName": "documentId",
+            "type": "string"
+        },
+        {
+            "name": "id",
+            "baseName": "id",
             "type": "string"
         },
         {

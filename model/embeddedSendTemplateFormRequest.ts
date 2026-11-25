@@ -18,8 +18,10 @@ import { GroupSignerSettings } from './groupSignerSettings';
 import { RecipientNotificationSettings } from './recipientNotificationSettings';
 import { ReminderSettings } from './reminderSettings';
 import { Role } from './role';
+import { TemplateFileChangeForm } from './templateFileChangeForm';
 
 export class EmbeddedSendTemplateFormRequest {
+    'fileChanges'?: Array<TemplateFileChangeForm> | null;
     'files'?: Array<RequestFile> | null;
     'fileUrls'?: Array<string> | null;
     'redirectUrl'?: string | null;
@@ -67,10 +69,16 @@ export class EmbeddedSendTemplateFormRequest {
     'groupSignerSettings'?: GroupSignerSettings;
     'enableAllowSignEverywhere'?: boolean | null;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "fileChanges",
+            "baseName": "fileChanges",
+            "type": "Array<TemplateFileChangeForm>"
+        },
         {
             "name": "files",
             "baseName": "files",
@@ -305,6 +313,11 @@ export class EmbeddedSendTemplateFormRequest {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

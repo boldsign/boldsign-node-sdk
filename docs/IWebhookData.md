@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 | `groupSignerSettings` | [```GroupSignerSettingsWebhookModel```](GroupSignerSettingsWebhookModel.md) |   |  |
 | `enableAllowSignEverywhere` | ```boolean``` |   |  |
 | `documentTimeZone` | ```string``` |   |  |
+| `allowCommenting` | ```boolean``` |   |  |
 | `id` | ```string``` |   |  |
 | `name` | ```string``` |   |  |
 | `email` | ```string``` |   |  |

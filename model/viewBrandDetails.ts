@@ -43,6 +43,7 @@ export class ViewBrandDetails {
     'isDomainVerified'?: boolean;
     'signatureFrameSettings'?: SignatureFrameSettings;
     'hideReassign'?: boolean = false;
+    'hideCommenting'?: boolean = true;
 
     static discriminator: string | undefined = undefined;
 
@@ -180,6 +181,11 @@ export class ViewBrandDetails {
         {
             "name": "hideReassign",
             "baseName": "hideReassign",
+            "type": "boolean"
+        },
+        {
+            "name": "hideCommenting",
+            "baseName": "hideCommenting",
             "type": "boolean"
         }    ];
 

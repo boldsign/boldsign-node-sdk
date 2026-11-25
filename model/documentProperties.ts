@@ -74,6 +74,7 @@ export class DocumentProperties {
     'isCombinedAudit'?: boolean;
     'isCombinedAttachment'?: boolean;
     'documentTimeZone'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -322,6 +323,11 @@ export class DocumentProperties {
             "name": "documentTimeZone",
             "baseName": "documentTimeZone",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
@@ -357,7 +363,8 @@ export namespace DocumentProperties {
         EditingInitiated = <any> 'EditingInitiated',
         EditingCancelled = <any> 'EditingCancelled',
         EditingCompleted = <any> 'EditingCompleted',
-        DocumentScheduled = <any> 'DocumentScheduled'
+        DocumentScheduled = <any> 'DocumentScheduled',
+        CommentAdded = <any> 'CommentAdded'
     }
     export enum ExpiryDateTypeEnum {
         Days = <any> 'Days',

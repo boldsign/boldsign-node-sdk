@@ -36,6 +36,7 @@ export class Template {
     'templateLabels'?: Array<string> | null;
     'labels'?: Array<string> | null;
     'brandId'?: string | null;
+    'allowCommenting'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -134,6 +135,11 @@ export class Template {
             "name": "brandId",
             "baseName": "brandId",
             "type": "string"
+        },
+        {
+            "name": "allowCommenting",
+            "baseName": "allowCommenting",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
